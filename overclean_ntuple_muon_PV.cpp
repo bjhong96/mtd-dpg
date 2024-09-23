@@ -74,32 +74,32 @@ void draw_track_type_sigma_ntuple() {
 //  gStyle->SetOptStat(0);
   gROOT->ProcessLine("#include <vector>");
 
-  TFile *f_PU200_prompt, *f_PU200_nonprompt, *f_noPU_prompt, *f_noPU_nonprompt;
+  TFile *f_PU200_prompt, 	 *f_PU200_nonprompt, 	 *f_noPU_prompt, 	 *f_noPU_nonprompt;
   TFile *f_PU200_prompt_vtx, *f_PU200_nonprompt_vtx, *f_noPU_prompt_vtx, *f_noPU_nonprompt_vtx;
 
 
   // muon track
   // PU200
-  TChain* ch_PU200_prompt = new TChain("mtdMuonIsoValid/muonIso");
+  TChain* ch_PU200_prompt 	 = new TChain("mtdMuonIsoValid/muonIso");
   TChain* ch_PU200_nonprompt = new TChain("mtdMuonIsoValid/muonIso");
-  ch_PU200_prompt->Add(Form("data/%s", ntuple_PU200_prompt.Data()));
+  ch_PU200_prompt->Add(Form("data/%s", 	  ntuple_PU200_prompt.Data()));
   ch_PU200_nonprompt->Add(Form("data/%s", ntuple_PU200_nonprompt.Data()));
   // noPU
-  TChain* ch_noPU_prompt = new TChain("mtdMuonIsoValid/muonIso");
+  TChain* ch_noPU_prompt 	= new TChain("mtdMuonIsoValid/muonIso");
   TChain* ch_noPU_nonprompt = new TChain("mtdMuonIsoValid/muonIso");
-  ch_noPU_prompt->Add(Form("data/%s", ntuple_noPU_prompt.Data()));
+  ch_noPU_prompt->Add(Form("data/%s", 	 ntuple_noPU_prompt.Data()));
   ch_noPU_nonprompt->Add(Form("data/%s", ntuple_noPU_nonprompt.Data()));
 
   // vertex
   // PU200
-  TChain* ch_PU200_prompt_vtx = new TChain("mtdMuonIsoValid/muonIso");
+  TChain* ch_PU200_prompt_vtx 	 = new TChain("mtdMuonIsoValid/muonIso");
   TChain* ch_PU200_nonprompt_vtx = new TChain("mtdMuonIsoValid/muonIso");
-  ch_PU200_prompt_vtx->Add(Form("data/%s", ntuple_PU200_prompt_vtx.Data()));
+  ch_PU200_prompt_vtx->Add(Form("data/%s",    ntuple_PU200_prompt_vtx.Data()));
   ch_PU200_nonprompt_vtx->Add(Form("data/%s", ntuple_PU200_nonprompt_vtx.Data()));
   // noPU
-  TChain* ch_noPU_prompt_vtx = new TChain("mtdMuonIsoValid/muonIso");
+  TChain* ch_noPU_prompt_vtx 	= new TChain("mtdMuonIsoValid/muonIso");
   TChain* ch_noPU_nonprompt_vtx = new TChain("mtdMuonIsoValid/muonIso");
-  ch_noPU_prompt_vtx->Add(Form("data/%s", ntuple_noPU_prompt_vtx.Data()));
+  ch_noPU_prompt_vtx->Add(Form("data/%s", 	 ntuple_noPU_prompt_vtx.Data()));
   ch_noPU_nonprompt_vtx->Add(Form("data/%s", ntuple_noPU_nonprompt_vtx.Data()));
 
   // muon
@@ -323,106 +323,106 @@ void draw_track_type_sigma_ntuple() {
   int nbin=20;
 
 
-      ///////////////////////
-      //   (muon, track)   //
-      ///////////////////////
+  ///////////////////////
+  //   (muon, track)   //
+  ///////////////////////
 
   // PU200
     // prompt
-  TH1D* h_PU200_prompt_PV_EB         = new TH1D("h_PU200_prompt_PV_EB",           "h_PU200_prompt_PV_EB",           nbin, 0, 10);
-  TH1D* h_PU200_prompt_SV_EB         = new TH1D("h_PU200_prompt_SV_EB",           "h_PU200_prompt_SV_EB",           nbin, 0, 10);
-  TH1D* h_PU200_prompt_PU_EB         = new TH1D("h_PU200_prompt_PU_EB",           "h_PU200_prompt_PU_EB",           nbin, 0, 10);
-  TH1D* h_PU200_prompt_fake_EB       = new TH1D("h_PU200_prompt_fake_EB",         "h_PU200_prompt_fake_EB",         nbin, 0, 10);
-  TH1D* h_PU200_prompt_no_tErr_EB     = new TH1D("h_PU200_prompt_no_tErr_EB",       "h_PU200_prompt_no_tErr_EB",       nbin, 0, 10);
-  TH1D* h_PU200_prompt_no_tErr_PV_EB     = new TH1D("h_PU200_prompt_no_tErr_PV_EB",       "h_PU200_prompt_no_tErr_PV_EB",       nbin, 0, 10);
-  TH1D* h_PU200_prompt_not_vtx_matched_EB     = new TH1D("h_PU200_prompt_not_vtx_matched_EB",       "h_PU200_prompt_not_vtx_matched_EB",       nbin, 0, 10);
-  TH1D* h_PU200_prompt_bx_PV_EB         = new TH1D("h_PU200_prompt_bx_PV_EB",           "h_PU200_prompt_bx_PV_EB",           10, 0, 10);
-  TH1D* h_PU200_prompt_evtId_PV_EB         = new TH1D("h_PU200_prompt_evtId_PV_EB",           "h_PU200_prompt_evtId_PV_EB",           250, 0, 250);
-  TH1D* h_PU200_prompt_PVweight_PV_EB         = new TH1D("h_PU200_prompt_PVweight_PV_EB",           "h_PU200_prompt_PVweight_PV_EB",           100, 0, 1);
-  TH1D* h_PU200_prompt_simvtx_bx_PV_EB         = new TH1D("h_PU200_prompt_simvtx_bx_PV_EB",           "h_PU200_prompt_simvtx_bx_PV_EB",           10, 0, 10);
-  TH1D* h_PU200_prompt_simvtx_evtId_PV_EB         = new TH1D("h_PU200_prompt_simvtx_evtId_PV_EB",           "h_PU200_prompt_simvtx_evtId_PV_EB",           250, 0, 250);
-  TH1D* h_PU200_prompt_PV_EE         = new TH1D("h_PU200_prompt_PV_EE",           "h_PU200_prompt_PV_EE",           nbin, 0, 10);
-  TH1D* h_PU200_prompt_SV_EE         = new TH1D("h_PU200_prompt_SV_EE",           "h_PU200_prompt_SV_EE",           nbin, 0, 10);
-  TH1D* h_PU200_prompt_PU_EE         = new TH1D("h_PU200_prompt_PU_EE",           "h_PU200_prompt_PU_EE",           nbin, 0, 10);
-  TH1D* h_PU200_prompt_fake_EE       = new TH1D("h_PU200_prompt_fake_EE",         "h_PU200_prompt_fake_EE",         nbin, 0, 10);
-  TH1D* h_PU200_prompt_no_tErr_EE     = new TH1D("h_PU200_prompt_no_tErr_EE",       "h_PU200_prompt_no_tErr_EE",       nbin, 0, 10);
-  TH1D* h_PU200_prompt_not_vtx_matched_EE     = new TH1D("h_PU200_prompt_not_vtx_matched_EE",       "h_PU200_prompt_not_vtx_matched_EE",       nbin, 0, 10);
-  TH1D* h_PU200_prompt_bx_PV_EE         = new TH1D("h_PU200_prompt_bx_PV_EE",           "h_PU200_prompt_bx_PV_EE",           10, 0, 10);
-  TH1D* h_PU200_prompt_evtId_PV_EE         = new TH1D("h_PU200_prompt_evtId_PV_EE",           "h_PU200_prompt_evtId_PV_EE",           250, 0, 250);
-  TH1D* h_PU200_prompt_PVweight_PV_EE         = new TH1D("h_PU200_prompt_PVweight_PV_EE",           "h_PU200_prompt_PVweight_PV_EE",           100, 0, 1);
-  TH1D* h_PU200_prompt_simvtx_bx_PV_EE         = new TH1D("h_PU200_prompt_simvtx_bx_PV_EE",           "h_PU200_prompt_simvtx_bx_PV_EE",           10, 0, 10);
-  TH1D* h_PU200_prompt_simvtx_evtId_PV_EE         = new TH1D("h_PU200_prompt_simvtx_evtId_PV_EE",           "h_PU200_prompt_simvtx_evtId_PV_EE",           250, 0, 250);
+  TH1D* h_PU200_prompt_PV_EB         					= new TH1D("h_PU200_prompt_PV_EB",           				"h_PU200_prompt_PV_EB",           					nbin, 0, 10);
+  TH1D* h_PU200_prompt_SV_EB         					= new TH1D("h_PU200_prompt_SV_EB",           				"h_PU200_prompt_SV_EB",           					nbin, 0, 10);
+  TH1D* h_PU200_prompt_PU_EB         					= new TH1D("h_PU200_prompt_PU_EB",           				"h_PU200_prompt_PU_EB",           					nbin, 0, 10);
+  TH1D* h_PU200_prompt_fake_EB       					= new TH1D("h_PU200_prompt_fake_EB",         				"h_PU200_prompt_fake_EB",         					nbin, 0, 10);
+  TH1D* h_PU200_prompt_no_tErr_EB     					= new TH1D("h_PU200_prompt_no_tErr_EB",       				"h_PU200_prompt_no_tErr_EB",       					nbin, 0, 10);
+  TH1D* h_PU200_prompt_no_tErr_PV_EB     				= new TH1D("h_PU200_prompt_no_tErr_PV_EB",       			"h_PU200_prompt_no_tErr_PV_EB",       				nbin, 0, 10);
+  TH1D* h_PU200_prompt_not_vtx_matched_EB     			= new TH1D("h_PU200_prompt_not_vtx_matched_EB",       		"h_PU200_prompt_not_vtx_matched_EB",       			nbin, 0, 10);
+  TH1D* h_PU200_prompt_bx_PV_EB         				= new TH1D("h_PU200_prompt_bx_PV_EB",           			"h_PU200_prompt_bx_PV_EB",           				10, 0, 10);
+  TH1D* h_PU200_prompt_evtId_PV_EB         				= new TH1D("h_PU200_prompt_evtId_PV_EB",           			"h_PU200_prompt_evtId_PV_EB",           			250, 0, 250);
+  TH1D* h_PU200_prompt_PVweight_PV_EB         			= new TH1D("h_PU200_prompt_PVweight_PV_EB",           		"h_PU200_prompt_PVweight_PV_EB",           			100, 0, 1);
+  TH1D* h_PU200_prompt_simvtx_bx_PV_EB         			= new TH1D("h_PU200_prompt_simvtx_bx_PV_EB",           		"h_PU200_prompt_simvtx_bx_PV_EB",           		10, 0, 10);
+  TH1D* h_PU200_prompt_simvtx_evtId_PV_EB         		= new TH1D("h_PU200_prompt_simvtx_evtId_PV_EB",           	"h_PU200_prompt_simvtx_evtId_PV_EB",           		250, 0, 250);
+  TH1D* h_PU200_prompt_PV_EE         					= new TH1D("h_PU200_prompt_PV_EE",           				"h_PU200_prompt_PV_EE",           					nbin, 0, 10);
+  TH1D* h_PU200_prompt_SV_EE         					= new TH1D("h_PU200_prompt_SV_EE",           				"h_PU200_prompt_SV_EE",          					nbin, 0, 10);
+  TH1D* h_PU200_prompt_PU_EE         					= new TH1D("h_PU200_prompt_PU_EE",           				"h_PU200_prompt_PU_EE",           					nbin, 0, 10);
+  TH1D* h_PU200_prompt_fake_EE      					= new TH1D("h_PU200_prompt_fake_EE",          				"h_PU200_prompt_fake_EE",         					nbin, 0, 10);
+  TH1D* h_PU200_prompt_no_tErr_EE     					= new TH1D("h_PU200_prompt_no_tErr_EE",        				"h_PU200_prompt_no_tErr_EE",        				nbin, 0, 10);
+  TH1D* h_PU200_prompt_not_vtx_matched_EE     			= new TH1D("h_PU200_prompt_not_vtx_matched_EE",       		"h_PU200_prompt_not_vtx_matched_EE",       			nbin, 0, 10);
+  TH1D* h_PU200_prompt_bx_PV_EE         				= new TH1D("h_PU200_prompt_bx_PV_EE",           			"h_PU200_prompt_bx_PV_EE",           				10, 0, 10);
+  TH1D* h_PU200_prompt_evtId_PV_EE         				= new TH1D("h_PU200_prompt_evtId_PV_EE",           			"h_PU200_prompt_evtId_PV_EE",           			250, 0, 250);
+  TH1D* h_PU200_prompt_PVweight_PV_EE         			= new TH1D("h_PU200_prompt_PVweight_PV_EE",           		"h_PU200_prompt_PVweight_PV_EE",           			100, 0, 1);
+  TH1D* h_PU200_prompt_simvtx_bx_PV_EE         			= new TH1D("h_PU200_prompt_simvtx_bx_PV_EE",           		"h_PU200_prompt_simvtx_bx_PV_EE",           		10, 0, 10);
+  TH1D* h_PU200_prompt_simvtx_evtId_PV_EE         		= new TH1D("h_PU200_prompt_simvtx_evtId_PV_EE",           	"h_PU200_prompt_simvtx_evtId_PV_EE",           		250, 0, 250);
     // nonprompt
-  TH1D* h_PU200_nonprompt_PV_EB         = new TH1D("h_PU200_nonprompt_PV_EB",           "h_PU200_nonprompt_PV_EB",           nbin, 0, 10);
-  TH1D* h_PU200_nonprompt_SV_EB         = new TH1D("h_PU200_nonprompt_SV_EB",           "h_PU200_nonprompt_SV_EB",           nbin, 0, 10);
-  TH1D* h_PU200_nonprompt_PU_EB         = new TH1D("h_PU200_nonprompt_PU_EB",           "h_PU200_nonprompt_PU_EB",           nbin, 0, 10);
-  TH1D* h_PU200_nonprompt_fake_EB       = new TH1D("h_PU200_nonprompt_fake_EB",         "h_PU200_nonprompt_fake_EB",         nbin, 0, 10);
-  TH1D* h_PU200_nonprompt_no_tErr_EB     = new TH1D("h_PU200_nonprompt_no_tErr_EB",       "h_PU200_nonprompt_no_tErr_EB",       nbin, 0, 10);
-  TH1D* h_PU200_nonprompt_not_vtx_matched_EB     = new TH1D("h_PU200_nonprompt_not_vtx_matched_EB",       "h_PU200_nonprompt_not_vtx_matched_EB",       nbin, 0, 10);
-  TH1D* h_PU200_nonprompt_bx_PV_EB         = new TH1D("h_PU200_nonprompt_bx_PV_EB",           "h_PU200_nonprompt_bx_PV_EB",           10, 0, 10);
-  TH1D* h_PU200_nonprompt_evtId_PV_EB         = new TH1D("h_PU200_nonprompt_evtId_PV_EB",           "h_PU200_nonprompt_evtId_PV_EB",           250, 0, 250);
-  TH1D* h_PU200_nonprompt_PVweight_PV_EB         = new TH1D("h_PU200_nonprompt_PVweight_PV_EB",           "h_PU200_nonprompt_PVweight_PV_EB",           100, 0, 1);
-  TH1D* h_PU200_nonprompt_simvtx_bx_PV_EB         = new TH1D("h_PU200_nonprompt_simvtx_bx_PV_EB",           "h_PU200_nonprompt_simvtx_bx_PV_EB",           10, 0, 10);
-  TH1D* h_PU200_nonprompt_simvtx_evtId_PV_EB         = new TH1D("h_PU200_nonprompt_simvtx_evtId_PV_EB",           "h_PU200_nonprompt_simvtx_evtId_PV_EB",           250, 0, 250);
-  TH1D* h_PU200_nonprompt_PV_EE         = new TH1D("h_PU200_nonprompt_PV_EE",           "h_PU200_nonprompt_PV_EE",           nbin, 0, 10);
-  TH1D* h_PU200_nonprompt_SV_EE         = new TH1D("h_PU200_nonprompt_SV_EE",           "h_PU200_nonprompt_SV_EE",           nbin, 0, 10);
-  TH1D* h_PU200_nonprompt_PU_EE         = new TH1D("h_PU200_nonprompt_PU_EE",           "h_PU200_nonprompt_PU_EE",           nbin, 0, 10);
-  TH1D* h_PU200_nonprompt_fake_EE       = new TH1D("h_PU200_nonprompt_fake_EE",         "h_PU200_nonprompt_fake_EE",         nbin, 0, 10);
-  TH1D* h_PU200_nonprompt_no_tErr_EE     = new TH1D("h_PU200_nonprompt_no_tErr_EE",       "h_PU200_nonprompt_no_tErr_EE",       nbin, 0, 10);
-  TH1D* h_PU200_nonprompt_not_vtx_matched_EE     = new TH1D("h_PU200_nonprompt_not_vtx_matched_EE",       "h_PU200_nonprompt_not_vtx_matched_EE",       nbin, 0, 10);
-  TH1D* h_PU200_nonprompt_bx_PV_EE         = new TH1D("h_PU200_nonprompt_bx_PV_EE",           "h_PU200_nonprompt_bx_PV_EE",           10, 0, 10);
-  TH1D* h_PU200_nonprompt_evtId_PV_EE         = new TH1D("h_PU200_nonprompt_evtId_PV_EE",           "h_PU200_nonprompt_evtId_PV_EE",           250, 0, 250);
-  TH1D* h_PU200_nonprompt_PVweight_PV_EE         = new TH1D("h_PU200_nonprompt_PVweight_PV_EE",           "h_PU200_nonprompt_PVweight_PV_EE",           100, 0, 1);
-  TH1D* h_PU200_nonprompt_simvtx_bx_PV_EE         = new TH1D("h_PU200_nonprompt_simvtx_bx_PV_EE",           "h_PU200_nonprompt_simvtx_bx_PV_EE",           10, 0, 10);
-  TH1D* h_PU200_nonprompt_simvtx_evtId_PV_EE         = new TH1D("h_PU200_nonprompt_simvtx_evtId_PV_EE",           "h_PU200_nonprompt_simvtx_evtId_PV_EE",           250, 0, 250);
+  TH1D* h_PU200_nonprompt_PV_EB         				= new TH1D("h_PU200_nonprompt_PV_EB",            			"h_PU200_nonprompt_PV_EB",           				nbin, 0, 10);
+  TH1D* h_PU200_nonprompt_SV_EB         				= new TH1D("h_PU200_nonprompt_SV_EB",            			"h_PU200_nonprompt_SV_EB",           				nbin, 0, 10);
+  TH1D* h_PU200_nonprompt_PU_EB         				= new TH1D("h_PU200_nonprompt_PU_EB",            			"h_PU200_nonprompt_PU_EB",           				nbin, 0, 10);
+  TH1D* h_PU200_nonprompt_fake_EB       				= new TH1D("h_PU200_nonprompt_fake_EB",         			"h_PU200_nonprompt_fake_EB",          				nbin, 0, 10);
+  TH1D* h_PU200_nonprompt_no_tErr_EB     				= new TH1D("h_PU200_nonprompt_no_tErr_EB",       			"h_PU200_nonprompt_no_tErr_EB",       				nbin, 0, 10);
+  TH1D* h_PU200_nonprompt_not_vtx_matched_EB     		= new TH1D("h_PU200_nonprompt_not_vtx_matched_EB",       	"h_PU200_nonprompt_not_vtx_matched_EB",       		nbin, 0, 10);
+  TH1D* h_PU200_nonprompt_bx_PV_EB         				= new TH1D("h_PU200_nonprompt_bx_PV_EB",           			"h_PU200_nonprompt_bx_PV_EB",           			10, 0, 10);
+  TH1D* h_PU200_nonprompt_evtId_PV_EB         			= new TH1D("h_PU200_nonprompt_evtId_PV_EB",           		"h_PU200_nonprompt_evtId_PV_EB",           			250, 0, 250);
+  TH1D* h_PU200_nonprompt_PVweight_PV_EB         		= new TH1D("h_PU200_nonprompt_PVweight_PV_EB",           	"h_PU200_nonprompt_PVweight_PV_EB",           		100, 0, 1);
+  TH1D* h_PU200_nonprompt_simvtx_bx_PV_EB         		= new TH1D("h_PU200_nonprompt_simvtx_bx_PV_EB",             "h_PU200_nonprompt_simvtx_bx_PV_EB",           		10, 0, 10);
+  TH1D* h_PU200_nonprompt_simvtx_evtId_PV_EB         	= new TH1D("h_PU200_nonprompt_simvtx_evtId_PV_EB",          "h_PU200_nonprompt_simvtx_evtId_PV_EB",           	250, 0, 250);
+  TH1D* h_PU200_nonprompt_PV_EE         				= new TH1D("h_PU200_nonprompt_PV_EE",            			"h_PU200_nonprompt_PV_EE",           				nbin, 0, 10);
+  TH1D* h_PU200_nonprompt_SV_EE         				= new TH1D("h_PU200_nonprompt_SV_EE",            			"h_PU200_nonprompt_SV_EE",           				nbin, 0, 10);
+  TH1D* h_PU200_nonprompt_PU_EE         				= new TH1D("h_PU200_nonprompt_PU_EE",           			"h_PU200_nonprompt_PU_EE",           				nbin, 0, 10);
+  TH1D* h_PU200_nonprompt_fake_EE       				= new TH1D("h_PU200_nonprompt_fake_EE",          			"h_PU200_nonprompt_fake_EE",        				nbin, 0, 10);
+  TH1D* h_PU200_nonprompt_no_tErr_EE     				= new TH1D("h_PU200_nonprompt_no_tErr_EE",       			"h_PU200_nonprompt_no_tErr_EE",       				nbin, 0, 10);
+  TH1D* h_PU200_nonprompt_not_vtx_matched_EE     		= new TH1D("h_PU200_nonprompt_not_vtx_matched_EE",       	"h_PU200_nonprompt_not_vtx_matched_EE",       		nbin, 0, 10);
+  TH1D* h_PU200_nonprompt_bx_PV_EE         				= new TH1D("h_PU200_nonprompt_bx_PV_EE",           			"h_PU200_nonprompt_bx_PV_EE",           			10, 0, 10);
+  TH1D* h_PU200_nonprompt_evtId_PV_EE         			= new TH1D("h_PU200_nonprompt_evtId_PV_EE",           		"h_PU200_nonprompt_evtId_PV_EE",           			250, 0, 250);
+  TH1D* h_PU200_nonprompt_PVweight_PV_EE         		= new TH1D("h_PU200_nonprompt_PVweight_PV_EE",           	"h_PU200_nonprompt_PVweight_PV_EE",           		100, 0, 1);
+  TH1D* h_PU200_nonprompt_simvtx_bx_PV_EE         		= new TH1D("h_PU200_nonprompt_simvtx_bx_PV_EE",           	"h_PU200_nonprompt_simvtx_bx_PV_EE",           		10, 0, 10);
+  TH1D* h_PU200_nonprompt_simvtx_evtId_PV_EE         	= new TH1D("h_PU200_nonprompt_simvtx_evtId_PV_EE",          "h_PU200_nonprompt_simvtx_evtId_PV_EE",           	250, 0, 250);
 
   // noPU
     // prompt
-  TH1D* h_noPU_prompt_PV_EB         = new TH1D("h_noPU_prompt_PV_EB",           "h_noPU_prompt_PV_EB",           nbin, 0, 10);
-  TH1D* h_noPU_prompt_SV_EB         = new TH1D("h_noPU_prompt_SV_EB",           "h_noPU_prompt_SV_EB",           nbin, 0, 10);
-  TH1D* h_noPU_prompt_PU_EB         = new TH1D("h_noPU_prompt_PU_EB",           "h_noPU_prompt_PU_EB",           nbin, 0, 10);
-  TH1D* h_noPU_prompt_fake_EB       = new TH1D("h_noPU_prompt_fake_EB",         "h_noPU_prompt_fake_EB",         nbin, 0, 10);
-  TH1D* h_noPU_prompt_no_tErr_EB     = new TH1D("h_noPU_prompt_no_tErr_EB",       "h_noPU_prompt_no_tErr_EB",       nbin, 0, 10);
-  TH1D* h_noPU_prompt_not_vtx_matched_EB     = new TH1D("h_noPU_prompt_not_vtx_matched_EB",       "h_noPU_prompt_not_vtx_matched_EB",       nbin, 0, 10);
-  TH1D* h_noPU_prompt_bx_PV_EB         = new TH1D("h_noPU_prompt_bx_PV_EB",           "h_noPU_prompt_bx_PV_EB",           10, 0, 10);
-  TH1D* h_noPU_prompt_evtId_PV_EB         = new TH1D("h_noPU_prompt_evtId_PV_EB",           "h_noPU_prompt_evtId_PV_EB",           250, 0, 250);
-  TH1D* h_noPU_prompt_PVweight_PV_EB         = new TH1D("h_noPU_prompt_PVweight_PV_EB",           "h_noPU_prompt_PVweight_PV_EB",           100, 0, 1);
-  TH1D* h_noPU_prompt_simvtx_bx_PV_EB         = new TH1D("h_noPU_prompt_simvtx_bx_PV_EB",           "h_noPU_prompt_simvtx_bx_PV_EB",           10, 0, 10);
-  TH1D* h_noPU_prompt_simvtx_evtId_PV_EB         = new TH1D("h_noPU_prompt_simvtx_evtId_PV_EB",           "h_noPU_prompt_simvtx_evtId_PV_EB",           250, 0, 250);
-  TH1D* h_noPU_prompt_PV_EE         = new TH1D("h_noPU_prompt_PV_EE",           "h_noPU_prompt_PV_EE",           nbin, 0, 10);
-  TH1D* h_noPU_prompt_SV_EE         = new TH1D("h_noPU_prompt_SV_EE",           "h_noPU_prompt_SV_EE",           nbin, 0, 10);
-  TH1D* h_noPU_prompt_PU_EE         = new TH1D("h_noPU_prompt_PU_EE",           "h_noPU_prompt_PU_EE",           nbin, 0, 10);
-  TH1D* h_noPU_prompt_fake_EE       = new TH1D("h_noPU_prompt_fake_EE",         "h_noPU_prompt_fake_EE",         nbin, 0, 10);
-  TH1D* h_noPU_prompt_no_tErr_EE     = new TH1D("h_noPU_prompt_no_tErr_EE",       "h_noPU_prompt_no_tErr_EE",       nbin, 0, 10);
-  TH1D* h_noPU_prompt_not_vtx_matched_EE     = new TH1D("h_noPU_prompt_not_vtx_matched_EE",       "h_noPU_prompt_not_vtx_matched_EE",       nbin, 0, 10);
-  TH1D* h_noPU_prompt_bx_PV_EE         = new TH1D("h_noPU_prompt_bx_PV_EE",           "h_noPU_prompt_bx_PV_EE",           10, 0, 10);
-  TH1D* h_noPU_prompt_evtId_PV_EE         = new TH1D("h_noPU_prompt_evtId_PV_EE",           "h_noPU_prompt_evtId_PV_EE",           250, 0, 250);
-  TH1D* h_noPU_prompt_PVweight_PV_EE         = new TH1D("h_noPU_prompt_PVweight_PV_EE",           "h_noPU_prompt_PVweight_PV_EE",           100, 0, 1);
-  TH1D* h_noPU_prompt_simvtx_bx_PV_EE         = new TH1D("h_noPU_prompt_simvtx_bx_PV_EE",           "h_noPU_prompt_simvtx_bx_PV_EE",           10, 0, 10);
-  TH1D* h_noPU_prompt_simvtx_evtId_PV_EE         = new TH1D("h_noPU_prompt_simvtx_evtId_PV_EE",           "h_noPU_prompt_simvtx_evtId_PV_EE",           250, 0, 250);
+  TH1D* h_noPU_prompt_PV_EB         					= new TH1D("h_noPU_prompt_PV_EB",           				"h_noPU_prompt_PV_EB",           					nbin, 0, 10);
+  TH1D* h_noPU_prompt_SV_EB         					= new TH1D("h_noPU_prompt_SV_EB",           				"h_noPU_prompt_SV_EB",           					nbin, 0, 10);
+  TH1D* h_noPU_prompt_PU_EB         					= new TH1D("h_noPU_prompt_PU_EB",           				"h_noPU_prompt_PU_EB",           					nbin, 0, 10);
+  TH1D* h_noPU_prompt_fake_EB       					= new TH1D("h_noPU_prompt_fake_EB",         				"h_noPU_prompt_fake_EB",         					nbin, 0, 10);
+  TH1D* h_noPU_prompt_no_tErr_EB     					= new TH1D("h_noPU_prompt_no_tErr_EB",       				"h_noPU_prompt_no_tErr_EB",       					nbin, 0, 10);
+  TH1D* h_noPU_prompt_not_vtx_matched_EB     			= new TH1D("h_noPU_prompt_not_vtx_matched_EB",       		"h_noPU_prompt_not_vtx_matched_EB",       			nbin, 0, 10);
+  TH1D* h_noPU_prompt_bx_PV_EB         					= new TH1D("h_noPU_prompt_bx_PV_EB",           				"h_noPU_prompt_bx_PV_EB",           				10, 0, 10);
+  TH1D* h_noPU_prompt_evtId_PV_EB         				= new TH1D("h_noPU_prompt_evtId_PV_EB",           			"h_noPU_prompt_evtId_PV_EB",           				250, 0, 250);
+  TH1D* h_noPU_prompt_PVweight_PV_EB         			= new TH1D("h_noPU_prompt_PVweight_PV_EB",           		"h_noPU_prompt_PVweight_PV_EB",           			100, 0, 1);
+  TH1D* h_noPU_prompt_simvtx_bx_PV_EB         			= new TH1D("h_noPU_prompt_simvtx_bx_PV_EB",           		"h_noPU_prompt_simvtx_bx_PV_EB",           			10, 0, 10);
+  TH1D* h_noPU_prompt_simvtx_evtId_PV_EB         		= new TH1D("h_noPU_prompt_simvtx_evtId_PV_EB",           	"h_noPU_prompt_simvtx_evtId_PV_EB",           		250, 0, 250);
+  TH1D* h_noPU_prompt_PV_EE         					= new TH1D("h_noPU_prompt_PV_EE",           				"h_noPU_prompt_PV_EE",           					nbin, 0, 10);
+  TH1D* h_noPU_prompt_SV_EE         					= new TH1D("h_noPU_prompt_SV_EE",           				"h_noPU_prompt_SV_EE",           					nbin, 0, 10);
+  TH1D* h_noPU_prompt_PU_EE         					= new TH1D("h_noPU_prompt_PU_EE",           				"h_noPU_prompt_PU_EE",           					nbin, 0, 10);
+  TH1D* h_noPU_prompt_fake_EE       					= new TH1D("h_noPU_prompt_fake_EE",         				"h_noPU_prompt_fake_EE",         					nbin, 0, 10);
+  TH1D* h_noPU_prompt_no_tErr_EE     					= new TH1D("h_noPU_prompt_no_tErr_EE",       				"h_noPU_prompt_no_tErr_EE",       					nbin, 0, 10);
+  TH1D* h_noPU_prompt_not_vtx_matched_EE     			= new TH1D("h_noPU_prompt_not_vtx_matched_EE",       		"h_noPU_prompt_not_vtx_matched_EE",       			nbin, 0, 10);
+  TH1D* h_noPU_prompt_bx_PV_EE         					= new TH1D("h_noPU_prompt_bx_PV_EE",           				"h_noPU_prompt_bx_PV_EE",           				10, 0, 10);
+  TH1D* h_noPU_prompt_evtId_PV_EE         				= new TH1D("h_noPU_prompt_evtId_PV_EE",           			"h_noPU_prompt_evtId_PV_EE",           				250, 0, 250);
+  TH1D* h_noPU_prompt_PVweight_PV_EE         			= new TH1D("h_noPU_prompt_PVweight_PV_EE",           		"h_noPU_prompt_PVweight_PV_EE",           			100, 0, 1);
+  TH1D* h_noPU_prompt_simvtx_bx_PV_EE         			= new TH1D("h_noPU_prompt_simvtx_bx_PV_EE",           		"h_noPU_prompt_simvtx_bx_PV_EE",           			10, 0, 10);
+  TH1D* h_noPU_prompt_simvtx_evtId_PV_EE         		= new TH1D("h_noPU_prompt_simvtx_evtId_PV_EE",           	"h_noPU_prompt_simvtx_evtId_PV_EE",           		250, 0, 250);
     // nonprompt
-  TH1D* h_noPU_nonprompt_PV_EB         = new TH1D("h_noPU_nonprompt_PV_EB",           "h_noPU_nonprompt_PV_EB",           nbin, 0, 10);
-  TH1D* h_noPU_nonprompt_SV_EB         = new TH1D("h_noPU_nonprompt_SV_EB",           "h_noPU_nonprompt_SV_EB",           nbin, 0, 10);
-  TH1D* h_noPU_nonprompt_PU_EB         = new TH1D("h_noPU_nonprompt_PU_EB",           "h_noPU_nonprompt_PU_EB",           nbin, 0, 10);
-  TH1D* h_noPU_nonprompt_fake_EB       = new TH1D("h_noPU_nonprompt_fake_EB",         "h_noPU_nonprompt_fake_EB",         nbin, 0, 10);
-  TH1D* h_noPU_nonprompt_no_tErr_EB     = new TH1D("h_noPU_nonprompt_no_tErr_EB",       "h_noPU_nonprompt_no_tErr_EB",       nbin, 0, 10);
-  TH1D* h_noPU_nonprompt_not_vtx_matched_EB     = new TH1D("h_noPU_nonprompt_not_vtx_matched_EB",       "h_noPU_nonprompt_not_vtx_matched_EB",       nbin, 0, 10);
-  TH1D* h_noPU_nonprompt_bx_PV_EB         = new TH1D("h_noPU_nonprompt_bx_PV_EB",           "h_noPU_nonprompt_bx_PV_EB",           10, 0, 10);
-  TH1D* h_noPU_nonprompt_evtId_PV_EB         = new TH1D("h_noPU_nonprompt_evtId_PV_EB",           "h_noPU_nonprompt_evtId_PV_EB",           250, 0, 250);
-  TH1D* h_noPU_nonprompt_PVweight_PV_EB         = new TH1D("h_noPU_nonprompt_PVweight_PV_EB",           "h_noPU_nonprompt_PVweight_PV_EB",           100, 0, 1);
-  TH1D* h_noPU_nonprompt_simvtx_bx_PV_EB         = new TH1D("h_noPU_nonprompt_simvtx_bx_PV_EB",           "h_noPU_nonprompt_simvtx_bx_PV_EB",           10, 0, 10);
-  TH1D* h_noPU_nonprompt_simvtx_evtId_PV_EB         = new TH1D("h_noPU_nonprompt_simvtx_evtId_PV_EB",           "h_noPU_nonprompt_simvtx_evtId_PV_EB",           250, 0, 250);
-  TH1D* h_noPU_nonprompt_PV_EE         = new TH1D("h_noPU_nonprompt_PV_EE",           "h_noPU_nonprompt_PV_EE",           nbin, 0, 10);
-  TH1D* h_noPU_nonprompt_SV_EE         = new TH1D("h_noPU_nonprompt_SV_EE",           "h_noPU_nonprompt_SV_EE",           nbin, 0, 10);
-  TH1D* h_noPU_nonprompt_PU_EE         = new TH1D("h_noPU_nonprompt_PU_EE",           "h_noPU_nonprompt_PU_EE",           nbin, 0, 10);
-  TH1D* h_noPU_nonprompt_fake_EE       = new TH1D("h_noPU_nonprompt_fake_EE",         "h_noPU_nonprompt_fake_EE",         nbin, 0, 10);
-  TH1D* h_noPU_nonprompt_no_tErr_EE     = new TH1D("h_noPU_nonprompt_no_tErr_EE",       "h_noPU_nonprompt_no_tErr_EE",       nbin, 0, 10);
-  TH1D* h_noPU_nonprompt_not_vtx_matched_EE     = new TH1D("h_noPU_nonprompt_not_vtx_matched_EE",       "h_noPU_nonprompt_not_vtx_matched_EE",       nbin, 0, 10);
-  TH1D* h_noPU_nonprompt_bx_PV_EE         = new TH1D("h_noPU_nonprompt_bx_PV_EE",           "h_noPU_nonprompt_bx_PV_EE",           10, 0, 10);
-  TH1D* h_noPU_nonprompt_evtId_PV_EE         = new TH1D("h_noPU_nonprompt_evtId_PV_EE",           "h_noPU_nonprompt_evtId_PV_EE",           250, 0, 250);
-  TH1D* h_noPU_nonprompt_PVweight_PV_EE         = new TH1D("h_noPU_nonprompt_PVweight_PV_EE",           "h_noPU_nonprompt_PVweight_PV_EE",           100, 0, 1);
-  TH1D* h_noPU_nonprompt_simvtx_bx_PV_EE         = new TH1D("h_noPU_nonprompt_simvtx_bx_PV_EE",           "h_noPU_nonprompt_simvtx_bx_PV_EE",           10, 0, 10);
-  TH1D* h_noPU_nonprompt_simvtx_evtId_PV_EE         = new TH1D("h_noPU_nonprompt_simvtx_evtId_PV_EE",           "h_noPU_nonprompt_simvtx_evtId_PV_EE",           250, 0, 250);
+  TH1D* h_noPU_nonprompt_PV_EB         					= new TH1D("h_noPU_nonprompt_PV_EB",           				"h_noPU_nonprompt_PV_EB",           				nbin, 0, 10);
+  TH1D* h_noPU_nonprompt_SV_EB         					= new TH1D("h_noPU_nonprompt_SV_EB",           				"h_noPU_nonprompt_SV_EB",           				nbin, 0, 10);
+  TH1D* h_noPU_nonprompt_PU_EB         					= new TH1D("h_noPU_nonprompt_PU_EB",           				"h_noPU_nonprompt_PU_EB",           				nbin, 0, 10);
+  TH1D* h_noPU_nonprompt_fake_EB       					= new TH1D("h_noPU_nonprompt_fake_EB",         				"h_noPU_nonprompt_fake_EB",         				nbin, 0, 10);
+  TH1D* h_noPU_nonprompt_no_tErr_EB     				= new TH1D("h_noPU_nonprompt_no_tErr_EB",       			"h_noPU_nonprompt_no_tErr_EB",       				nbin, 0, 10);
+  TH1D* h_noPU_nonprompt_not_vtx_matched_EB     		= new TH1D("h_noPU_nonprompt_not_vtx_matched_EB",       	"h_noPU_nonprompt_not_vtx_matched_EB",       		nbin, 0, 10);
+  TH1D* h_noPU_nonprompt_bx_PV_EB         				= new TH1D("h_noPU_nonprompt_bx_PV_EB",           			"h_noPU_nonprompt_bx_PV_EB",           				10, 0, 10);
+  TH1D* h_noPU_nonprompt_evtId_PV_EB         			= new TH1D("h_noPU_nonprompt_evtId_PV_EB",           		"h_noPU_nonprompt_evtId_PV_EB",           			250, 0, 250);
+  TH1D* h_noPU_nonprompt_PVweight_PV_EB         		= new TH1D("h_noPU_nonprompt_PVweight_PV_EB",           	"h_noPU_nonprompt_PVweight_PV_EB",           		100, 0, 1);
+  TH1D* h_noPU_nonprompt_simvtx_bx_PV_EB         		= new TH1D("h_noPU_nonprompt_simvtx_bx_PV_EB",           	"h_noPU_nonprompt_simvtx_bx_PV_EB",           		10, 0, 10);
+  TH1D* h_noPU_nonprompt_simvtx_evtId_PV_EB         	= new TH1D("h_noPU_nonprompt_simvtx_evtId_PV_EB",           "h_noPU_nonprompt_simvtx_evtId_PV_EB",           	250, 0, 250);
+  TH1D* h_noPU_nonprompt_PV_EE         					= new TH1D("h_noPU_nonprompt_PV_EE",           				"h_noPU_nonprompt_PV_EE",           				nbin, 0, 10);
+  TH1D* h_noPU_nonprompt_SV_EE         					= new TH1D("h_noPU_nonprompt_SV_EE",           				"h_noPU_nonprompt_SV_EE",           				nbin, 0, 10);
+  TH1D* h_noPU_nonprompt_PU_EE         					= new TH1D("h_noPU_nonprompt_PU_EE",           				"h_noPU_nonprompt_PU_EE",           				nbin, 0, 10);
+  TH1D* h_noPU_nonprompt_fake_EE       					= new TH1D("h_noPU_nonprompt_fake_EE",         				"h_noPU_nonprompt_fake_EE",         				nbin, 0, 10);
+  TH1D* h_noPU_nonprompt_no_tErr_EE     				= new TH1D("h_noPU_nonprompt_no_tErr_EE",       			"h_noPU_nonprompt_no_tErr_EE",       				nbin, 0, 10);
+  TH1D* h_noPU_nonprompt_not_vtx_matched_EE     		= new TH1D("h_noPU_nonprompt_not_vtx_matched_EE",       	"h_noPU_nonprompt_not_vtx_matched_EE",       		nbin, 0, 10);
+  TH1D* h_noPU_nonprompt_bx_PV_EE         				= new TH1D("h_noPU_nonprompt_bx_PV_EE",           			"h_noPU_nonprompt_bx_PV_EE",           				10, 0, 10);
+  TH1D* h_noPU_nonprompt_evtId_PV_EE         			= new TH1D("h_noPU_nonprompt_evtId_PV_EE",           		"h_noPU_nonprompt_evtId_PV_EE",           			250, 0, 250);
+  TH1D* h_noPU_nonprompt_PVweight_PV_EE         		= new TH1D("h_noPU_nonprompt_PVweight_PV_EE",           	"h_noPU_nonprompt_PVweight_PV_EE",           		100, 0, 1);
+  TH1D* h_noPU_nonprompt_simvtx_bx_PV_EE         		= new TH1D("h_noPU_nonprompt_simvtx_bx_PV_EE",           	"h_noPU_nonprompt_simvtx_bx_PV_EE",           		10, 0, 10);
+  TH1D* h_noPU_nonprompt_simvtx_evtId_PV_EE         	= new TH1D("h_noPU_nonprompt_simvtx_evtId_PV_EE",           "h_noPU_nonprompt_simvtx_evtId_PV_EE",           	250, 0, 250);
 
 
       ///////////////////////
@@ -431,163 +431,162 @@ void draw_track_type_sigma_ntuple() {
 
   // PU200
     // prompt
-  TH1D* h_PU200_prompt_PV_EB_vtx         = new TH1D("h_PU200_prompt_PV_EB_vtx",           "h_PU200_prompt_PV_EB_vtx",           nbin, 0, 10);
-  TH1D* h_PU200_prompt_SV_EB_vtx         = new TH1D("h_PU200_prompt_SV_EB_vtx",           "h_PU200_prompt_SV_EB_vtx",           nbin, 0, 10);
-  TH1D* h_PU200_prompt_PU_EB_vtx         = new TH1D("h_PU200_prompt_PU_EB_vtx",           "h_PU200_prompt_PU_EB_vtx",           nbin, 0, 10);
-  TH1D* h_PU200_prompt_fake_EB_vtx       = new TH1D("h_PU200_prompt_fake_EB_vtx",         "h_PU200_prompt_fake_EB_vtx",         nbin, 0, 10);
-  TH1D* h_PU200_prompt_no_tErr_EB_vtx     = new TH1D("h_PU200_prompt_no_tErr_EB_vtx",       "h_PU200_prompt_no_tErr_EB_vtx",       nbin, 0, 10);
-  TH1D* h_PU200_prompt_no_tErr_PV_EB_vtx     = new TH1D("h_PU200_prompt_no_tErr_PV_EB_vtx",       "h_PU200_prompt_no_tErr_PV_EB_vtx",       nbin, 0, 10);
-  TH1D* h_PU200_prompt_not_vtx_matched_EB_vtx     = new TH1D("h_PU200_prompt_not_vtx_matched_EB_vtx",       "h_PU200_prompt_not_vtx_matched_EB_vtx",       nbin, 0, 10);
-  TH1D* h_PU200_prompt_bx_PV_EB_vtx         = new TH1D("h_PU200_prompt_bx_PV_EB_vtx",           "h_PU200_prompt_bx_PV_EB_vtx",           10, 0, 10);
-  TH1D* h_PU200_prompt_evtId_PV_EB_vtx         = new TH1D("h_PU200_prompt_evtId_PV_EB_vtx",           "h_PU200_prompt_evtId_PV_EB_vtx",           250, 0, 250);
-  TH1D* h_PU200_prompt_PVweight_PV_EB_vtx         = new TH1D("h_PU200_prompt_PVweight_PV_EB_vtx",           "h_PU200_prompt_PVweight_PV_EB_vtx",           100, 0, 1);
-  TH1D* h_PU200_prompt_simvtx_bx_PV_EB_vtx         = new TH1D("h_PU200_prompt_simvtx_bx_PV_EB_vtx",           "h_PU200_prompt_simvtx_bx_PV_EB_vtx",           10, 0, 10);
-  TH1D* h_PU200_prompt_simvtx_evtId_PV_EB_vtx         = new TH1D("h_PU200_prompt_simvtx_evtId_PV_EB_vtx",           "h_PU200_prompt_simvtx_evtId_PV_EB_vtx",           250, 0, 250);
-  TH1D* h_PU200_prompt_PV_EE_vtx         = new TH1D("h_PU200_prompt_PV_EE_vtx",           "h_PU200_prompt_PV_EE_vtx",           nbin, 0, 10);
-  TH1D* h_PU200_prompt_SV_EE_vtx         = new TH1D("h_PU200_prompt_SV_EE_vtx",           "h_PU200_prompt_SV_EE_vtx",           nbin, 0, 10);
-  TH1D* h_PU200_prompt_PU_EE_vtx         = new TH1D("h_PU200_prompt_PU_EE_vtx",           "h_PU200_prompt_PU_EE_vtx",           nbin, 0, 10);
-  TH1D* h_PU200_prompt_fake_EE_vtx       = new TH1D("h_PU200_prompt_fake_EE_vtx",         "h_PU200_prompt_fake_EE_vtx",         nbin, 0, 10);
-  TH1D* h_PU200_prompt_no_tErr_EE_vtx     = new TH1D("h_PU200_prompt_no_tErr_EE_vtx",       "h_PU200_prompt_no_tErr_EE_vtx",       nbin, 0, 10);
-  TH1D* h_PU200_prompt_not_vtx_matched_EE_vtx     = new TH1D("h_PU200_prompt_not_vtx_matched_EE_vtx",       "h_PU200_prompt_not_vtx_matched_EE_vtx",       nbin, 0, 10);
-  TH1D* h_PU200_prompt_bx_PV_EE_vtx         = new TH1D("h_PU200_prompt_bx_PV_EE_vtx",           "h_PU200_prompt_bx_PV_EE_vtx",           10, 0, 10);
-  TH1D* h_PU200_prompt_evtId_PV_EE_vtx         = new TH1D("h_PU200_prompt_evtId_PV_EE_vtx",           "h_PU200_prompt_evtId_PV_EE_vtx",           250, 0, 250);
-  TH1D* h_PU200_prompt_PVweight_PV_EE_vtx         = new TH1D("h_PU200_prompt_PVweight_PV_EE_vtx",           "h_PU200_prompt_PVweight_PV_EE_vtx",           100, 0, 1);
-  TH1D* h_PU200_prompt_simvtx_bx_PV_EE_vtx         = new TH1D("h_PU200_prompt_simvtx_bx_PV_EE_vtx",           "h_PU200_prompt_simvtx_bx_PV_EE_vtx",           10, 0, 10);
-  TH1D* h_PU200_prompt_simvtx_evtId_PV_EE_vtx         = new TH1D("h_PU200_prompt_simvtx_evtId_PV_EE_vtx",           "h_PU200_prompt_simvtx_evtId_PV_EE_vtx",           250, 0, 250);
+  TH1D* h_PU200_prompt_PV_EB_vtx         				= new TH1D("h_PU200_prompt_PV_EB_vtx",           			"h_PU200_prompt_PV_EB_vtx",           				nbin, 0, 10);
+  TH1D* h_PU200_prompt_SV_EB_vtx         				= new TH1D("h_PU200_prompt_SV_EB_vtx",           			"h_PU200_prompt_SV_EB_vtx",           				nbin, 0, 10);
+  TH1D* h_PU200_prompt_PU_EB_vtx         				= new TH1D("h_PU200_prompt_PU_EB_vtx",           			"h_PU200_prompt_PU_EB_vtx",           				nbin, 0, 10);
+  TH1D* h_PU200_prompt_fake_EB_vtx       				= new TH1D("h_PU200_prompt_fake_EB_vtx",         			"h_PU200_prompt_fake_EB_vtx",         				nbin, 0, 10);
+  TH1D* h_PU200_prompt_no_tErr_EB_vtx     				= new TH1D("h_PU200_prompt_no_tErr_EB_vtx",       			"h_PU200_prompt_no_tErr_EB_vtx",       				nbin, 0, 10);
+  TH1D* h_PU200_prompt_no_tErr_PV_EB_vtx     			= new TH1D("h_PU200_prompt_no_tErr_PV_EB_vtx",       		"h_PU200_prompt_no_tErr_PV_EB_vtx",       			nbin, 0, 10);
+  TH1D* h_PU200_prompt_not_vtx_matched_EB_vtx     		= new TH1D("h_PU200_prompt_not_vtx_matched_EB_vtx",       	"h_PU200_prompt_not_vtx_matched_EB_vtx",       		nbin, 0, 10);
+  TH1D* h_PU200_prompt_bx_PV_EB_vtx         			= new TH1D("h_PU200_prompt_bx_PV_EB_vtx",           		"h_PU200_prompt_bx_PV_EB_vtx",           			10, 0, 10);
+  TH1D* h_PU200_prompt_evtId_PV_EB_vtx         			= new TH1D("h_PU200_prompt_evtId_PV_EB_vtx",           		"h_PU200_prompt_evtId_PV_EB_vtx",           		250, 0, 250);
+  TH1D* h_PU200_prompt_PVweight_PV_EB_vtx         		= new TH1D("h_PU200_prompt_PVweight_PV_EB_vtx",           	"h_PU200_prompt_PVweight_PV_EB_vtx",           		100, 0, 1);
+  TH1D* h_PU200_prompt_simvtx_bx_PV_EB_vtx         		= new TH1D("h_PU200_prompt_simvtx_bx_PV_EB_vtx",           	"h_PU200_prompt_simvtx_bx_PV_EB_vtx",           	10, 0, 10);
+  TH1D* h_PU200_prompt_simvtx_evtId_PV_EB_vtx         	= new TH1D("h_PU200_prompt_simvtx_evtId_PV_EB_vtx",         "h_PU200_prompt_simvtx_evtId_PV_EB_vtx",            250, 0, 250);
+  TH1D* h_PU200_prompt_PV_EE_vtx         				= new TH1D("h_PU200_prompt_PV_EE_vtx",           			"h_PU200_prompt_PV_EE_vtx",           				nbin, 0, 10);
+  TH1D* h_PU200_prompt_SV_EE_vtx         				= new TH1D("h_PU200_prompt_SV_EE_vtx",           			"h_PU200_prompt_SV_EE_vtx",           				nbin, 0, 10);
+  TH1D* h_PU200_prompt_PU_EE_vtx         				= new TH1D("h_PU200_prompt_PU_EE_vtx",           			"h_PU200_prompt_PU_EE_vtx",           				nbin, 0, 10);
+  TH1D* h_PU200_prompt_fake_EE_vtx       				= new TH1D("h_PU200_prompt_fake_EE_vtx",         			"h_PU200_prompt_fake_EE_vtx",         				nbin, 0, 10);
+  TH1D* h_PU200_prompt_no_tErr_EE_vtx     				= new TH1D("h_PU200_prompt_no_tErr_EE_vtx",       			"h_PU200_prompt_no_tErr_EE_vtx",       				nbin, 0, 10);
+  TH1D* h_PU200_prompt_not_vtx_matched_EE_vtx     		= new TH1D("h_PU200_prompt_not_vtx_matched_EE_vtx",       	"h_PU200_prompt_not_vtx_matched_EE_vtx",       		nbin, 0, 10);
+  TH1D* h_PU200_prompt_bx_PV_EE_vtx         			= new TH1D("h_PU200_prompt_bx_PV_EE_vtx",           		"h_PU200_prompt_bx_PV_EE_vtx",           			10, 0, 10);
+  TH1D* h_PU200_prompt_evtId_PV_EE_vtx         			= new TH1D("h_PU200_prompt_evtId_PV_EE_vtx",           		"h_PU200_prompt_evtId_PV_EE_vtx",           		250, 0, 250);
+  TH1D* h_PU200_prompt_PVweight_PV_EE_vtx         		= new TH1D("h_PU200_prompt_PVweight_PV_EE_vtx",           	"h_PU200_prompt_PVweight_PV_EE_vtx",           		100, 0, 1);
+  TH1D* h_PU200_prompt_simvtx_bx_PV_EE_vtx         		= new TH1D("h_PU200_prompt_simvtx_bx_PV_EE_vtx",           	"h_PU200_prompt_simvtx_bx_PV_EE_vtx",           	10, 0, 10);
+  TH1D* h_PU200_prompt_simvtx_evtId_PV_EE_vtx         	= new TH1D("h_PU200_prompt_simvtx_evtId_PV_EE_vtx",         "h_PU200_prompt_simvtx_evtId_PV_EE_vtx",           	250, 0, 250);
     // nonprompt
-  TH1D* h_PU200_nonprompt_PV_EB_vtx         = new TH1D("h_PU200_nonprompt_PV_EB_vtx",           "h_PU200_nonprompt_PV_EB_vtx",           nbin, 0, 10);
-  TH1D* h_PU200_nonprompt_SV_EB_vtx         = new TH1D("h_PU200_nonprompt_SV_EB_vtx",           "h_PU200_nonprompt_SV_EB_vtx",           nbin, 0, 10);
-  TH1D* h_PU200_nonprompt_PU_EB_vtx         = new TH1D("h_PU200_nonprompt_PU_EB_vtx",           "h_PU200_nonprompt_PU_EB_vtx",           nbin, 0, 10);
-  TH1D* h_PU200_nonprompt_fake_EB_vtx       = new TH1D("h_PU200_nonprompt_fake_EB_vtx",         "h_PU200_nonprompt_fake_EB_vtx",         nbin, 0, 10);
-  TH1D* h_PU200_nonprompt_no_tErr_EB_vtx     = new TH1D("h_PU200_nonprompt_no_tErr_EB_vtx",       "h_PU200_nonprompt_no_tErr_EB_vtx",       nbin, 0, 10);
-  TH1D* h_PU200_nonprompt_not_vtx_matched_EB_vtx     = new TH1D("h_PU200_nonprompt_not_vtx_matched_EB_vtx",       "h_PU200_nonprompt_not_vtx_matched_EB_vtx",       nbin, 0, 10);
-  TH1D* h_PU200_nonprompt_bx_PV_EB_vtx         = new TH1D("h_PU200_nonprompt_bx_PV_EB_vtx",           "h_PU200_nonprompt_bx_PV_EB_vtx",           10, 0, 10);
-  TH1D* h_PU200_nonprompt_evtId_PV_EB_vtx         = new TH1D("h_PU200_nonprompt_evtId_PV_EB_vtx",           "h_PU200_nonprompt_evtId_PV_EB_vtx",           250, 0, 250);
-  TH1D* h_PU200_nonprompt_PVweight_PV_EB_vtx         = new TH1D("h_PU200_nonprompt_PVweight_PV_EB_vtx",           "h_PU200_nonprompt_PVweight_PV_EB_vtx",           100, 0, 1);
-  TH1D* h_PU200_nonprompt_simvtx_bx_PV_EB_vtx         = new TH1D("h_PU200_nonprompt_simvtx_bx_PV_EB_vtx",           "h_PU200_nonprompt_simvtx_bx_PV_EB_vtx",           10, 0, 10);
-  TH1D* h_PU200_nonprompt_simvtx_evtId_PV_EB_vtx         = new TH1D("h_PU200_nonprompt_simvtx_evtId_PV_EB_vtx",           "h_PU200_nonprompt_simvtx_evtId_PV_EB_vtx",           250, 0, 250);
-  TH1D* h_PU200_nonprompt_PV_EE_vtx         = new TH1D("h_PU200_nonprompt_PV_EE_vtx",           "h_PU200_nonprompt_PV_EE_vtx",           nbin, 0, 10);
-  TH1D* h_PU200_nonprompt_SV_EE_vtx         = new TH1D("h_PU200_nonprompt_SV_EE_vtx",           "h_PU200_nonprompt_SV_EE_vtx",           nbin, 0, 10);
-  TH1D* h_PU200_nonprompt_PU_EE_vtx         = new TH1D("h_PU200_nonprompt_PU_EE_vtx",           "h_PU200_nonprompt_PU_EE_vtx",           nbin, 0, 10);
-  TH1D* h_PU200_nonprompt_fake_EE_vtx       = new TH1D("h_PU200_nonprompt_fake_EE_vtx",         "h_PU200_nonprompt_fake_EE_vtx",         nbin, 0, 10);
-  TH1D* h_PU200_nonprompt_no_tErr_EE_vtx     = new TH1D("h_PU200_nonprompt_no_tErr_EE_vtx",       "h_PU200_nonprompt_no_tErr_EE_vtx",       nbin, 0, 10);
-  TH1D* h_PU200_nonprompt_not_vtx_matched_EE_vtx     = new TH1D("h_PU200_nonprompt_not_vtx_matched_EE_vtx",       "h_PU200_nonprompt_not_vtx_matched_EE_vtx",       nbin, 0, 10);
-  TH1D* h_PU200_nonprompt_bx_PV_EE_vtx         = new TH1D("h_PU200_nonprompt_bx_PV_EE_vtx",           "h_PU200_nonprompt_bx_PV_EE_vtx",           10, 0, 10);
-  TH1D* h_PU200_nonprompt_evtId_PV_EE_vtx         = new TH1D("h_PU200_nonprompt_evtId_PV_EE_vtx",           "h_PU200_nonprompt_evtId_PV_EE_vtx",           250, 0, 250);
-  TH1D* h_PU200_nonprompt_PVweight_PV_EE_vtx         = new TH1D("h_PU200_nonprompt_PVweight_PV_EE_vtx",           "h_PU200_nonprompt_PVweight_PV_EE_vtx",           100, 0, 1);
-  TH1D* h_PU200_nonprompt_simvtx_bx_PV_EE_vtx         = new TH1D("h_PU200_nonprompt_simvtx_bx_PV_EE_vtx",           "h_PU200_nonprompt_simvtx_bx_PV_EE_vtx",           10, 0, 10);
-  TH1D* h_PU200_nonprompt_simvtx_evtId_PV_EE_vtx         = new TH1D("h_PU200_nonprompt_simvtx_evtId_PV_EE_vtx",           "h_PU200_nonprompt_simvtx_evtId_PV_EE_vtx",           250, 0, 250);
+  TH1D* h_PU200_nonprompt_PV_EB_vtx         			= new TH1D("h_PU200_nonprompt_PV_EB_vtx",           		"h_PU200_nonprompt_PV_EB_vtx",           			nbin, 0, 10);
+  TH1D* h_PU200_nonprompt_SV_EB_vtx         			= new TH1D("h_PU200_nonprompt_SV_EB_vtx",           		"h_PU200_nonprompt_SV_EB_vtx",           			nbin, 0, 10);
+  TH1D* h_PU200_nonprompt_PU_EB_vtx         			= new TH1D("h_PU200_nonprompt_PU_EB_vtx",           		"h_PU200_nonprompt_PU_EB_vtx",           			nbin, 0, 10);
+  TH1D* h_PU200_nonprompt_fake_EB_vtx       			= new TH1D("h_PU200_nonprompt_fake_EB_vtx",         		"h_PU200_nonprompt_fake_EB_vtx",         			nbin, 0, 10);
+  TH1D* h_PU200_nonprompt_no_tErr_EB_vtx     			= new TH1D("h_PU200_nonprompt_no_tErr_EB_vtx",       		"h_PU200_nonprompt_no_tErr_EB_vtx",       			nbin, 0, 10);
+  TH1D* h_PU200_nonprompt_not_vtx_matched_EB_vtx     	= new TH1D("h_PU200_nonprompt_not_vtx_matched_EB_vtx",      "h_PU200_nonprompt_not_vtx_matched_EB_vtx",			nbin, 0, 10);
+  TH1D* h_PU200_nonprompt_bx_PV_EB_vtx         			= new TH1D("h_PU200_nonprompt_bx_PV_EB_vtx",           		"h_PU200_nonprompt_bx_PV_EB_vtx",           		10, 0, 10);
+  TH1D* h_PU200_nonprompt_evtId_PV_EB_vtx         		= new TH1D("h_PU200_nonprompt_evtId_PV_EB_vtx",           	"h_PU200_nonprompt_evtId_PV_EB_vtx",           		250, 0, 250);
+  TH1D* h_PU200_nonprompt_PVweight_PV_EB_vtx         	= new TH1D("h_PU200_nonprompt_PVweight_PV_EB_vtx",          "h_PU200_nonprompt_PVweight_PV_EB_vtx",             100, 0, 1);
+  TH1D* h_PU200_nonprompt_simvtx_bx_PV_EB_vtx         	= new TH1D("h_PU200_nonprompt_simvtx_bx_PV_EB_vtx",         "h_PU200_nonprompt_simvtx_bx_PV_EB_vtx",            10, 0, 10);
+  TH1D* h_PU200_nonprompt_simvtx_evtId_PV_EB_vtx     	= new TH1D("h_PU200_nonprompt_simvtx_evtId_PV_EB_vtx",		"h_PU200_nonprompt_simvtx_evtId_PV_EB_vtx",         250, 0, 250);
+  TH1D* h_PU200_nonprompt_PV_EE_vtx         			= new TH1D("h_PU200_nonprompt_PV_EE_vtx",           		"h_PU200_nonprompt_PV_EE_vtx",           			nbin, 0, 10);
+  TH1D* h_PU200_nonprompt_SV_EE_vtx         			= new TH1D("h_PU200_nonprompt_SV_EE_vtx",           		"h_PU200_nonprompt_SV_EE_vtx",           			nbin, 0, 10);
+  TH1D* h_PU200_nonprompt_PU_EE_vtx         			= new TH1D("h_PU200_nonprompt_PU_EE_vtx",           		"h_PU200_nonprompt_PU_EE_vtx",          			nbin, 0, 10);
+  TH1D* h_PU200_nonprompt_fake_EE_vtx       			= new TH1D("h_PU200_nonprompt_fake_EE_vtx",         		"h_PU200_nonprompt_fake_EE_vtx",         			nbin, 0, 10);
+  TH1D* h_PU200_nonprompt_no_tErr_EE_vtx     			= new TH1D("h_PU200_nonprompt_no_tErr_EE_vtx",       		"h_PU200_nonprompt_no_tErr_EE_vtx",					nbin, 0, 10);
+  TH1D* h_PU200_nonprompt_not_vtx_matched_EE_vtx     	= new TH1D("h_PU200_nonprompt_not_vtx_matched_EE_vtx",      "h_PU200_nonprompt_not_vtx_matched_EE_vtx",			nbin, 0, 10);
+  TH1D* h_PU200_nonprompt_bx_PV_EE_vtx         			= new TH1D("h_PU200_nonprompt_bx_PV_EE_vtx",           		"h_PU200_nonprompt_bx_PV_EE_vtx",           		10, 0, 10);
+  TH1D* h_PU200_nonprompt_evtId_PV_EE_vtx         		= new TH1D("h_PU200_nonprompt_evtId_PV_EE_vtx",           	"h_PU200_nonprompt_evtId_PV_EE_vtx",           		250, 0, 250);
+  TH1D* h_PU200_nonprompt_PVweight_PV_EE_vtx         	= new TH1D("h_PU200_nonprompt_PVweight_PV_EE_vtx",          "h_PU200_nonprompt_PVweight_PV_EE_vtx",           	100, 0, 1);
+  TH1D* h_PU200_nonprompt_simvtx_bx_PV_EE_vtx         	= new TH1D("h_PU200_nonprompt_simvtx_bx_PV_EE_vtx",         "h_PU200_nonprompt_simvtx_bx_PV_EE_vtx",           	10, 0, 10);
+  TH1D* h_PU200_nonprompt_simvtx_evtId_PV_EE_vtx        = new TH1D("h_PU200_nonprompt_simvtx_evtId_PV_EE_vtx",      "h_PU200_nonprompt_simvtx_evtId_PV_EE_vtx",         250, 0, 250);
 
   // noPU
     // prompt
-  TH1D* h_noPU_prompt_PV_EB_vtx         = new TH1D("h_noPU_prompt_PV_EB_vtx",           "h_noPU_prompt_PV_EB_vtx",           nbin, 0, 10);
-  TH1D* h_noPU_prompt_SV_EB_vtx         = new TH1D("h_noPU_prompt_SV_EB_vtx",           "h_noPU_prompt_SV_EB_vtx",           nbin, 0, 10);
-  TH1D* h_noPU_prompt_PU_EB_vtx         = new TH1D("h_noPU_prompt_PU_EB_vtx",           "h_noPU_prompt_PU_EB_vtx",           nbin, 0, 10);
-  TH1D* h_noPU_prompt_fake_EB_vtx       = new TH1D("h_noPU_prompt_fake_EB_vtx",         "h_noPU_prompt_fake_EB_vtx",         nbin, 0, 10);
-  TH1D* h_noPU_prompt_no_tErr_EB_vtx     = new TH1D("h_noPU_prompt_no_tErr_EB_vtx",       "h_noPU_prompt_no_tErr_EB_vtx",       nbin, 0, 10);
-  TH1D* h_noPU_prompt_not_vtx_matched_EB_vtx     = new TH1D("h_noPU_prompt_not_vtx_matched_EB_vtx",       "h_noPU_prompt_not_vtx_matched_EB_vtx",       nbin, 0, 10);
-  TH1D* h_noPU_prompt_bx_PV_EB_vtx         = new TH1D("h_noPU_prompt_bx_PV_EB_vtx",           "h_noPU_prompt_bx_PV_EB_vtx",           10, 0, 10);
-  TH1D* h_noPU_prompt_evtId_PV_EB_vtx         = new TH1D("h_noPU_prompt_evtId_PV_EB_vtx",           "h_noPU_prompt_evtId_PV_EB_vtx",           250, 0, 250);
-  TH1D* h_noPU_prompt_PVweight_PV_EB_vtx         = new TH1D("h_noPU_prompt_PVweight_PV_EB_vtx",           "h_noPU_prompt_PVweight_PV_EB_vtx",           100, 0, 1);
-  TH1D* h_noPU_prompt_simvtx_bx_PV_EB_vtx         = new TH1D("h_noPU_prompt_simvtx_bx_PV_EB_vtx",           "h_noPU_prompt_simvtx_bx_PV_EB_vtx",           10, 0, 10);
-  TH1D* h_noPU_prompt_simvtx_evtId_PV_EB_vtx         = new TH1D("h_noPU_prompt_simvtx_evtId_PV_EB_vtx",           "h_noPU_prompt_simvtx_evtId_PV_EB_vtx",           250, 0, 250);
-  TH1D* h_noPU_prompt_PV_EE_vtx         = new TH1D("h_noPU_prompt_PV_EE_vtx",           "h_noPU_prompt_PV_EE_vtx",           nbin, 0, 10);
-  TH1D* h_noPU_prompt_SV_EE_vtx         = new TH1D("h_noPU_prompt_SV_EE_vtx",           "h_noPU_prompt_SV_EE_vtx",           nbin, 0, 10);
-  TH1D* h_noPU_prompt_PU_EE_vtx         = new TH1D("h_noPU_prompt_PU_EE_vtx",           "h_noPU_prompt_PU_EE_vtx",           nbin, 0, 10);
-  TH1D* h_noPU_prompt_fake_EE_vtx       = new TH1D("h_noPU_prompt_fake_EE_vtx",         "h_noPU_prompt_fake_EE_vtx",         nbin, 0, 10);
-  TH1D* h_noPU_prompt_no_tErr_EE_vtx     = new TH1D("h_noPU_prompt_no_tErr_EE_vtx",       "h_noPU_prompt_no_tErr_EE_vtx",       nbin, 0, 10);
-  TH1D* h_noPU_prompt_not_vtx_matched_EE_vtx     = new TH1D("h_noPU_prompt_not_vtx_matched_EE_vtx",       "h_noPU_prompt_not_vtx_matched_EE_vtx",       nbin, 0, 10);
-  TH1D* h_noPU_prompt_bx_PV_EE_vtx         = new TH1D("h_noPU_prompt_bx_PV_EE_vtx",           "h_noPU_prompt_bx_PV_EE_vtx",           10, 0, 10);
-  TH1D* h_noPU_prompt_evtId_PV_EE_vtx         = new TH1D("h_noPU_prompt_evtId_PV_EE_vtx",           "h_noPU_prompt_evtId_PV_EE_vtx",           250, 0, 250);
-  TH1D* h_noPU_prompt_PVweight_PV_EE_vtx         = new TH1D("h_noPU_prompt_PVweight_PV_EE_vtx",           "h_noPU_prompt_PVweight_PV_EE_vtx",           100, 0, 1);
-  TH1D* h_noPU_prompt_simvtx_bx_PV_EE_vtx         = new TH1D("h_noPU_prompt_simvtx_bx_PV_EE_vtx",           "h_noPU_prompt_simvtx_bx_PV_EE_vtx",           10, 0, 10);
-  TH1D* h_noPU_prompt_simvtx_evtId_PV_EE_vtx         = new TH1D("h_noPU_prompt_simvtx_evtId_PV_EE_vtx",           "h_noPU_prompt_simvtx_evtId_PV_EE_vtx",           250, 0, 250);
+  TH1D* h_noPU_prompt_PV_EB_vtx         				= new TH1D("h_noPU_prompt_PV_EB_vtx",           			"h_noPU_prompt_PV_EB_vtx",           				nbin, 0, 10);
+  TH1D* h_noPU_prompt_SV_EB_vtx         				= new TH1D("h_noPU_prompt_SV_EB_vtx",           			"h_noPU_prompt_SV_EB_vtx",           				nbin, 0, 10);
+  TH1D* h_noPU_prompt_PU_EB_vtx         				= new TH1D("h_noPU_prompt_PU_EB_vtx",           			"h_noPU_prompt_PU_EB_vtx",           				nbin, 0, 10);
+  TH1D* h_noPU_prompt_fake_EB_vtx       				= new TH1D("h_noPU_prompt_fake_EB_vtx",         			"h_noPU_prompt_fake_EB_vtx",         				nbin, 0, 10);
+  TH1D* h_noPU_prompt_no_tErr_EB_vtx     				= new TH1D("h_noPU_prompt_no_tErr_EB_vtx",       			"h_noPU_prompt_no_tErr_EB_vtx",       				nbin, 0, 10);
+  TH1D* h_noPU_prompt_not_vtx_matched_EB_vtx     		= new TH1D("h_noPU_prompt_not_vtx_matched_EB_vtx",       	"h_noPU_prompt_not_vtx_matched_EB_vtx",       		nbin, 0, 10);
+  TH1D* h_noPU_prompt_bx_PV_EB_vtx         				= new TH1D("h_noPU_prompt_bx_PV_EB_vtx",           			"h_noPU_prompt_bx_PV_EB_vtx",           			10, 0, 10);
+  TH1D* h_noPU_prompt_evtId_PV_EB_vtx         			= new TH1D("h_noPU_prompt_evtId_PV_EB_vtx",           		"h_noPU_prompt_evtId_PV_EB_vtx",           			250, 0, 250);
+  TH1D* h_noPU_prompt_PVweight_PV_EB_vtx         		= new TH1D("h_noPU_prompt_PVweight_PV_EB_vtx",           	"h_noPU_prompt_PVweight_PV_EB_vtx",           		100, 0, 1);
+  TH1D* h_noPU_prompt_simvtx_bx_PV_EB_vtx         		= new TH1D("h_noPU_prompt_simvtx_bx_PV_EB_vtx",           	"h_noPU_prompt_simvtx_bx_PV_EB_vtx",           		10, 0, 10);
+  TH1D* h_noPU_prompt_simvtx_evtId_PV_EB_vtx         	= new TH1D("h_noPU_prompt_simvtx_evtId_PV_EB_vtx",          "h_noPU_prompt_simvtx_evtId_PV_EB_vtx",           	250, 0, 250);
+  TH1D* h_noPU_prompt_PV_EE_vtx         				= new TH1D("h_noPU_prompt_PV_EE_vtx",           			"h_noPU_prompt_PV_EE_vtx",           				nbin, 0, 10);
+  TH1D* h_noPU_prompt_SV_EE_vtx         				= new TH1D("h_noPU_prompt_SV_EE_vtx",            			"h_noPU_prompt_SV_EE_vtx",           				nbin, 0, 10);
+  TH1D* h_noPU_prompt_PU_EE_vtx         				= new TH1D("h_noPU_prompt_PU_EE_vtx",            			"h_noPU_prompt_PU_EE_vtx",           				nbin, 0, 10);
+  TH1D* h_noPU_prompt_fake_EE_vtx       				= new TH1D("h_noPU_prompt_fake_EE_vtx",          			"h_noPU_prompt_fake_EE_vtx",         				nbin, 0, 10);
+  TH1D* h_noPU_prompt_no_tErr_EE_vtx     				= new TH1D("h_noPU_prompt_no_tErr_EE_vtx",        			"h_noPU_prompt_no_tErr_EE_vtx",       				nbin, 0, 10);
+  TH1D* h_noPU_prompt_not_vtx_matched_EE_vtx     		= new TH1D("h_noPU_prompt_not_vtx_matched_EE_vtx",       	"h_noPU_prompt_not_vtx_matched_EE_vtx",       		nbin, 0, 10);
+  TH1D* h_noPU_prompt_bx_PV_EE_vtx         				= new TH1D("h_noPU_prompt_bx_PV_EE_vtx",           			"h_noPU_prompt_bx_PV_EE_vtx",           			10, 0, 10);
+  TH1D* h_noPU_prompt_evtId_PV_EE_vtx         			= new TH1D("h_noPU_prompt_evtId_PV_EE_vtx",           		"h_noPU_prompt_evtId_PV_EE_vtx",           			250, 0, 250);
+  TH1D* h_noPU_prompt_PVweight_PV_EE_vtx         		= new TH1D("h_noPU_prompt_PVweight_PV_EE_vtx",           	"h_noPU_prompt_PVweight_PV_EE_vtx",           		100, 0, 1);
+  TH1D* h_noPU_prompt_simvtx_bx_PV_EE_vtx         		= new TH1D("h_noPU_prompt_simvtx_bx_PV_EE_vtx",           	"h_noPU_prompt_simvtx_bx_PV_EE_vtx",           		10, 0, 10);
+  TH1D* h_noPU_prompt_simvtx_evtId_PV_EE_vtx         	= new TH1D("h_noPU_prompt_simvtx_evtId_PV_EE_vtx",          "h_noPU_prompt_simvtx_evtId_PV_EE_vtx",           	250, 0, 250);
     // nonprompt
-  TH1D* h_noPU_nonprompt_PV_EB_vtx         = new TH1D("h_noPU_nonprompt_PV_EB_vtx",           "h_noPU_nonprompt_PV_EB_vtx",           nbin, 0, 10);
-  TH1D* h_noPU_nonprompt_SV_EB_vtx         = new TH1D("h_noPU_nonprompt_SV_EB_vtx",           "h_noPU_nonprompt_SV_EB_vtx",           nbin, 0, 10);
-  TH1D* h_noPU_nonprompt_PU_EB_vtx         = new TH1D("h_noPU_nonprompt_PU_EB_vtx",           "h_noPU_nonprompt_PU_EB_vtx",           nbin, 0, 10);
-  TH1D* h_noPU_nonprompt_fake_EB_vtx       = new TH1D("h_noPU_nonprompt_fake_EB_vtx",         "h_noPU_nonprompt_fake_EB_vtx",         nbin, 0, 10);
-  TH1D* h_noPU_nonprompt_no_tErr_EB_vtx     = new TH1D("h_noPU_nonprompt_no_tErr_EB_vtx",       "h_noPU_nonprompt_no_tErr_EB_vtx",       nbin, 0, 10);
-  TH1D* h_noPU_nonprompt_not_vtx_matched_EB_vtx     = new TH1D("h_noPU_nonprompt_not_vtx_matched_EB_vtx",       "h_noPU_nonprompt_not_vtx_matched_EB_vtx",       nbin, 0, 10);
-  TH1D* h_noPU_nonprompt_bx_PV_EB_vtx         = new TH1D("h_noPU_nonprompt_bx_PV_EB_vtx",           "h_noPU_nonprompt_bx_PV_EB_vtx",           10, 0, 10);
-  TH1D* h_noPU_nonprompt_evtId_PV_EB_vtx         = new TH1D("h_noPU_nonprompt_evtId_PV_EB_vtx",           "h_noPU_nonprompt_evtId_PV_EB_vtx",           250, 0, 250);
-  TH1D* h_noPU_nonprompt_PVweight_PV_EB_vtx         = new TH1D("h_noPU_nonprompt_PVweight_PV_EB_vtx",           "h_noPU_nonprompt_PVweight_PV_EB_vtx",           100, 0, 1);
-  TH1D* h_noPU_nonprompt_simvtx_bx_PV_EB_vtx         = new TH1D("h_noPU_nonprompt_simvtx_bx_PV_EB_vtx",           "h_noPU_nonprompt_simvtx_bx_PV_EB_vtx",           10, 0, 10);
-  TH1D* h_noPU_nonprompt_simvtx_evtId_PV_EB_vtx         = new TH1D("h_noPU_nonprompt_simvtx_evtId_PV_EB_vtx",           "h_noPU_nonprompt_simvtx_evtId_PV_EB_vtx",           250, 0, 250);
-  TH1D* h_noPU_nonprompt_PV_EE_vtx         = new TH1D("h_noPU_nonprompt_PV_EE_vtx",           "h_noPU_nonprompt_PV_EE_vtx",           nbin, 0, 10);
-  TH1D* h_noPU_nonprompt_SV_EE_vtx         = new TH1D("h_noPU_nonprompt_SV_EE_vtx",           "h_noPU_nonprompt_SV_EE_vtx",           nbin, 0, 10);
-  TH1D* h_noPU_nonprompt_PU_EE_vtx         = new TH1D("h_noPU_nonprompt_PU_EE_vtx",           "h_noPU_nonprompt_PU_EE_vtx",           nbin, 0, 10);
-  TH1D* h_noPU_nonprompt_fake_EE_vtx       = new TH1D("h_noPU_nonprompt_fake_EE_vtx",         "h_noPU_nonprompt_fake_EE_vtx",         nbin, 0, 10);
-  TH1D* h_noPU_nonprompt_no_tErr_EE_vtx     = new TH1D("h_noPU_nonprompt_no_tErr_EE_vtx",       "h_noPU_nonprompt_no_tErr_EE_vtx",       nbin, 0, 10);
-  TH1D* h_noPU_nonprompt_not_vtx_matched_EE_vtx     = new TH1D("h_noPU_nonprompt_not_vtx_matched_EE_vtx",       "h_noPU_nonprompt_not_vtx_matched_EE_vtx",       nbin, 0, 10);
-  TH1D* h_noPU_nonprompt_bx_PV_EE_vtx         = new TH1D("h_noPU_nonprompt_bx_PV_EE_vtx",           "h_noPU_nonprompt_bx_PV_EE_vtx",           10, 0, 10);
-  TH1D* h_noPU_nonprompt_evtId_PV_EE_vtx         = new TH1D("h_noPU_nonprompt_evtId_PV_EE_vtx",           "h_noPU_nonprompt_evtId_PV_EE_vtx",           250, 0, 250);
-  TH1D* h_noPU_nonprompt_PVweight_PV_EE_vtx         = new TH1D("h_noPU_nonprompt_PVweight_PV_EE_vtx",           "h_noPU_nonprompt_PVweight_PV_EE_vtx",           100, 0, 1);
-  TH1D* h_noPU_nonprompt_simvtx_bx_PV_EE_vtx         = new TH1D("h_noPU_nonprompt_simvtx_bx_PV_EE_vtx",           "h_noPU_nonprompt_simvtx_bx_PV_EE_vtx",           10, 0, 10);
-  TH1D* h_noPU_nonprompt_simvtx_evtId_PV_EE_vtx         = new TH1D("h_noPU_nonprompt_simvtx_evtId_PV_EE_vtx",           "h_noPU_nonprompt_simvtx_evtId_PV_EE_vtx",           250, 0, 250);
+  TH1D* h_noPU_nonprompt_PV_EB_vtx         				= new TH1D("h_noPU_nonprompt_PV_EB_vtx",           			"h_noPU_nonprompt_PV_EB_vtx",           			nbin, 0, 10);
+  TH1D* h_noPU_nonprompt_SV_EB_vtx         				= new TH1D("h_noPU_nonprompt_SV_EB_vtx",           			"h_noPU_nonprompt_SV_EB_vtx",           			nbin, 0, 10);
+  TH1D* h_noPU_nonprompt_PU_EB_vtx         				= new TH1D("h_noPU_nonprompt_PU_EB_vtx",           			"h_noPU_nonprompt_PU_EB_vtx",           			nbin, 0, 10);
+  TH1D* h_noPU_nonprompt_fake_EB_vtx       				= new TH1D("h_noPU_nonprompt_fake_EB_vtx",         			"h_noPU_nonprompt_fake_EB_vtx",         			nbin, 0, 10);
+  TH1D* h_noPU_nonprompt_no_tErr_EB_vtx     			= new TH1D("h_noPU_nonprompt_no_tErr_EB_vtx",       		"h_noPU_nonprompt_no_tErr_EB_vtx",       			nbin, 0, 10);
+  TH1D* h_noPU_nonprompt_not_vtx_matched_EB_vtx     	= new TH1D("h_noPU_nonprompt_not_vtx_matched_EB_vtx",       "h_noPU_nonprompt_not_vtx_matched_EB_vtx",       	nbin, 0, 10);
+  TH1D* h_noPU_nonprompt_bx_PV_EB_vtx         			= new TH1D("h_noPU_nonprompt_bx_PV_EB_vtx",           		"h_noPU_nonprompt_bx_PV_EB_vtx",           			10, 0, 10);
+  TH1D* h_noPU_nonprompt_evtId_PV_EB_vtx         		= new TH1D("h_noPU_nonprompt_evtId_PV_EB_vtx",           	"h_noPU_nonprompt_evtId_PV_EB_vtx",           		250, 0, 250);
+  TH1D* h_noPU_nonprompt_PVweight_PV_EB_vtx         	= new TH1D("h_noPU_nonprompt_PVweight_PV_EB_vtx",           "h_noPU_nonprompt_PVweight_PV_EB_vtx",           	100, 0, 1);
+  TH1D* h_noPU_nonprompt_simvtx_bx_PV_EB_vtx         	= new TH1D("h_noPU_nonprompt_simvtx_bx_PV_EB_vtx",          "h_noPU_nonprompt_simvtx_bx_PV_EB_vtx",           	10, 0, 10);
+  TH1D* h_noPU_nonprompt_simvtx_evtId_PV_EB_vtx         = new TH1D("h_noPU_nonprompt_simvtx_evtId_PV_EB_vtx",       "h_noPU_nonprompt_simvtx_evtId_PV_EB_vtx",          250, 0, 250);
+  TH1D* h_noPU_nonprompt_PV_EE_vtx         				= new TH1D("h_noPU_nonprompt_PV_EE_vtx",           			"h_noPU_nonprompt_PV_EE_vtx",           			nbin, 0, 10);
+  TH1D* h_noPU_nonprompt_SV_EE_vtx         				= new TH1D("h_noPU_nonprompt_SV_EE_vtx",           			"h_noPU_nonprompt_SV_EE_vtx",           			nbin, 0, 10);
+  TH1D* h_noPU_nonprompt_PU_EE_vtx         				= new TH1D("h_noPU_nonprompt_PU_EE_vtx",           			"h_noPU_nonprompt_PU_EE_vtx",           			nbin, 0, 10);
+  TH1D* h_noPU_nonprompt_fake_EE_vtx       				= new TH1D("h_noPU_nonprompt_fake_EE_vtx",         			"h_noPU_nonprompt_fake_EE_vtx",         			nbin, 0, 10);
+  TH1D* h_noPU_nonprompt_no_tErr_EE_vtx     			= new TH1D("h_noPU_nonprompt_no_tErr_EE_vtx",       		"h_noPU_nonprompt_no_tErr_EE_vtx",       			nbin, 0, 10);
+  TH1D* h_noPU_nonprompt_not_vtx_matched_EE_vtx     	= new TH1D("h_noPU_nonprompt_not_vtx_matched_EE_vtx",       "h_noPU_nonprompt_not_vtx_matched_EE_vtx",       	nbin, 0, 10);
+  TH1D* h_noPU_nonprompt_bx_PV_EE_vtx        		 	= new TH1D("h_noPU_nonprompt_bx_PV_EE_vtx",           		"h_noPU_nonprompt_bx_PV_EE_vtx",           			10, 0, 10);
+  TH1D* h_noPU_nonprompt_evtId_PV_EE_vtx         		= new TH1D("h_noPU_nonprompt_evtId_PV_EE_vtx",           	"h_noPU_nonprompt_evtId_PV_EE_vtx",           		250, 0, 250);
+  TH1D* h_noPU_nonprompt_PVweight_PV_EE_vtx         	= new TH1D("h_noPU_nonprompt_PVweight_PV_EE_vtx",           "h_noPU_nonprompt_PVweight_PV_EE_vtx",           	100, 0, 1);
+  TH1D* h_noPU_nonprompt_simvtx_bx_PV_EE_vtx         	= new TH1D("h_noPU_nonprompt_simvtx_bx_PV_EE_vtx",          "h_noPU_nonprompt_simvtx_bx_PV_EE_vtx",           	10, 0, 10);
+  TH1D* h_noPU_nonprompt_simvtx_evtId_PV_EE_vtx         = new TH1D("h_noPU_nonprompt_simvtx_evtId_PV_EE_vtx",       "h_noPU_nonprompt_simvtx_evtId_PV_EE_vtx",          250, 0, 250);
 
 
 
-      ////////////////////////
-      //         2D         //
-      ////////////////////////
-  TH2D* h_PU200_prompt_PV_EB_2D = new TH2D("h_PU200_prompt_PV_EB_2D", "h_PU200_prompt_PV_EB_2D", nbin, 0, nbin, nbin, 0, nbin);
-  TH2D* h_PU200_prompt_PV_EE_2D = new TH2D("h_PU200_prompt_PV_EE_2D", "h_PU200_prompt_PV_EE_2D", nbin, 0, nbin, nbin, 0, nbin);
-  TH2D* h_PU200_nonprompt_PV_EB_2D = new TH2D("h_PU200_nonprompt_PV_EB_2D", "h_PU200_nonprompt_PV_EB_2D", nbin, 0, nbin, nbin, 0, nbin);
-  TH2D* h_PU200_nonprompt_PV_EE_2D = new TH2D("h_PU200_nonprompt_PV_EE_2D", "h_PU200_nonprompt_PV_EE_2D", nbin, 0, nbin, nbin, 0, nbin);
-  TH2D* h_noPU_prompt_PV_EB_2D = new TH2D("h_noPU_prompt_PV_EB_2D", "h_noPU_prompt_PV_EB_2D", nbin, 0, nbin, nbin, 0, nbin);
-  TH2D* h_noPU_prompt_PV_EE_2D = new TH2D("h_noPU_prompt_PV_EE_2D", "h_noPU_prompt_PV_EE_2D", nbin, 0, nbin, nbin, 0, nbin);
-  TH2D* h_noPU_nonprompt_PV_EB_2D = new TH2D("h_noPU_nonprompt_PV_EB_2D", "h_noPU_nonprompt_PV_EB_2D", nbin, 0, nbin, nbin, 0, nbin);
-  TH2D* h_noPU_nonprompt_PV_EE_2D = new TH2D("h_noPU_nonprompt_PV_EE_2D", "h_noPU_nonprompt_PV_EE_2D", nbin, 0, nbin, nbin, 0, nbin);
+  ////////////////////////
+  //         2D         //
+  ////////////////////////
+  TH2D* h_PU200_prompt_PV_EB_2D 				= new TH2D("h_PU200_prompt_PV_EB_2D",  	 	 	 	"h_PU200_prompt_PV_EB_2D", 		nbin, 0, nbin, nbin, 0, nbin);
+  TH2D* h_PU200_prompt_PV_EE_2D 				= new TH2D("h_PU200_prompt_PV_EE_2D",  	 	 	 	"h_PU200_prompt_PV_EE_2D", 		nbin, 0, nbin, nbin, 0, nbin);
+  TH2D* h_PU200_nonprompt_PV_EB_2D 				= new TH2D("h_PU200_nonprompt_PV_EB_2D", 	 	 	"h_PU200_nonprompt_PV_EB_2D", 	nbin, 0, nbin, nbin, 0, nbin);
+  TH2D* h_PU200_nonprompt_PV_EE_2D 				= new TH2D("h_PU200_nonprompt_PV_EE_2D",  	 	 	"h_PU200_nonprompt_PV_EE_2D", 	nbin, 0, nbin, nbin, 0, nbin);
+  TH2D* h_noPU_prompt_PV_EB_2D 					= new TH2D("h_noPU_prompt_PV_EB_2D",  	 	 	 	"h_noPU_prompt_PV_EB_2D", 		nbin, 0, nbin, nbin, 0, nbin);
+  TH2D* h_noPU_prompt_PV_EE_2D 					= new TH2D("h_noPU_prompt_PV_EE_2D",  	 	 	 	"h_noPU_prompt_PV_EE_2D", 		nbin, 0, nbin, nbin, 0, nbin);
+  TH2D* h_noPU_nonprompt_PV_EB_2D 				= new TH2D("h_noPU_nonprompt_PV_EB_2D",  	 	 	"h_noPU_nonprompt_PV_EB_2D", 	nbin, 0, nbin, nbin, 0, nbin);
+  TH2D* h_noPU_nonprompt_PV_EE_2D 				= new TH2D("h_noPU_nonprompt_PV_EE_2D",  	 	 	"h_noPU_nonprompt_PV_EE_2D", 	nbin, 0, nbin, nbin, 0, nbin);
 
-      ////////////////////////
-      //        tsim        //
-      ////////////////////////
-  TH1D* h_PU200_prompt_PV_vtx_time_EB = new TH1D("h_PU200_prompt_PV_vtx_time_EB", "h_PU200_prompt_PV_vtx_time_EB", 200,-1,1);
-  TH1D* h_PU200_prompt_PV_muon_time_EB = new TH1D("h_PU200_prompt_PV_muon_time_EB", "h_PU200_prompt_PV_muon_time_EB", 200,-1,1);
-  TH1D* h_PU200_prompt_PV_track_time_EB = new TH1D("h_PU200_prompt_PV_track_time_EB", "h_PU200_prompt_PV_track_time_EB", 200,-1,1);
-  TH1D* h_PU200_prompt_PU_track_time_EB = new TH1D("h_PU200_prompt_PU_track_time_EB", "h_PU200_prompt_PU_track_time_EB", 200,-1,1);
-  TH1D* h_PU200_prompt_SV_track_time_EB = new TH1D("h_PU200_prompt_SV_track_time_EB", "h_PU200_prompt_SV_track_time_EB", 200,-1,1);
-  TH1D* h_PU200_nonprompt_PV_vtx_time_EB = new TH1D("h_PU200_nonprompt_PV_vtx_time_EB", "h_PU200_nonprompt_PV_vtx_time_EB", 200,-1,1);
-  TH1D* h_PU200_nonprompt_PV_muon_time_EB = new TH1D("h_PU200_nonprompt_PV_muon_time_EB", "h_PU200_nonprompt_PV_muon_time_EB", 200,-1,1);
-  TH1D* h_PU200_nonprompt_PV_track_time_EB = new TH1D("h_PU200_nonprompt_PV_track_time_EB", "h_PU200_nonprompt_PV_track_time_EB", 200,-1,1);
-  TH1D* h_PU200_nonprompt_PU_track_time_EB = new TH1D("h_PU200_nonprompt_PU_track_time_EB", "h_PU200_nonprompt_PU_track_time_EB", 200,-1,1);
-  TH1D* h_PU200_nonprompt_SV_track_time_EB = new TH1D("h_PU200_nonprompt_SV_track_time_EB", "h_PU200_nonprompt_SV_track_time_EB", 200,-1,1);
-  TH1D* h_noPU_prompt_PV_vtx_time_EB = new TH1D("h_noPU_prompt_PV_vtx_time_EB", "h_noPU_prompt_PV_vtx_time_EB", 200,-1,1);
-  TH1D* h_noPU_prompt_PV_muon_time_EB = new TH1D("h_noPU_prompt_PV_muon_time_EB", "h_noPU_prompt_PV_muon_time_EB", 200,-1,1);
-  TH1D* h_noPU_prompt_PV_track_time_EB = new TH1D("h_noPU_prompt_PV_track_time_EB", "h_noPU_prompt_PV_track_time_EB", 200,-1,1);
-  TH1D* h_noPU_prompt_PU_track_time_EB = new TH1D("h_noPU_prompt_PU_track_time_EB", "h_noPU_prompt_PU_track_time_EB", 200,-1,1);
-  TH1D* h_noPU_prompt_SV_track_time_EB = new TH1D("h_noPU_prompt_SV_track_time_EB", "h_noPU_prompt_SV_track_time_EB", 200,-1,1);
-  TH1D* h_noPU_nonprompt_PV_vtx_time_EB = new TH1D("h_noPU_nonprompt_PV_vtx_time_EB", "h_noPU_nonprompt_PV_vtx_time_EB", 200,-1,1);
-  TH1D* h_noPU_nonprompt_PV_muon_time_EB = new TH1D("h_noPU_nonprompt_PV_muon_time_EB", "h_noPU_nonprompt_PV_muon_time_EB", 200,-1,1);
-  TH1D* h_noPU_nonprompt_PV_track_time_EB = new TH1D("h_noPU_nonprompt_PV_track_time_EB", "h_noPU_nonprompt_PV_track_time_EB", 200,-1,1);
-  TH1D* h_noPU_nonprompt_PU_track_time_EB = new TH1D("h_noPU_nonprompt_PU_track_time_EB", "h_noPU_nonprompt_PU_track_time_EB", 200,-1,1);
-  TH1D* h_noPU_nonprompt_SV_track_time_EB = new TH1D("h_noPU_nonprompt_SV_track_time_EB", "h_noPU_nonprompt_SV_track_time_EB", 200,-1,1);
+  ////////////////////////
+  //        tsim        //
+  ////////////////////////
+  TH1D* h_PU200_prompt_PV_vtx_time_EB 			= new TH1D("h_PU200_prompt_PV_vtx_time_EB",  	 	"h_PU200_prompt_PV_vtx_time_EB",  	 	200,-1,1);
+  TH1D* h_PU200_prompt_PV_muon_time_EB 			= new TH1D("h_PU200_prompt_PV_muon_time_EB",  	 	"h_PU200_prompt_PV_muon_time_EB",  	 	200,-1,1);
+  TH1D* h_PU200_prompt_PV_track_time_EB 		= new TH1D("h_PU200_prompt_PV_track_time_EB",  	 	"h_PU200_prompt_PV_track_time_EB",  	200,-1,1);
+  TH1D* h_PU200_prompt_PU_track_time_EB 		= new TH1D("h_PU200_prompt_PU_track_time_EB",  	 	"h_PU200_prompt_PU_track_time_EB",  	200,-1,1);
+  TH1D* h_PU200_prompt_SV_track_time_EB 		= new TH1D("h_PU200_prompt_SV_track_time_EB",  	 	"h_PU200_prompt_SV_track_time_EB",  	200,-1,1);
+  TH1D* h_PU200_nonprompt_PV_vtx_time_EB 		= new TH1D("h_PU200_nonprompt_PV_vtx_time_EB",  	"h_PU200_nonprompt_PV_vtx_time_EB",  	200,-1,1);
+  TH1D* h_PU200_nonprompt_PV_muon_time_EB 		= new TH1D("h_PU200_nonprompt_PV_muon_time_EB",  	"h_PU200_nonprompt_PV_muon_time_EB",  	200,-1,1);
+  TH1D* h_PU200_nonprompt_PV_track_time_EB 		= new TH1D("h_PU200_nonprompt_PV_track_time_EB",  	"h_PU200_nonprompt_PV_track_time_EB",  	200,-1,1);
+  TH1D* h_PU200_nonprompt_PU_track_time_EB 		= new TH1D("h_PU200_nonprompt_PU_track_time_EB",  	"h_PU200_nonprompt_PU_track_time_EB",  	200,-1,1);
+  TH1D* h_PU200_nonprompt_SV_track_time_EB 		= new TH1D("h_PU200_nonprompt_SV_track_time_EB",  	"h_PU200_nonprompt_SV_track_time_EB",  	200,-1,1);
+  TH1D* h_noPU_prompt_PV_vtx_time_EB 			= new TH1D("h_noPU_prompt_PV_vtx_time_EB",  	 	"h_noPU_prompt_PV_vtx_time_EB",  	 	200,-1,1);
+  TH1D* h_noPU_prompt_PV_muon_time_EB 			= new TH1D("h_noPU_prompt_PV_muon_time_EB",  	 	"h_noPU_prompt_PV_muon_time_EB",  	 	200,-1,1);
+  TH1D* h_noPU_prompt_PV_track_time_EB 			= new TH1D("h_noPU_prompt_PV_track_time_EB",  	 	"h_noPU_prompt_PV_track_time_EB",  	 	200,-1,1);
+  TH1D* h_noPU_prompt_PU_track_time_EB 			= new TH1D("h_noPU_prompt_PU_track_time_EB",  	 	"h_noPU_prompt_PU_track_time_EB",  	 	200,-1,1);
+  TH1D* h_noPU_prompt_SV_track_time_EB 			= new TH1D("h_noPU_prompt_SV_track_time_EB",  	 	"h_noPU_prompt_SV_track_time_EB",  	 	200,-1,1);
+  TH1D* h_noPU_nonprompt_PV_vtx_time_EB 		= new TH1D("h_noPU_nonprompt_PV_vtx_time_EB",  	 	"h_noPU_nonprompt_PV_vtx_time_EB",  	200,-1,1);
+  TH1D* h_noPU_nonprompt_PV_muon_time_EB 		= new TH1D("h_noPU_nonprompt_PV_muon_time_EB", 		"h_noPU_nonprompt_PV_muon_time_EB",  	200,-1,1);
+  TH1D* h_noPU_nonprompt_PV_track_time_EB 		= new TH1D("h_noPU_nonprompt_PV_track_time_EB", 	"h_noPU_nonprompt_PV_track_time_EB",  	200,-1,1);
+  TH1D* h_noPU_nonprompt_PU_track_time_EB 		= new TH1D("h_noPU_nonprompt_PU_track_time_EB", 	"h_noPU_nonprompt_PU_track_time_EB",  	200,-1,1);
+  TH1D* h_noPU_nonprompt_SV_track_time_EB 		= new TH1D("h_noPU_nonprompt_SV_track_time_EB", 	"h_noPU_nonprompt_SV_track_time_EB",  	200,-1,1);
   
-  TH1D* h_PU200_prompt_PV_vtx_time_EE = new TH1D("h_PU200_prompt_PV_vtx_time_EE", "h_PU200_prompt_PV_vtx_time_EE", 200,-1,1);
-  TH1D* h_PU200_prompt_PV_muon_time_EE = new TH1D("h_PU200_prompt_PV_muon_time_EE", "h_PU200_prompt_PV_muon_time_EE", 200,-1,1);
-  TH1D* h_PU200_prompt_PV_track_time_EE = new TH1D("h_PU200_prompt_PV_track_time_EE", "h_PU200_prompt_PV_track_time_EE", 200,-1,1);
-  TH1D* h_PU200_prompt_PU_track_time_EE = new TH1D("h_PU200_prompt_PU_track_time_EE", "h_PU200_prompt_PU_track_time_EE", 200,-1,1);
-  TH1D* h_PU200_prompt_SV_track_time_EE = new TH1D("h_PU200_prompt_SV_track_time_EE", "h_PU200_prompt_SV_track_time_EE", 200,-1,1);
-  TH1D* h_PU200_nonprompt_PV_vtx_time_EE = new TH1D("h_PU200_nonprompt_PV_vtx_time_EE", "h_PU200_nonprompt_PV_vtx_time_EE", 200,-1,1);
-  TH1D* h_PU200_nonprompt_PV_muon_time_EE = new TH1D("h_PU200_nonprompt_PV_muon_time_EE", "h_PU200_nonprompt_PV_muon_time_EE", 200,-1,1);
-  TH1D* h_PU200_nonprompt_PV_track_time_EE = new TH1D("h_PU200_nonprompt_PV_track_time_EE", "h_PU200_nonprompt_PV_track_time_EE", 200,-1,1);
-  TH1D* h_PU200_nonprompt_PU_track_time_EE = new TH1D("h_PU200_nonprompt_PU_track_time_EE", "h_PU200_nonprompt_PU_track_time_EE", 200,-1,1);
-  TH1D* h_PU200_nonprompt_SV_track_time_EE = new TH1D("h_PU200_nonprompt_SV_track_time_EE", "h_PU200_nonprompt_SV_track_time_EE", 200,-1,1);
-  TH1D* h_noPU_prompt_PV_vtx_time_EE = new TH1D("h_noPU_prompt_PV_vtx_time_EE", "h_noPU_prompt_PV_vtx_time_EE", 200,-1,1);
-  TH1D* h_noPU_prompt_PV_muon_time_EE = new TH1D("h_noPU_prompt_PV_muon_time_EE", "h_noPU_prompt_PV_muon_time_EE", 200,-1,1);
-  TH1D* h_noPU_prompt_PV_track_time_EE = new TH1D("h_noPU_prompt_PV_track_time_EE", "h_noPU_prompt_PV_track_time_EE", 200,-1,1);
-  TH1D* h_noPU_prompt_PU_track_time_EE = new TH1D("h_noPU_prompt_PU_track_time_EE", "h_noPU_prompt_PU_track_time_EE", 200,-1,1);
-  TH1D* h_noPU_prompt_SV_track_time_EE = new TH1D("h_noPU_prompt_SV_track_time_EE", "h_noPU_prompt_SV_track_time_EE", 200,-1,1);
-  TH1D* h_noPU_nonprompt_PV_vtx_time_EE = new TH1D("h_noPU_nonprompt_PV_vtx_time_EE", "h_noPU_nonprompt_PV_vtx_time_EE", 200,-1,1);
-  TH1D* h_noPU_nonprompt_PV_muon_time_EE = new TH1D("h_noPU_nonprompt_PV_muon_time_EE", "h_noPU_nonprompt_PV_muon_time_EE", 200,-1,1);
-  TH1D* h_noPU_nonprompt_PV_track_time_EE = new TH1D("h_noPU_nonprompt_PV_track_time_EE", "h_noPU_nonprompt_PV_track_time_EE", 200,-1,1);
-  TH1D* h_noPU_nonprompt_PU_track_time_EE = new TH1D("h_noPU_nonprompt_PU_track_time_EE", "h_noPU_nonprompt_PU_track_time_EE", 200,-1,1);
-  TH1D* h_noPU_nonprompt_SV_track_time_EE = new TH1D("h_noPU_nonprompt_SV_track_time_EE", "h_noPU_nonprompt_SV_track_time_EE", 200,-1,1);
+  TH1D* h_PU200_prompt_PV_vtx_time_EE 			= new TH1D("h_PU200_prompt_PV_vtx_time_EE", 		"h_PU200_prompt_PV_vtx_time_EE", 		200,-1,1);
+  TH1D* h_PU200_prompt_PV_muon_time_EE 			= new TH1D("h_PU200_prompt_PV_muon_time_EE", 		"h_PU200_prompt_PV_muon_time_EE", 		200,-1,1);
+  TH1D* h_PU200_prompt_PV_track_time_EE 		= new TH1D("h_PU200_prompt_PV_track_time_EE", 		"h_PU200_prompt_PV_track_time_EE", 		200,-1,1);
+  TH1D* h_PU200_prompt_PU_track_time_EE 		= new TH1D("h_PU200_prompt_PU_track_time_EE", 		"h_PU200_prompt_PU_track_time_EE", 		200,-1,1);
+  TH1D* h_PU200_prompt_SV_track_time_EE 		= new TH1D("h_PU200_prompt_SV_track_time_EE", 		"h_PU200_prompt_SV_track_time_EE", 		200,-1,1);
+  TH1D* h_PU200_nonprompt_PV_vtx_time_EE 		= new TH1D("h_PU200_nonprompt_PV_vtx_time_EE", 		"h_PU200_nonprompt_PV_vtx_time_EE", 	200,-1,1);
+  TH1D* h_PU200_nonprompt_PV_muon_time_EE 		= new TH1D("h_PU200_nonprompt_PV_muon_time_EE", 	"h_PU200_nonprompt_PV_muon_time_EE", 	200,-1,1);
+  TH1D* h_PU200_nonprompt_PV_track_time_EE 		= new TH1D("h_PU200_nonprompt_PV_track_time_EE", 	"h_PU200_nonprompt_PV_track_time_EE", 	200,-1,1);
+  TH1D* h_PU200_nonprompt_PU_track_time_EE 		= new TH1D("h_PU200_nonprompt_PU_track_time_EE", 	"h_PU200_nonprompt_PU_track_time_EE", 	200,-1,1);
+  TH1D* h_PU200_nonprompt_SV_track_time_EE 		= new TH1D("h_PU200_nonprompt_SV_track_time_EE", 	"h_PU200_nonprompt_SV_track_time_EE", 	200,-1,1);
+  TH1D* h_noPU_prompt_PV_vtx_time_EE 			= new TH1D("h_noPU_prompt_PV_vtx_time_EE", 			"h_noPU_prompt_PV_vtx_time_EE", 		200,-1,1);
+  TH1D* h_noPU_prompt_PV_muon_time_EE 			= new TH1D("h_noPU_prompt_PV_muon_time_EE", 		"h_noPU_prompt_PV_muon_time_EE", 		200,-1,1);
+  TH1D* h_noPU_prompt_PV_track_time_EE 			= new TH1D("h_noPU_prompt_PV_track_time_EE", 		"h_noPU_prompt_PV_track_time_EE", 		200,-1,1);
+  TH1D* h_noPU_prompt_PU_track_time_EE 			= new TH1D("h_noPU_prompt_PU_track_time_EE", 		"h_noPU_prompt_PU_track_time_EE", 		200,-1,1);
+  TH1D* h_noPU_prompt_SV_track_time_EE 			= new TH1D("h_noPU_prompt_SV_track_time_EE", 		"h_noPU_prompt_SV_track_time_EE", 		200,-1,1);
+  TH1D* h_noPU_nonprompt_PV_vtx_time_EE 		= new TH1D("h_noPU_nonprompt_PV_vtx_time_EE", 		"h_noPU_nonprompt_PV_vtx_time_EE", 		200,-1,1);
+  TH1D* h_noPU_nonprompt_PV_muon_time_EE 		= new TH1D("h_noPU_nonprompt_PV_muon_time_EE", 		"h_noPU_nonprompt_PV_muon_time_EE", 	200,-1,1);
+  TH1D* h_noPU_nonprompt_PV_track_time_EE 		= new TH1D("h_noPU_nonprompt_PV_track_time_EE", 	"h_noPU_nonprompt_PV_track_time_EE", 	200,-1,1);
+  TH1D* h_noPU_nonprompt_PU_track_time_EE 		= new TH1D("h_noPU_nonprompt_PU_track_time_EE", 	"h_noPU_nonprompt_PU_track_time_EE", 	200,-1,1);
+  TH1D* h_noPU_nonprompt_SV_track_time_EE 		= new TH1D("h_noPU_nonprompt_SV_track_time_EE", 	"h_noPU_nonprompt_SV_track_time_EE", 	200,-1,1);
 
 
-
-
+  // Flag
   bool flag_isMuon            = false;
   bool flag_isPFMuon          = false;
   bool flag_isGlobalMuon      = false;
@@ -598,18 +597,15 @@ void draw_track_type_sigma_ntuple() {
 
 
   bool flag_muon_status=true;
-  bool flag_muon_pv_dz=false,    flag_muon_pv_dxy=false;
   bool flag_track_pv_dz=true;
   bool flag_vtx_matching=true, flag_vtx_selectedLV=true;
+  bool flag_muon_pv_dz=false,    flag_muon_pv_dxy=false;
 
   bool flag_muon_PVweight=false;
   bool flag_track_PVweight=false;
 
   bool flag_2sigma_PV=false;
   bool flag_2sigma_PV_vtx=false;
-
-  float dtsig_cut=0, dt_cut=0;
-  float dtsig_cut_vtx=0, dt_cut_vtx=0;
 
   // PARAM
   float muon_PVweight_cut=0.000000000000001;
@@ -621,11 +617,15 @@ void draw_track_type_sigma_ntuple() {
   float track_pv_dz_cut_EB=0.2;
   float track_pv_dz_cut_EE=0.2;
 
+
+  float dtsig_cut=0, 	 dt_cut=0;
+  float dtsig_cut_vtx=0, dt_cut_vtx=0;
+
   //////////////////////
   //// PU200 prompt ////
   //////////////////////
 
-  int n_muon_PU200_prompt_EB=0, n_muon_PU200_prompt_EE=0;
+  int n_muon_PU200_prompt_EB=0, 		 n_muon_PU200_prompt_EE=0;
   int n_status_failed_PU200_prompt_EB=0, n_status_failed_PU200_prompt_EE=0;
 
   int num_muon_PU200_prompt_EB=0,  num_muon_mva_PU200_prompt_EB=0,  num_muon_mva_cut_PU200_prompt_EB=0,  num_muon_time_PU200_prompt_EB=0,  num_muon_time_err_PU200_prompt_EB=0,  num_muon_time_err_i_PU200_prompt_EB=0;
@@ -634,8 +634,8 @@ void draw_track_type_sigma_ntuple() {
   int num_track_PU200_prompt_EE=0, num_track_mva_PU200_prompt_EE=0, num_track_mva_cut_PU200_prompt_EE=0, num_track_time_PU200_prompt_EE=0, num_track_time_err_PU200_prompt_EE=0, num_track_time_err_i_PU200_prompt_EE=0;
   int num_vtx_PU200_prompt_EB=0,   num_vtx_time_PU200_prompt_EB=0,  num_vtx_time_err_PU200_prompt_EB=0;
   int num_vtx_PU200_prompt_EE=0,   num_vtx_time_PU200_prompt_EE=0,  num_vtx_time_err_PU200_prompt_EE=0;
-  int num_both_muon_track_time_err_PU200_prompt_EB=0, num_both_muon_track_time_err_PU200_prompt_EE=0;
-  int num_both_vtx_track_time_err_PU200_prompt_EB=0, num_both_vtx_track_time_err_PU200_prompt_EE=0;
+  int num_both_muon_track_time_err_PU200_prompt_EB=0, 				num_both_muon_track_time_err_PU200_prompt_EE=0;
+  int num_both_vtx_track_time_err_PU200_prompt_EB=0, 				num_both_vtx_track_time_err_PU200_prompt_EE=0;
 
   // event loop
   for(int ievt=0; ievt<ch_PU200_prompt->GetEntries(); ievt++) {
@@ -1063,8 +1063,8 @@ void draw_track_type_sigma_ntuple() {
   int num_track_PU200_nonprompt_EE=0, num_track_mva_PU200_nonprompt_EE=0, num_track_mva_cut_PU200_nonprompt_EE=0, num_track_time_PU200_nonprompt_EE=0, num_track_time_err_PU200_nonprompt_EE=0, num_track_time_err_i_PU200_nonprompt_EE=0;
   int num_vtx_PU200_nonprompt_EB=0,   num_vtx_time_PU200_nonprompt_EB=0,  num_vtx_time_err_PU200_nonprompt_EB=0;
   int num_vtx_PU200_nonprompt_EE=0,   num_vtx_time_PU200_nonprompt_EE=0,  num_vtx_time_err_PU200_nonprompt_EE=0;
-  int num_both_muon_track_time_err_PU200_nonprompt_EB=0, num_both_muon_track_time_err_PU200_nonprompt_EE=0;
-  int num_both_vtx_track_time_err_PU200_nonprompt_EB=0, num_both_vtx_track_time_err_PU200_nonprompt_EE=0;
+  int num_both_muon_track_time_err_PU200_nonprompt_EB=0, 				  num_both_muon_track_time_err_PU200_nonprompt_EE=0;
+  int num_both_vtx_track_time_err_PU200_nonprompt_EB=0, 				  num_both_vtx_track_time_err_PU200_nonprompt_EE=0;
 
   // event loop
   for(int ievt=0; ievt<ch_PU200_nonprompt->GetEntries(); ievt++) {
@@ -1473,8 +1473,8 @@ void draw_track_type_sigma_ntuple() {
   int num_track_noPU_prompt_EE=0, num_track_mva_noPU_prompt_EE=0, num_track_mva_cut_noPU_prompt_EE=0, num_track_time_noPU_prompt_EE=0, num_track_time_err_noPU_prompt_EE=0, num_track_time_err_i_noPU_prompt_EE=0;
   int num_vtx_noPU_prompt_EB=0,   num_vtx_time_noPU_prompt_EB=0,  num_vtx_time_err_noPU_prompt_EB=0;
   int num_vtx_noPU_prompt_EE=0,   num_vtx_time_noPU_prompt_EE=0,  num_vtx_time_err_noPU_prompt_EE=0;
-  int num_both_muon_track_time_err_noPU_prompt_EB=0, num_both_muon_track_time_err_noPU_prompt_EE=0;
-  int num_both_vtx_track_time_err_noPU_prompt_EB=0, num_both_vtx_track_time_err_noPU_prompt_EE=0;
+  int num_both_muon_track_time_err_noPU_prompt_EB=0, 			  num_both_muon_track_time_err_noPU_prompt_EE=0;
+  int num_both_vtx_track_time_err_noPU_prompt_EB=0, 			  num_both_vtx_track_time_err_noPU_prompt_EE=0;
 
   // event loop
   for(int ievt=0; ievt<ch_noPU_prompt->GetEntries(); ievt++) {
@@ -1883,8 +1883,8 @@ void draw_track_type_sigma_ntuple() {
   int num_track_noPU_nonprompt_EE=0, num_track_mva_noPU_nonprompt_EE=0, num_track_mva_cut_noPU_nonprompt_EE=0, num_track_time_noPU_nonprompt_EE=0, num_track_time_err_noPU_nonprompt_EE=0, num_track_time_err_i_noPU_nonprompt_EE=0;
   int num_vtx_noPU_nonprompt_EB=0,   num_vtx_time_noPU_nonprompt_EB=0,  num_vtx_time_err_noPU_nonprompt_EB=0;
   int num_vtx_noPU_nonprompt_EE=0,   num_vtx_time_noPU_nonprompt_EE=0,  num_vtx_time_err_noPU_nonprompt_EE=0;
-  int num_both_muon_track_time_err_noPU_nonprompt_EB=0, num_both_muon_track_time_err_noPU_nonprompt_EE=0;
-  int num_both_vtx_track_time_err_noPU_nonprompt_EB=0, num_both_vtx_track_time_err_noPU_nonprompt_EE=0;
+  int num_both_muon_track_time_err_noPU_nonprompt_EB=0, 				num_both_muon_track_time_err_noPU_nonprompt_EE=0;
+  int num_both_vtx_track_time_err_noPU_nonprompt_EB=0, 					num_both_vtx_track_time_err_noPU_nonprompt_EE=0;
 
   // event loop
   for(int ievt=0; ievt<ch_noPU_nonprompt->GetEntries(); ievt++) {
@@ -3499,7 +3499,6 @@ void draw_track_type_sigma_ntuple() {
   c_SV_track_time_PU200_nonprompt_EE->SetLeftMargin(0.12);
   h_PU200_nonprompt_SV_track_time_EE->SetTitle(";t^{reco}_{track} - t^{sim}_{track} (ns);Counts");
   h_PU200_nonprompt_SV_track_time_EE->SetLineColor(kBlack);
-  h_PU200_nonprompt_SV_track_time_EE->SetLineWidth(2);
   h_PU200_nonprompt_SV_track_time_EE->Draw();
   c_SV_track_time_PU200_nonprompt_EE->Print("plots/ntuple/SV_track_time_PU200_nonprompt_EE.pdf");
   cout << "PU200 track: " << h_PU200_nonprompt_SV_track_time_EE->Integral(0,-1) << endl;

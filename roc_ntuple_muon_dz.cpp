@@ -81,26 +81,26 @@ void draw_iso_efficiency_ntuple_dz() {
 
   // muon track
   // PU200
-  TChain* ch_PU200_prompt = new TChain("mtdMuonIsoValid/muonIso");
+  TChain* ch_PU200_prompt 	 = new TChain("mtdMuonIsoValid/muonIso");
   TChain* ch_PU200_nonprompt = new TChain("mtdMuonIsoValid/muonIso");
-  ch_PU200_prompt->Add(Form("data/%s", ntuple_PU200_prompt.Data()));
+  ch_PU200_prompt->Add(Form("data/%s", 	  ntuple_PU200_prompt.Data()));
   ch_PU200_nonprompt->Add(Form("data/%s", ntuple_PU200_nonprompt.Data()));
   // noPU
-  TChain* ch_noPU_prompt = new TChain("mtdMuonIsoValid/muonIso");
+  TChain* ch_noPU_prompt 	= new TChain("mtdMuonIsoValid/muonIso");
   TChain* ch_noPU_nonprompt = new TChain("mtdMuonIsoValid/muonIso");
-  ch_noPU_prompt->Add(Form("data/%s", ntuple_noPU_prompt.Data()));
+  ch_noPU_prompt->Add(Form("data/%s", 	 ntuple_noPU_prompt.Data()));
   ch_noPU_nonprompt->Add(Form("data/%s", ntuple_noPU_nonprompt.Data()));
 
   // vertex
   // PU200
-  TChain* ch_PU200_prompt_vtx = new TChain("mtdMuonIsoValid/muonIso");
+  TChain* ch_PU200_prompt_vtx 	 = new TChain("mtdMuonIsoValid/muonIso");
   TChain* ch_PU200_nonprompt_vtx = new TChain("mtdMuonIsoValid/muonIso");
-  ch_PU200_prompt_vtx->Add(Form("data/%s", ntuple_PU200_prompt_vtx.Data()));
+  ch_PU200_prompt_vtx->Add(Form("data/%s", 	  ntuple_PU200_prompt_vtx.Data()));
   ch_PU200_nonprompt_vtx->Add(Form("data/%s", ntuple_PU200_nonprompt_vtx.Data()));
   // noPU
-  TChain* ch_noPU_prompt_vtx = new TChain("mtdMuonIsoValid/muonIso");
+  TChain* ch_noPU_prompt_vtx 	= new TChain("mtdMuonIsoValid/muonIso");
   TChain* ch_noPU_nonprompt_vtx = new TChain("mtdMuonIsoValid/muonIso");
-  ch_noPU_prompt_vtx->Add(Form("data/%s", ntuple_noPU_prompt_vtx.Data()));
+  ch_noPU_prompt_vtx->Add(Form("data/%s", 	 ntuple_noPU_prompt_vtx.Data()));
   ch_noPU_nonprompt_vtx->Add(Form("data/%s", ntuple_noPU_nonprompt_vtx.Data()));
 
   int nbin=1000;
@@ -128,43 +128,43 @@ void draw_iso_efficiency_ntuple_dz() {
 
 
   // PU200
-  ch_PU200_prompt->SetBranchAddress("muon_pt_",        					&muon_pt_);
-  ch_PU200_prompt->SetBranchAddress("muon_time_",      					&muon_time_);
-  ch_PU200_prompt->SetBranchAddress("muon_time_err_",  					&muon_time_err_);
-  ch_PU200_prompt->SetBranchAddress("muon_prompt_",    					&muon_prompt_);
-  ch_PU200_prompt->SetBranchAddress("muon_isBarrel_",  					&muon_isBarrel_);
-  ch_PU200_prompt->SetBranchAddress("muon_status_",    					&muon_status_);
-  ch_PU200_prompt->SetBranchAddress("muon_pv_dz_",      				&muon_pv_dz_);
-  ch_PU200_prompt->SetBranchAddress("muon_pv_dxy_",     				&muon_pv_dxy_);
-  ch_PU200_prompt->SetBranchAddress("muon_vz_",       					&muon_vz_);
-  ch_PU200_prompt->SetBranchAddress("muon_PVweight_", 					&muon_PVweight_);
-  ch_PU200_prompt->SetBranchAddress("track_pt_",      					&track_pt_);
-  ch_PU200_prompt->SetBranchAddress("track_time_",     					&track_time_);
-  ch_PU200_prompt->SetBranchAddress("track_time_err_", 					&track_time_err_);
-  ch_PU200_prompt->SetBranchAddress("track_vz_",       					&track_vz_);
-  ch_PU200_prompt->SetBranchAddress("track_pv_dz_",    					&track_pv_dz_);
-  ch_PU200_prompt->SetBranchAddress("track_PVweight_", 					&track_PVweight_);
-  ch_PU200_prompt->SetBranchAddress("selectedLV_",     					&selectedLV_);
-  ch_PU200_prompt->SetBranchAddress("match_vtx_sim2reco_",     			&match_vtx_sim2reco_);
-  ch_PU200_prompt->SetBranchAddress("match_vtx_reco2sim_",     			&match_vtx_reco2sim_);
-  ch_PU200_prompt->SetBranchAddress("vtx_index_",      					&vtx_index_);
-  ch_PU200_prompt->SetBranchAddress("recovtx_sim_",    					&recovtx_sim_);
-  ch_PU200_prompt->SetBranchAddress("simvtx_reco_",    					&simvtx_reco_);
-  ch_PU200_prompt->SetBranchAddress("simvtx_bx_",      					&simvtx_bx_);
-  ch_PU200_prompt->SetBranchAddress("simvtx_evtId_",   					&simvtx_evtId_);
-  ch_PU200_prompt->SetBranchAddress("recovtx_original_index_", 			&recovtx_original_index_);
-  ch_PU200_prompt->SetBranchAddress("muon_isMuon_",    					&muon_isMuon_);
-  ch_PU200_prompt->SetBranchAddress("muon_isPFMuon_",    				&muon_isPFMuon_);
-  ch_PU200_prompt->SetBranchAddress("muon_isGlobalMuon_",    			&muon_isGlobalMuon_);
-  ch_PU200_prompt->SetBranchAddress("muon_isTrackerMuon_",    			&muon_isTrackerMuon_);
-  ch_PU200_prompt->SetBranchAddress("muon_isStandAloneMuon_",    		&muon_isStandAloneMuon_);
-  ch_PU200_prompt->SetBranchAddress("muon_isCutBasedIdLoose_",    		&muon_isCutBasedIdLoose_);
-  ch_PU200_prompt->SetBranchAddress("muon_isLooseMuon_",    			&muon_isLooseMuon_);
-  ch_PU200_prompt->SetBranchAddress("track_genMatched_",    			&track_genMatched_);
-  ch_PU200_prompt->SetBranchAddress("track_evtId_",    					&track_evtId_);
-  ch_PU200_prompt->SetBranchAddress("track_bx_",       					&track_bx_);
-  ch_PU200_prompt->SetBranchAddress("vtx_time_",       					&vtx_time_);
-  ch_PU200_prompt->SetBranchAddress("vtx_time_err_",       				&vtx_time_err_);
+  ch_PU200_prompt->SetBranchAddress("muon_pt_",        						&muon_pt_);
+  ch_PU200_prompt->SetBranchAddress("muon_time_",      						&muon_time_);
+  ch_PU200_prompt->SetBranchAddress("muon_time_err_",  						&muon_time_err_);
+  ch_PU200_prompt->SetBranchAddress("muon_prompt_",    						&muon_prompt_);
+  ch_PU200_prompt->SetBranchAddress("muon_isBarrel_",  						&muon_isBarrel_);
+  ch_PU200_prompt->SetBranchAddress("muon_status_",    						&muon_status_);
+  ch_PU200_prompt->SetBranchAddress("muon_pv_dz_",      					&muon_pv_dz_);
+  ch_PU200_prompt->SetBranchAddress("muon_pv_dxy_",     					&muon_pv_dxy_);
+  ch_PU200_prompt->SetBranchAddress("muon_vz_",       						&muon_vz_);
+  ch_PU200_prompt->SetBranchAddress("muon_PVweight_", 						&muon_PVweight_);
+  ch_PU200_prompt->SetBranchAddress("track_pt_",      						&track_pt_);
+  ch_PU200_prompt->SetBranchAddress("track_time_",     						&track_time_);
+  ch_PU200_prompt->SetBranchAddress("track_time_err_", 						&track_time_err_);
+  ch_PU200_prompt->SetBranchAddress("track_vz_",       						&track_vz_);
+  ch_PU200_prompt->SetBranchAddress("track_pv_dz_",    						&track_pv_dz_);
+  ch_PU200_prompt->SetBranchAddress("track_PVweight_", 						&track_PVweight_);
+  ch_PU200_prompt->SetBranchAddress("selectedLV_",     						&selectedLV_);
+  ch_PU200_prompt->SetBranchAddress("match_vtx_sim2reco_",     				&match_vtx_sim2reco_);
+  ch_PU200_prompt->SetBranchAddress("match_vtx_reco2sim_",     				&match_vtx_reco2sim_);
+  ch_PU200_prompt->SetBranchAddress("vtx_index_",      						&vtx_index_);
+  ch_PU200_prompt->SetBranchAddress("recovtx_sim_",    						&recovtx_sim_);
+  ch_PU200_prompt->SetBranchAddress("simvtx_reco_",    						&simvtx_reco_);
+  ch_PU200_prompt->SetBranchAddress("simvtx_bx_",      						&simvtx_bx_);
+  ch_PU200_prompt->SetBranchAddress("simvtx_evtId_",   						&simvtx_evtId_);
+  ch_PU200_prompt->SetBranchAddress("recovtx_original_index_", 				&recovtx_original_index_);
+  ch_PU200_prompt->SetBranchAddress("muon_isMuon_",    						&muon_isMuon_);
+  ch_PU200_prompt->SetBranchAddress("muon_isPFMuon_",    					&muon_isPFMuon_);
+  ch_PU200_prompt->SetBranchAddress("muon_isGlobalMuon_",    				&muon_isGlobalMuon_);
+  ch_PU200_prompt->SetBranchAddress("muon_isTrackerMuon_",    				&muon_isTrackerMuon_);
+  ch_PU200_prompt->SetBranchAddress("muon_isStandAloneMuon_",    			&muon_isStandAloneMuon_);
+  ch_PU200_prompt->SetBranchAddress("muon_isCutBasedIdLoose_",    			&muon_isCutBasedIdLoose_);
+  ch_PU200_prompt->SetBranchAddress("muon_isLooseMuon_",    				&muon_isLooseMuon_);
+  ch_PU200_prompt->SetBranchAddress("track_genMatched_",    				&track_genMatched_);
+  ch_PU200_prompt->SetBranchAddress("track_evtId_",    						&track_evtId_);
+  ch_PU200_prompt->SetBranchAddress("track_bx_",       						&track_bx_);
+  ch_PU200_prompt->SetBranchAddress("vtx_time_",       						&vtx_time_);
+  ch_PU200_prompt->SetBranchAddress("vtx_time_err_",       					&vtx_time_err_);
 
   ch_PU200_nonprompt->SetBranchAddress("muon_pt_",        					&muon_pt_);
   ch_PU200_nonprompt->SetBranchAddress("muon_time_",      					&muon_time_);
@@ -205,43 +205,43 @@ void draw_iso_efficiency_ntuple_dz() {
   ch_PU200_nonprompt->SetBranchAddress("vtx_time_err_",       				&vtx_time_err_);
 
   // noPU
-  ch_noPU_prompt->SetBranchAddress("muon_pt_",        					&muon_pt_);
-  ch_noPU_prompt->SetBranchAddress("muon_time_",      					&muon_time_);
-  ch_noPU_prompt->SetBranchAddress("muon_time_err_",  					&muon_time_err_);
-  ch_noPU_prompt->SetBranchAddress("muon_prompt_",    					&muon_prompt_);
-  ch_noPU_prompt->SetBranchAddress("muon_isBarrel_",  					&muon_isBarrel_);
-  ch_noPU_prompt->SetBranchAddress("muon_status_",    					&muon_status_);
-  ch_noPU_prompt->SetBranchAddress("muon_pv_dz_",      					&muon_pv_dz_);
-  ch_noPU_prompt->SetBranchAddress("muon_pv_dxy_",     					&muon_pv_dxy_);
-  ch_noPU_prompt->SetBranchAddress("muon_vz_",       					&muon_vz_);
-  ch_noPU_prompt->SetBranchAddress("muon_PVweight_", 					&muon_PVweight_);
-  ch_noPU_prompt->SetBranchAddress("track_pt_",      					&track_pt_);
-  ch_noPU_prompt->SetBranchAddress("track_time_",     					&track_time_);
-  ch_noPU_prompt->SetBranchAddress("track_time_err_", 					&track_time_err_);
-  ch_noPU_prompt->SetBranchAddress("track_vz_",       					&track_vz_);
-  ch_noPU_prompt->SetBranchAddress("track_pv_dz_",    					&track_pv_dz_);
-  ch_noPU_prompt->SetBranchAddress("track_PVweight_", 					&track_PVweight_);
-  ch_noPU_prompt->SetBranchAddress("selectedLV_",     					&selectedLV_);
-  ch_noPU_prompt->SetBranchAddress("match_vtx_sim2reco_",     			&match_vtx_sim2reco_);
-  ch_noPU_prompt->SetBranchAddress("match_vtx_reco2sim_",     			&match_vtx_reco2sim_);
-  ch_noPU_prompt->SetBranchAddress("vtx_index_",      					&vtx_index_);
-  ch_noPU_prompt->SetBranchAddress("recovtx_sim_",    					&recovtx_sim_);
-  ch_noPU_prompt->SetBranchAddress("simvtx_reco_",    					&simvtx_reco_);
-  ch_noPU_prompt->SetBranchAddress("simvtx_bx_",      					&simvtx_bx_);
-  ch_noPU_prompt->SetBranchAddress("simvtx_evtId_",   					&simvtx_evtId_);
-  ch_noPU_prompt->SetBranchAddress("recovtx_original_index_", 			&recovtx_original_index_);
-  ch_noPU_prompt->SetBranchAddress("muon_isMuon_",    					&muon_isMuon_);
-  ch_noPU_prompt->SetBranchAddress("muon_isPFMuon_",    				&muon_isPFMuon_);
-  ch_noPU_prompt->SetBranchAddress("muon_isGlobalMuon_",    			&muon_isGlobalMuon_);
-  ch_noPU_prompt->SetBranchAddress("muon_isTrackerMuon_",    			&muon_isTrackerMuon_);
-  ch_noPU_prompt->SetBranchAddress("muon_isStandAloneMuon_",    		&muon_isStandAloneMuon_);
-  ch_noPU_prompt->SetBranchAddress("muon_isCutBasedIdLoose_",    		&muon_isCutBasedIdLoose_);
-  ch_noPU_prompt->SetBranchAddress("muon_isLooseMuon_",    				&muon_isLooseMuon_);
-  ch_noPU_prompt->SetBranchAddress("track_genMatched_",    				&track_genMatched_);
-  ch_noPU_prompt->SetBranchAddress("track_evtId_",    					&track_evtId_);
-  ch_noPU_prompt->SetBranchAddress("track_bx_",       					&track_bx_);
-  ch_noPU_prompt->SetBranchAddress("vtx_time_",       					&vtx_time_);
-  ch_noPU_prompt->SetBranchAddress("vtx_time_err_",       				&vtx_time_err_);
+  ch_noPU_prompt->SetBranchAddress("muon_pt_",        						&muon_pt_);
+  ch_noPU_prompt->SetBranchAddress("muon_time_",      						&muon_time_);
+  ch_noPU_prompt->SetBranchAddress("muon_time_err_",  						&muon_time_err_);
+  ch_noPU_prompt->SetBranchAddress("muon_prompt_",    						&muon_prompt_);
+  ch_noPU_prompt->SetBranchAddress("muon_isBarrel_",  						&muon_isBarrel_);
+  ch_noPU_prompt->SetBranchAddress("muon_status_",    						&muon_status_);
+  ch_noPU_prompt->SetBranchAddress("muon_pv_dz_",      						&muon_pv_dz_);
+  ch_noPU_prompt->SetBranchAddress("muon_pv_dxy_",     						&muon_pv_dxy_);
+  ch_noPU_prompt->SetBranchAddress("muon_vz_",       						&muon_vz_);
+  ch_noPU_prompt->SetBranchAddress("muon_PVweight_", 						&muon_PVweight_);
+  ch_noPU_prompt->SetBranchAddress("track_pt_",      						&track_pt_);
+  ch_noPU_prompt->SetBranchAddress("track_time_",     						&track_time_);
+  ch_noPU_prompt->SetBranchAddress("track_time_err_", 						&track_time_err_);
+  ch_noPU_prompt->SetBranchAddress("track_vz_",       						&track_vz_);
+  ch_noPU_prompt->SetBranchAddress("track_pv_dz_",    						&track_pv_dz_);
+  ch_noPU_prompt->SetBranchAddress("track_PVweight_", 						&track_PVweight_);
+  ch_noPU_prompt->SetBranchAddress("selectedLV_",     						&selectedLV_);
+  ch_noPU_prompt->SetBranchAddress("match_vtx_sim2reco_",     				&match_vtx_sim2reco_);
+  ch_noPU_prompt->SetBranchAddress("match_vtx_reco2sim_",     				&match_vtx_reco2sim_);
+  ch_noPU_prompt->SetBranchAddress("vtx_index_",      						&vtx_index_);
+  ch_noPU_prompt->SetBranchAddress("recovtx_sim_",    						&recovtx_sim_);
+  ch_noPU_prompt->SetBranchAddress("simvtx_reco_",    						&simvtx_reco_);
+  ch_noPU_prompt->SetBranchAddress("simvtx_bx_",      						&simvtx_bx_);
+  ch_noPU_prompt->SetBranchAddress("simvtx_evtId_",   						&simvtx_evtId_);
+  ch_noPU_prompt->SetBranchAddress("recovtx_original_index_", 				&recovtx_original_index_);
+  ch_noPU_prompt->SetBranchAddress("muon_isMuon_",    						&muon_isMuon_);
+  ch_noPU_prompt->SetBranchAddress("muon_isPFMuon_",    					&muon_isPFMuon_);
+  ch_noPU_prompt->SetBranchAddress("muon_isGlobalMuon_",    				&muon_isGlobalMuon_);
+  ch_noPU_prompt->SetBranchAddress("muon_isTrackerMuon_",    				&muon_isTrackerMuon_);
+  ch_noPU_prompt->SetBranchAddress("muon_isStandAloneMuon_",    			&muon_isStandAloneMuon_);
+  ch_noPU_prompt->SetBranchAddress("muon_isCutBasedIdLoose_",    			&muon_isCutBasedIdLoose_);
+  ch_noPU_prompt->SetBranchAddress("muon_isLooseMuon_",    					&muon_isLooseMuon_);
+  ch_noPU_prompt->SetBranchAddress("track_genMatched_",    					&track_genMatched_);
+  ch_noPU_prompt->SetBranchAddress("track_evtId_",    						&track_evtId_);
+  ch_noPU_prompt->SetBranchAddress("track_bx_",       						&track_bx_);
+  ch_noPU_prompt->SetBranchAddress("vtx_time_",       						&vtx_time_);
+  ch_noPU_prompt->SetBranchAddress("vtx_time_err_",       					&vtx_time_err_);
 
   ch_noPU_nonprompt->SetBranchAddress("muon_pt_",        					&muon_pt_);
   ch_noPU_nonprompt->SetBranchAddress("muon_time_",      					&muon_time_);
@@ -282,7 +282,7 @@ void draw_iso_efficiency_ntuple_dz() {
   ch_noPU_nonprompt->SetBranchAddress("vtx_time_err_",       				&vtx_time_err_);
 
 
-
+  // Flag
   bool flag_isMuon            = false;
   bool flag_isPFMuon          = false;
   bool flag_isGlobalMuon      = false;
@@ -329,58 +329,58 @@ void draw_iso_efficiency_ntuple_dz() {
   // PU200
     // prompt
 	// (muon, track)
-  vector<TH1D*> list_h_PU200_prompt_EB,            list_h_PU200_prompt_EE;
-  vector<TH1D*> list_h_PU200_prompt_1sigma_EB,     list_h_PU200_prompt_1sigma_EE;
-  vector<TH1D*> list_h_PU200_prompt_2sigma_EB,     list_h_PU200_prompt_2sigma_EE;
-  vector<TH1D*> list_h_PU200_prompt_3sigma_EB,     list_h_PU200_prompt_3sigma_EE;
-  vector<TH1D*> list_h_PU200_prompt_4sigma_EB,     list_h_PU200_prompt_4sigma_EE;
-  vector<TH1D*> list_h_PU200_prompt_genMatched_EB, list_h_PU200_prompt_genMatched_EE;
+  vector<TH1D*> list_h_PU200_prompt_EB,            		list_h_PU200_prompt_EE;
+  vector<TH1D*> list_h_PU200_prompt_1sigma_EB,     		list_h_PU200_prompt_1sigma_EE;
+  vector<TH1D*> list_h_PU200_prompt_2sigma_EB,     		list_h_PU200_prompt_2sigma_EE;
+  vector<TH1D*> list_h_PU200_prompt_3sigma_EB,     		list_h_PU200_prompt_3sigma_EE;
+  vector<TH1D*> list_h_PU200_prompt_4sigma_EB,     		list_h_PU200_prompt_4sigma_EE;
+  vector<TH1D*> list_h_PU200_prompt_genMatched_EB, 		list_h_PU200_prompt_genMatched_EE;
 	// (PV, track)
-  vector<TH1D*> list_h_PU200_prompt_EB_vtx,            list_h_PU200_prompt_EE_vtx;
-  vector<TH1D*> list_h_PU200_prompt_1sigma_EB_vtx,     list_h_PU200_prompt_1sigma_EE_vtx;
-  vector<TH1D*> list_h_PU200_prompt_2sigma_EB_vtx,     list_h_PU200_prompt_2sigma_EE_vtx;
-  vector<TH1D*> list_h_PU200_prompt_3sigma_EB_vtx,     list_h_PU200_prompt_3sigma_EE_vtx;
-  vector<TH1D*> list_h_PU200_prompt_4sigma_EB_vtx,     list_h_PU200_prompt_4sigma_EE_vtx;
-  vector<TH1D*> list_h_PU200_prompt_genMatched_EB_vtx, list_h_PU200_prompt_genMatched_EE_vtx;
+  vector<TH1D*> list_h_PU200_prompt_EB_vtx,            	list_h_PU200_prompt_EE_vtx;
+  vector<TH1D*> list_h_PU200_prompt_1sigma_EB_vtx,     	list_h_PU200_prompt_1sigma_EE_vtx;
+  vector<TH1D*> list_h_PU200_prompt_2sigma_EB_vtx,     	list_h_PU200_prompt_2sigma_EE_vtx;
+  vector<TH1D*> list_h_PU200_prompt_3sigma_EB_vtx,     	list_h_PU200_prompt_3sigma_EE_vtx;
+  vector<TH1D*> list_h_PU200_prompt_4sigma_EB_vtx,     	list_h_PU200_prompt_4sigma_EE_vtx;
+  vector<TH1D*> list_h_PU200_prompt_genMatched_EB_vtx, 	list_h_PU200_prompt_genMatched_EE_vtx;
   for (int ih=0; ih<track_pv_dz_cut_EB.size(); ih++) {
 	// (muon, track)
-	TH1D* h_PU200_prompt_EB = new TH1D(Form("h_PU200_prompt_EB_dz%d", ih), Form("h_PU200_prompt_EB_dz%d", ih), nbin, 0, 4);
-    TH1D* h_PU200_prompt_EE = new TH1D(Form("h_PU200_prompt_EE_dz%d", ih), Form("h_PU200_prompt_EE_dz%d", ih), nbin, 0, 4);
-	TH1D* h_PU200_prompt_1sigma_EB = new TH1D(Form("h_PU200_prompt_1sigma_EB_dz%d", ih), Form("h_PU200_prompt_1sigma_EB_dz%d", ih), nbin, 0, 4);
-    TH1D* h_PU200_prompt_1sigma_EE = new TH1D(Form("h_PU200_prompt_1sigma_EE_dz%d", ih), Form("h_PU200_prompt_1sigma_EE_dz%d", ih), nbin, 0, 4);
-	TH1D* h_PU200_prompt_2sigma_EB = new TH1D(Form("h_PU200_prompt_2sigma_EB_dz%d", ih), Form("h_PU200_prompt_2sigma_EB_dz%d", ih), nbin, 0, 4);
-    TH1D* h_PU200_prompt_2sigma_EE = new TH1D(Form("h_PU200_prompt_2sigma_EE_dz%d", ih), Form("h_PU200_prompt_2sigma_EE_dz%d", ih), nbin, 0, 4);
-	TH1D* h_PU200_prompt_3sigma_EB = new TH1D(Form("h_PU200_prompt_3sigma_EB_dz%d", ih), Form("h_PU200_prompt_3sigma_EB_dz%d", ih), nbin, 0, 4);
-    TH1D* h_PU200_prompt_3sigma_EE = new TH1D(Form("h_PU200_prompt_3sigma_EE_dz%d", ih), Form("h_PU200_prompt_3sigma_EE_dz%d", ih), nbin, 0, 4);
-	TH1D* h_PU200_prompt_4sigma_EB = new TH1D(Form("h_PU200_prompt_4sigma_EB_dz%d", ih), Form("h_PU200_prompt_4sigma_EB_dz%d", ih), nbin, 0, 4);
-    TH1D* h_PU200_prompt_4sigma_EE = new TH1D(Form("h_PU200_prompt_4sigma_EE_dz%d", ih), Form("h_PU200_prompt_4sigma_EE_dz%d", ih), nbin, 0, 4);
-	TH1D* h_PU200_prompt_genMatched_EB = new TH1D(Form("h_PU200_prompt_genMatched_EB_dz%d", ih), Form("h_PU200_prompt_genMatched_EB_dz%d", ih), nbin, 0, 4);
-    TH1D* h_PU200_prompt_genMatched_EE = new TH1D(Form("h_PU200_prompt_genMatched_EE_dz%d", ih), Form("h_PU200_prompt_genMatched_EE_dz%d", ih), nbin, 0, 4);
-	list_h_PU200_prompt_EB.emplace_back(h_PU200_prompt_EB); list_h_PU200_prompt_EE.emplace_back(h_PU200_prompt_EE);
-	list_h_PU200_prompt_1sigma_EB.emplace_back(h_PU200_prompt_1sigma_EB); list_h_PU200_prompt_1sigma_EE.emplace_back(h_PU200_prompt_1sigma_EE);
-	list_h_PU200_prompt_2sigma_EB.emplace_back(h_PU200_prompt_2sigma_EB); list_h_PU200_prompt_2sigma_EE.emplace_back(h_PU200_prompt_2sigma_EE);
-	list_h_PU200_prompt_3sigma_EB.emplace_back(h_PU200_prompt_3sigma_EB); list_h_PU200_prompt_3sigma_EE.emplace_back(h_PU200_prompt_3sigma_EE);
-	list_h_PU200_prompt_4sigma_EB.emplace_back(h_PU200_prompt_4sigma_EB); list_h_PU200_prompt_4sigma_EE.emplace_back(h_PU200_prompt_4sigma_EE);
-	list_h_PU200_prompt_genMatched_EB.emplace_back(h_PU200_prompt_genMatched_EB); list_h_PU200_prompt_genMatched_EE.emplace_back(h_PU200_prompt_genMatched_EE);
+	TH1D* h_PU200_prompt_EB 				= new TH1D(Form("h_PU200_prompt_EB_dz%d", ih), 			  Form("h_PU200_prompt_EB_dz%d", ih), 	 	 	 nbin, 0, 4);
+    TH1D* h_PU200_prompt_EE 				= new TH1D(Form("h_PU200_prompt_EE_dz%d", ih), 			  Form("h_PU200_prompt_EE_dz%d", ih), 	 	 	 nbin, 0, 4);
+	TH1D* h_PU200_prompt_1sigma_EB 			= new TH1D(Form("h_PU200_prompt_1sigma_EB_dz%d", ih), 	  Form("h_PU200_prompt_1sigma_EB_dz%d", ih), 	 nbin, 0, 4);
+    TH1D* h_PU200_prompt_1sigma_EE 			= new TH1D(Form("h_PU200_prompt_1sigma_EE_dz%d", ih), 	  Form("h_PU200_prompt_1sigma_EE_dz%d", ih), 	 nbin, 0, 4);
+	TH1D* h_PU200_prompt_2sigma_EB 			= new TH1D(Form("h_PU200_prompt_2sigma_EB_dz%d", ih), 	  Form("h_PU200_prompt_2sigma_EB_dz%d", ih), 	 nbin, 0, 4);
+    TH1D* h_PU200_prompt_2sigma_EE 			= new TH1D(Form("h_PU200_prompt_2sigma_EE_dz%d", ih), 	  Form("h_PU200_prompt_2sigma_EE_dz%d", ih), 	 nbin, 0, 4);
+	TH1D* h_PU200_prompt_3sigma_EB 			= new TH1D(Form("h_PU200_prompt_3sigma_EB_dz%d", ih), 	  Form("h_PU200_prompt_3sigma_EB_dz%d", ih), 	 nbin, 0, 4);
+    TH1D* h_PU200_prompt_3sigma_EE 			= new TH1D(Form("h_PU200_prompt_3sigma_EE_dz%d", ih), 	  Form("h_PU200_prompt_3sigma_EE_dz%d", ih), 	 nbin, 0, 4);
+	TH1D* h_PU200_prompt_4sigma_EB 			= new TH1D(Form("h_PU200_prompt_4sigma_EB_dz%d", ih), 	  Form("h_PU200_prompt_4sigma_EB_dz%d", ih), 	 nbin, 0, 4);
+    TH1D* h_PU200_prompt_4sigma_EE 			= new TH1D(Form("h_PU200_prompt_4sigma_EE_dz%d", ih), 	  Form("h_PU200_prompt_4sigma_EE_dz%d", ih), 	 nbin, 0, 4);
+	TH1D* h_PU200_prompt_genMatched_EB 		= new TH1D(Form("h_PU200_prompt_genMatched_EB_dz%d", ih), Form("h_PU200_prompt_genMatched_EB_dz%d", ih), nbin, 0, 4);
+    TH1D* h_PU200_prompt_genMatched_EE 		= new TH1D(Form("h_PU200_prompt_genMatched_EE_dz%d", ih), Form("h_PU200_prompt_genMatched_EE_dz%d", ih), nbin, 0, 4);
+	list_h_PU200_prompt_EB.emplace_back(h_PU200_prompt_EB); 						list_h_PU200_prompt_EE.emplace_back(h_PU200_prompt_EE);
+	list_h_PU200_prompt_1sigma_EB.emplace_back(h_PU200_prompt_1sigma_EB); 			list_h_PU200_prompt_1sigma_EE.emplace_back(h_PU200_prompt_1sigma_EE);
+	list_h_PU200_prompt_2sigma_EB.emplace_back(h_PU200_prompt_2sigma_EB); 			list_h_PU200_prompt_2sigma_EE.emplace_back(h_PU200_prompt_2sigma_EE);
+	list_h_PU200_prompt_3sigma_EB.emplace_back(h_PU200_prompt_3sigma_EB); 			list_h_PU200_prompt_3sigma_EE.emplace_back(h_PU200_prompt_3sigma_EE);
+	list_h_PU200_prompt_4sigma_EB.emplace_back(h_PU200_prompt_4sigma_EB); 			list_h_PU200_prompt_4sigma_EE.emplace_back(h_PU200_prompt_4sigma_EE);
+	list_h_PU200_prompt_genMatched_EB.emplace_back(h_PU200_prompt_genMatched_EB); 	list_h_PU200_prompt_genMatched_EE.emplace_back(h_PU200_prompt_genMatched_EE);
 	// (PV, track)
-	TH1D* h_PU200_prompt_EB_vtx = new TH1D(Form("h_PU200_prompt_EB_vtx_dz%d", ih), Form("h_PU200_prompt_EB_vtx_dz%d", ih), nbin, 0, 4);
-    TH1D* h_PU200_prompt_EE_vtx = new TH1D(Form("h_PU200_prompt_EE_vtx_dz%d", ih), Form("h_PU200_prompt_EE_vtx_dz%d", ih), nbin, 0, 4);
-	TH1D* h_PU200_prompt_1sigma_EB_vtx = new TH1D(Form("h_PU200_prompt_1sigma_EB_vtx_dz%d", ih), Form("h_PU200_prompt_1sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
-    TH1D* h_PU200_prompt_1sigma_EE_vtx = new TH1D(Form("h_PU200_prompt_1sigma_EE_vtx_dz%d", ih), Form("h_PU200_prompt_1sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
-	TH1D* h_PU200_prompt_2sigma_EB_vtx = new TH1D(Form("h_PU200_prompt_2sigma_EB_vtx_dz%d", ih), Form("h_PU200_prompt_2sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
-    TH1D* h_PU200_prompt_2sigma_EE_vtx = new TH1D(Form("h_PU200_prompt_2sigma_EE_vtx_dz%d", ih), Form("h_PU200_prompt_2sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
-	TH1D* h_PU200_prompt_3sigma_EB_vtx = new TH1D(Form("h_PU200_prompt_3sigma_EB_vtx_dz%d", ih), Form("h_PU200_prompt_3sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
-    TH1D* h_PU200_prompt_3sigma_EE_vtx = new TH1D(Form("h_PU200_prompt_3sigma_EE_vtx_dz%d", ih), Form("h_PU200_prompt_3sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
-	TH1D* h_PU200_prompt_4sigma_EB_vtx = new TH1D(Form("h_PU200_prompt_4sigma_EB_vtx_dz%d", ih), Form("h_PU200_prompt_4sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
-    TH1D* h_PU200_prompt_4sigma_EE_vtx = new TH1D(Form("h_PU200_prompt_4sigma_EE_vtx_dz%d", ih), Form("h_PU200_prompt_4sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
-	TH1D* h_PU200_prompt_genMatched_EB_vtx = new TH1D(Form("h_PU200_prompt_genMatched_EB_vtx_dz%d", ih), Form("h_PU200_prompt_genMatched_EB_vtx_dz%d", ih), nbin, 0, 4);
-    TH1D* h_PU200_prompt_genMatched_EE_vtx = new TH1D(Form("h_PU200_prompt_genMatched_EE_vtx_dz%d", ih), Form("h_PU200_prompt_genMatched_EE_vtx_dz%d", ih), nbin, 0, 4);
-	list_h_PU200_prompt_EB_vtx.emplace_back(h_PU200_prompt_EB_vtx); list_h_PU200_prompt_EE_vtx.emplace_back(h_PU200_prompt_EE_vtx);
-	list_h_PU200_prompt_1sigma_EB_vtx.emplace_back(h_PU200_prompt_1sigma_EB_vtx); list_h_PU200_prompt_1sigma_EE_vtx.emplace_back(h_PU200_prompt_1sigma_EE_vtx);
-	list_h_PU200_prompt_2sigma_EB_vtx.emplace_back(h_PU200_prompt_2sigma_EB_vtx); list_h_PU200_prompt_2sigma_EE_vtx.emplace_back(h_PU200_prompt_2sigma_EE_vtx);
-	list_h_PU200_prompt_3sigma_EB_vtx.emplace_back(h_PU200_prompt_3sigma_EB_vtx); list_h_PU200_prompt_3sigma_EE_vtx.emplace_back(h_PU200_prompt_3sigma_EE_vtx);
-	list_h_PU200_prompt_4sigma_EB_vtx.emplace_back(h_PU200_prompt_4sigma_EB_vtx); list_h_PU200_prompt_4sigma_EE_vtx.emplace_back(h_PU200_prompt_4sigma_EE_vtx);
-	list_h_PU200_prompt_genMatched_EB_vtx.emplace_back(h_PU200_prompt_genMatched_EB_vtx); list_h_PU200_prompt_genMatched_EE_vtx.emplace_back(h_PU200_prompt_genMatched_EE_vtx);
+	TH1D* h_PU200_prompt_EB_vtx 			= new TH1D(Form("h_PU200_prompt_EB_vtx_dz%d", ih), 	  	  	  Form("h_PU200_prompt_EB_vtx_dz%d", ih), 	 	 	 nbin, 0, 4);
+    TH1D* h_PU200_prompt_EE_vtx 			= new TH1D(Form("h_PU200_prompt_EE_vtx_dz%d", ih), 	  	  	  Form("h_PU200_prompt_EE_vtx_dz%d", ih), 	 	 	 nbin, 0, 4);
+	TH1D* h_PU200_prompt_1sigma_EB_vtx 		= new TH1D(Form("h_PU200_prompt_1sigma_EB_vtx_dz%d", ih), 	  Form("h_PU200_prompt_1sigma_EB_vtx_dz%d", ih), 	 nbin, 0, 4);
+    TH1D* h_PU200_prompt_1sigma_EE_vtx 		= new TH1D(Form("h_PU200_prompt_1sigma_EE_vtx_dz%d", ih), 	  Form("h_PU200_prompt_1sigma_EE_vtx_dz%d", ih), 	 nbin, 0, 4);
+	TH1D* h_PU200_prompt_2sigma_EB_vtx 		= new TH1D(Form("h_PU200_prompt_2sigma_EB_vtx_dz%d", ih), 	  Form("h_PU200_prompt_2sigma_EB_vtx_dz%d", ih), 	 nbin, 0, 4);
+    TH1D* h_PU200_prompt_2sigma_EE_vtx 		= new TH1D(Form("h_PU200_prompt_2sigma_EE_vtx_dz%d", ih), 	  Form("h_PU200_prompt_2sigma_EE_vtx_dz%d", ih), 	 nbin, 0, 4);
+	TH1D* h_PU200_prompt_3sigma_EB_vtx 		= new TH1D(Form("h_PU200_prompt_3sigma_EB_vtx_dz%d", ih), 	  Form("h_PU200_prompt_3sigma_EB_vtx_dz%d", ih), 	 nbin, 0, 4);
+    TH1D* h_PU200_prompt_3sigma_EE_vtx 		= new TH1D(Form("h_PU200_prompt_3sigma_EE_vtx_dz%d", ih), 	  Form("h_PU200_prompt_3sigma_EE_vtx_dz%d", ih), 	 nbin, 0, 4);
+	TH1D* h_PU200_prompt_4sigma_EB_vtx 		= new TH1D(Form("h_PU200_prompt_4sigma_EB_vtx_dz%d", ih), 	  Form("h_PU200_prompt_4sigma_EB_vtx_dz%d", ih), 	 nbin, 0, 4);
+    TH1D* h_PU200_prompt_4sigma_EE_vtx 		= new TH1D(Form("h_PU200_prompt_4sigma_EE_vtx_dz%d", ih), 	  Form("h_PU200_prompt_4sigma_EE_vtx_dz%d", ih), 	 nbin, 0, 4);
+	TH1D* h_PU200_prompt_genMatched_EB_vtx 	= new TH1D(Form("h_PU200_prompt_genMatched_EB_vtx_dz%d", ih), Form("h_PU200_prompt_genMatched_EB_vtx_dz%d", ih), nbin, 0, 4);
+    TH1D* h_PU200_prompt_genMatched_EE_vtx 	= new TH1D(Form("h_PU200_prompt_genMatched_EE_vtx_dz%d", ih), Form("h_PU200_prompt_genMatched_EE_vtx_dz%d", ih), nbin, 0, 4);
+	list_h_PU200_prompt_EB_vtx.emplace_back(h_PU200_prompt_EB_vtx); 						list_h_PU200_prompt_EE_vtx.emplace_back(h_PU200_prompt_EE_vtx);
+	list_h_PU200_prompt_1sigma_EB_vtx.emplace_back(h_PU200_prompt_1sigma_EB_vtx); 			list_h_PU200_prompt_1sigma_EE_vtx.emplace_back(h_PU200_prompt_1sigma_EE_vtx);
+	list_h_PU200_prompt_2sigma_EB_vtx.emplace_back(h_PU200_prompt_2sigma_EB_vtx); 			list_h_PU200_prompt_2sigma_EE_vtx.emplace_back(h_PU200_prompt_2sigma_EE_vtx);
+	list_h_PU200_prompt_3sigma_EB_vtx.emplace_back(h_PU200_prompt_3sigma_EB_vtx); 			list_h_PU200_prompt_3sigma_EE_vtx.emplace_back(h_PU200_prompt_3sigma_EE_vtx);
+	list_h_PU200_prompt_4sigma_EB_vtx.emplace_back(h_PU200_prompt_4sigma_EB_vtx); 			list_h_PU200_prompt_4sigma_EE_vtx.emplace_back(h_PU200_prompt_4sigma_EE_vtx);
+	list_h_PU200_prompt_genMatched_EB_vtx.emplace_back(h_PU200_prompt_genMatched_EB_vtx); 	list_h_PU200_prompt_genMatched_EE_vtx.emplace_back(h_PU200_prompt_genMatched_EE_vtx);
   }
   // (muon, track)
   vector<float> sumiso_PU200_prompt_EB(track_pv_dz_cut_EB.size(), 0);
@@ -436,12 +436,12 @@ void draw_iso_efficiency_ntuple_dz() {
 
     // nonprompt
 	// (muon, track)
-  vector<TH1D*> list_h_PU200_nonprompt_EB,            list_h_PU200_nonprompt_EE;
-  vector<TH1D*> list_h_PU200_nonprompt_1sigma_EB,     list_h_PU200_nonprompt_1sigma_EE;
-  vector<TH1D*> list_h_PU200_nonprompt_2sigma_EB,     list_h_PU200_nonprompt_2sigma_EE;
-  vector<TH1D*> list_h_PU200_nonprompt_3sigma_EB,     list_h_PU200_nonprompt_3sigma_EE;
-  vector<TH1D*> list_h_PU200_nonprompt_4sigma_EB,     list_h_PU200_nonprompt_4sigma_EE;
-  vector<TH1D*> list_h_PU200_nonprompt_genMatched_EB, list_h_PU200_nonprompt_genMatched_EE;
+  vector<TH1D*> list_h_PU200_nonprompt_EB,            	  list_h_PU200_nonprompt_EE;
+  vector<TH1D*> list_h_PU200_nonprompt_1sigma_EB,     	  list_h_PU200_nonprompt_1sigma_EE;
+  vector<TH1D*> list_h_PU200_nonprompt_2sigma_EB,     	  list_h_PU200_nonprompt_2sigma_EE;
+  vector<TH1D*> list_h_PU200_nonprompt_3sigma_EB,     	  list_h_PU200_nonprompt_3sigma_EE;
+  vector<TH1D*> list_h_PU200_nonprompt_4sigma_EB,     	  list_h_PU200_nonprompt_4sigma_EE;
+  vector<TH1D*> list_h_PU200_nonprompt_genMatched_EB, 	  list_h_PU200_nonprompt_genMatched_EE;
 	// (PV, track)
   vector<TH1D*> list_h_PU200_nonprompt_EB_vtx,            list_h_PU200_nonprompt_EE_vtx;
   vector<TH1D*> list_h_PU200_nonprompt_1sigma_EB_vtx,     list_h_PU200_nonprompt_1sigma_EE_vtx;
@@ -451,43 +451,43 @@ void draw_iso_efficiency_ntuple_dz() {
   vector<TH1D*> list_h_PU200_nonprompt_genMatched_EB_vtx, list_h_PU200_nonprompt_genMatched_EE_vtx;
   for (int ih=0; ih<track_pv_dz_cut_EB.size(); ih++) {
 	// (muon,track)
-	TH1D* h_PU200_nonprompt_EB = new TH1D(Form("h_PU200_nonprompt_EB_dz%d", ih), Form("h_PU200_nonprompt_EB_dz%d", ih), nbin, 0, 4);
-    TH1D* h_PU200_nonprompt_EE = new TH1D(Form("h_PU200_nonprompt_EE_dz%d", ih), Form("h_PU200_nonprompt_EE_dz%d", ih), nbin, 0, 4);
-	TH1D* h_PU200_nonprompt_1sigma_EB = new TH1D(Form("h_PU200_nonprompt_1sigma_EB_dz%d", ih), Form("h_PU200_nonprompt_1sigma_EB_dz%d", ih), nbin, 0, 4);
-    TH1D* h_PU200_nonprompt_1sigma_EE = new TH1D(Form("h_PU200_nonprompt_1sigma_EE_dz%d", ih), Form("h_PU200_nonprompt_1sigma_EE_dz%d", ih), nbin, 0, 4);
-	TH1D* h_PU200_nonprompt_2sigma_EB = new TH1D(Form("h_PU200_nonprompt_2sigma_EB_dz%d", ih), Form("h_PU200_nonprompt_2sigma_EB_dz%d", ih), nbin, 0, 4);
-    TH1D* h_PU200_nonprompt_2sigma_EE = new TH1D(Form("h_PU200_nonprompt_2sigma_EE_dz%d", ih), Form("h_PU200_nonprompt_2sigma_EE_dz%d", ih), nbin, 0, 4);
-	TH1D* h_PU200_nonprompt_3sigma_EB = new TH1D(Form("h_PU200_nonprompt_3sigma_EB_dz%d", ih), Form("h_PU200_nonprompt_3sigma_EB_dz%d", ih), nbin, 0, 4);
-    TH1D* h_PU200_nonprompt_3sigma_EE = new TH1D(Form("h_PU200_nonprompt_3sigma_EE_dz%d", ih), Form("h_PU200_nonprompt_3sigma_EE_dz%d", ih), nbin, 0, 4);
-	TH1D* h_PU200_nonprompt_4sigma_EB = new TH1D(Form("h_PU200_nonprompt_4sigma_EB_dz%d", ih), Form("h_PU200_nonprompt_4sigma_EB_dz%d", ih), nbin, 0, 4);
-    TH1D* h_PU200_nonprompt_4sigma_EE = new TH1D(Form("h_PU200_nonprompt_4sigma_EE_dz%d", ih), Form("h_PU200_nonprompt_4sigma_EE_dz%d", ih), nbin, 0, 4);
+	TH1D* h_PU200_nonprompt_EB = new TH1D(Form("h_PU200_nonprompt_EB_dz%d", ih), 		   		       Form("h_PU200_nonprompt_EB_dz%d", ih), 	 	 	 nbin, 0, 4);
+    TH1D* h_PU200_nonprompt_EE = new TH1D(Form("h_PU200_nonprompt_EE_dz%d", ih), 		   		       Form("h_PU200_nonprompt_EE_dz%d", ih), 	 	 	 nbin, 0, 4);
+	TH1D* h_PU200_nonprompt_1sigma_EB = new TH1D(Form("h_PU200_nonprompt_1sigma_EB_dz%d", ih), 		   Form("h_PU200_nonprompt_1sigma_EB_dz%d", ih), 	 nbin, 0, 4);
+    TH1D* h_PU200_nonprompt_1sigma_EE = new TH1D(Form("h_PU200_nonprompt_1sigma_EE_dz%d", ih), 		   Form("h_PU200_nonprompt_1sigma_EE_dz%d", ih), 	 nbin, 0, 4);
+	TH1D* h_PU200_nonprompt_2sigma_EB = new TH1D(Form("h_PU200_nonprompt_2sigma_EB_dz%d", ih), 		   Form("h_PU200_nonprompt_2sigma_EB_dz%d", ih), 	 nbin, 0, 4);
+    TH1D* h_PU200_nonprompt_2sigma_EE = new TH1D(Form("h_PU200_nonprompt_2sigma_EE_dz%d", ih), 		   Form("h_PU200_nonprompt_2sigma_EE_dz%d", ih), 	 nbin, 0, 4);
+	TH1D* h_PU200_nonprompt_3sigma_EB = new TH1D(Form("h_PU200_nonprompt_3sigma_EB_dz%d", ih), 		   Form("h_PU200_nonprompt_3sigma_EB_dz%d", ih), 	 nbin, 0, 4);
+    TH1D* h_PU200_nonprompt_3sigma_EE = new TH1D(Form("h_PU200_nonprompt_3sigma_EE_dz%d", ih), 		   Form("h_PU200_nonprompt_3sigma_EE_dz%d", ih), 	 nbin, 0, 4);
+	TH1D* h_PU200_nonprompt_4sigma_EB = new TH1D(Form("h_PU200_nonprompt_4sigma_EB_dz%d", ih), 		   Form("h_PU200_nonprompt_4sigma_EB_dz%d", ih), 	 nbin, 0, 4);
+    TH1D* h_PU200_nonprompt_4sigma_EE = new TH1D(Form("h_PU200_nonprompt_4sigma_EE_dz%d", ih), 		   Form("h_PU200_nonprompt_4sigma_EE_dz%d", ih), 	 nbin, 0, 4);
 	TH1D* h_PU200_nonprompt_genMatched_EB = new TH1D(Form("h_PU200_nonprompt_genMatched_EB_dz%d", ih), Form("h_PU200_nonprompt_genMatched_EB_dz%d", ih), nbin, 0, 4);
     TH1D* h_PU200_nonprompt_genMatched_EE = new TH1D(Form("h_PU200_nonprompt_genMatched_EE_dz%d", ih), Form("h_PU200_nonprompt_genMatched_EE_dz%d", ih), nbin, 0, 4);
-	list_h_PU200_nonprompt_EB.emplace_back(h_PU200_nonprompt_EB); list_h_PU200_nonprompt_EE.emplace_back(h_PU200_nonprompt_EE);
-	list_h_PU200_nonprompt_1sigma_EB.emplace_back(h_PU200_nonprompt_1sigma_EB); list_h_PU200_nonprompt_1sigma_EE.emplace_back(h_PU200_nonprompt_1sigma_EE);
-	list_h_PU200_nonprompt_2sigma_EB.emplace_back(h_PU200_nonprompt_2sigma_EB); list_h_PU200_nonprompt_2sigma_EE.emplace_back(h_PU200_nonprompt_2sigma_EE);
-	list_h_PU200_nonprompt_3sigma_EB.emplace_back(h_PU200_nonprompt_3sigma_EB); list_h_PU200_nonprompt_3sigma_EE.emplace_back(h_PU200_nonprompt_3sigma_EE);
-	list_h_PU200_nonprompt_4sigma_EB.emplace_back(h_PU200_nonprompt_4sigma_EB); list_h_PU200_nonprompt_4sigma_EE.emplace_back(h_PU200_nonprompt_4sigma_EE);
-	list_h_PU200_nonprompt_genMatched_EB.emplace_back(h_PU200_nonprompt_genMatched_EB); list_h_PU200_nonprompt_genMatched_EE.emplace_back(h_PU200_nonprompt_genMatched_EE);
+	list_h_PU200_nonprompt_EB.emplace_back(h_PU200_nonprompt_EB); 							list_h_PU200_nonprompt_EE.emplace_back(h_PU200_nonprompt_EE);
+	list_h_PU200_nonprompt_1sigma_EB.emplace_back(h_PU200_nonprompt_1sigma_EB); 			list_h_PU200_nonprompt_1sigma_EE.emplace_back(h_PU200_nonprompt_1sigma_EE);
+	list_h_PU200_nonprompt_2sigma_EB.emplace_back(h_PU200_nonprompt_2sigma_EB); 			list_h_PU200_nonprompt_2sigma_EE.emplace_back(h_PU200_nonprompt_2sigma_EE);
+	list_h_PU200_nonprompt_3sigma_EB.emplace_back(h_PU200_nonprompt_3sigma_EB); 			list_h_PU200_nonprompt_3sigma_EE.emplace_back(h_PU200_nonprompt_3sigma_EE);
+	list_h_PU200_nonprompt_4sigma_EB.emplace_back(h_PU200_nonprompt_4sigma_EB); 			list_h_PU200_nonprompt_4sigma_EE.emplace_back(h_PU200_nonprompt_4sigma_EE);
+	list_h_PU200_nonprompt_genMatched_EB.emplace_back(h_PU200_nonprompt_genMatched_EB); 	list_h_PU200_nonprompt_genMatched_EE.emplace_back(h_PU200_nonprompt_genMatched_EE);
 	// (PV,track)
-	TH1D* h_PU200_nonprompt_EB_vtx = new TH1D(Form("h_PU200_nonprompt_EB_vtx_dz%d", ih), Form("h_PU200_nonprompt_EB_vtx_dz%d", ih), nbin, 0, 4);
-    TH1D* h_PU200_nonprompt_EE_vtx = new TH1D(Form("h_PU200_nonprompt_EE_vtx_dz%d", ih), Form("h_PU200_nonprompt_EE_vtx_dz%d", ih), nbin, 0, 4);
-	TH1D* h_PU200_nonprompt_1sigma_EB_vtx = new TH1D(Form("h_PU200_nonprompt_1sigma_EB_vtx_dz%d", ih), Form("h_PU200_nonprompt_1sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
-    TH1D* h_PU200_nonprompt_1sigma_EE_vtx = new TH1D(Form("h_PU200_nonprompt_1sigma_EE_vtx_dz%d", ih), Form("h_PU200_nonprompt_1sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
-	TH1D* h_PU200_nonprompt_2sigma_EB_vtx = new TH1D(Form("h_PU200_nonprompt_2sigma_EB_vtx_dz%d", ih), Form("h_PU200_nonprompt_2sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
-    TH1D* h_PU200_nonprompt_2sigma_EE_vtx = new TH1D(Form("h_PU200_nonprompt_2sigma_EE_vtx_dz%d", ih), Form("h_PU200_nonprompt_2sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
-	TH1D* h_PU200_nonprompt_3sigma_EB_vtx = new TH1D(Form("h_PU200_nonprompt_3sigma_EB_vtx_dz%d", ih), Form("h_PU200_nonprompt_3sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
-    TH1D* h_PU200_nonprompt_3sigma_EE_vtx = new TH1D(Form("h_PU200_nonprompt_3sigma_EE_vtx_dz%d", ih), Form("h_PU200_nonprompt_3sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
-	TH1D* h_PU200_nonprompt_4sigma_EB_vtx = new TH1D(Form("h_PU200_nonprompt_4sigma_EB_vtx_dz%d", ih), Form("h_PU200_nonprompt_4sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
-    TH1D* h_PU200_nonprompt_4sigma_EE_vtx = new TH1D(Form("h_PU200_nonprompt_4sigma_EE_vtx_dz%d", ih), Form("h_PU200_nonprompt_4sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
+	TH1D* h_PU200_nonprompt_EB_vtx = new TH1D(Form("h_PU200_nonprompt_EB_vtx_dz%d", ih), 		   		       Form("h_PU200_nonprompt_EB_vtx_dz%d", ih), nbin, 0, 4);
+    TH1D* h_PU200_nonprompt_EE_vtx = new TH1D(Form("h_PU200_nonprompt_EE_vtx_dz%d", ih), 		   		       Form("h_PU200_nonprompt_EE_vtx_dz%d", ih), nbin, 0, 4);
+	TH1D* h_PU200_nonprompt_1sigma_EB_vtx = new TH1D(Form("h_PU200_nonprompt_1sigma_EB_vtx_dz%d", ih), 		   Form("h_PU200_nonprompt_1sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
+    TH1D* h_PU200_nonprompt_1sigma_EE_vtx = new TH1D(Form("h_PU200_nonprompt_1sigma_EE_vtx_dz%d", ih), 		   Form("h_PU200_nonprompt_1sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
+	TH1D* h_PU200_nonprompt_2sigma_EB_vtx = new TH1D(Form("h_PU200_nonprompt_2sigma_EB_vtx_dz%d", ih), 		   Form("h_PU200_nonprompt_2sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
+    TH1D* h_PU200_nonprompt_2sigma_EE_vtx = new TH1D(Form("h_PU200_nonprompt_2sigma_EE_vtx_dz%d", ih), 		   Form("h_PU200_nonprompt_2sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
+	TH1D* h_PU200_nonprompt_3sigma_EB_vtx = new TH1D(Form("h_PU200_nonprompt_3sigma_EB_vtx_dz%d", ih), 		   Form("h_PU200_nonprompt_3sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
+    TH1D* h_PU200_nonprompt_3sigma_EE_vtx = new TH1D(Form("h_PU200_nonprompt_3sigma_EE_vtx_dz%d", ih), 		   Form("h_PU200_nonprompt_3sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
+	TH1D* h_PU200_nonprompt_4sigma_EB_vtx = new TH1D(Form("h_PU200_nonprompt_4sigma_EB_vtx_dz%d", ih), 		   Form("h_PU200_nonprompt_4sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
+    TH1D* h_PU200_nonprompt_4sigma_EE_vtx = new TH1D(Form("h_PU200_nonprompt_4sigma_EE_vtx_dz%d", ih), 		   Form("h_PU200_nonprompt_4sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
 	TH1D* h_PU200_nonprompt_genMatched_EB_vtx = new TH1D(Form("h_PU200_nonprompt_genMatched_EB_vtx_dz%d", ih), Form("h_PU200_nonprompt_genMatched_EB_vtx_dz%d", ih), nbin, 0, 4);
     TH1D* h_PU200_nonprompt_genMatched_EE_vtx = new TH1D(Form("h_PU200_nonprompt_genMatched_EE_vtx_dz%d", ih), Form("h_PU200_nonprompt_genMatched_EE_vtx_dz%d", ih), nbin, 0, 4);
-	list_h_PU200_nonprompt_EB_vtx.emplace_back(h_PU200_nonprompt_EB_vtx); list_h_PU200_nonprompt_EE_vtx.emplace_back(h_PU200_nonprompt_EE_vtx);
-	list_h_PU200_nonprompt_1sigma_EB_vtx.emplace_back(h_PU200_nonprompt_1sigma_EB_vtx); list_h_PU200_nonprompt_1sigma_EE_vtx.emplace_back(h_PU200_nonprompt_1sigma_EE_vtx);
-	list_h_PU200_nonprompt_2sigma_EB_vtx.emplace_back(h_PU200_nonprompt_2sigma_EB_vtx); list_h_PU200_nonprompt_2sigma_EE_vtx.emplace_back(h_PU200_nonprompt_2sigma_EE_vtx);
-	list_h_PU200_nonprompt_3sigma_EB_vtx.emplace_back(h_PU200_nonprompt_3sigma_EB_vtx); list_h_PU200_nonprompt_3sigma_EE_vtx.emplace_back(h_PU200_nonprompt_3sigma_EE_vtx);
-	list_h_PU200_nonprompt_4sigma_EB_vtx.emplace_back(h_PU200_nonprompt_4sigma_EB_vtx); list_h_PU200_nonprompt_4sigma_EE_vtx.emplace_back(h_PU200_nonprompt_4sigma_EE_vtx);
-	list_h_PU200_nonprompt_genMatched_EB_vtx.emplace_back(h_PU200_nonprompt_genMatched_EB_vtx); list_h_PU200_nonprompt_genMatched_EE_vtx.emplace_back(h_PU200_nonprompt_genMatched_EE_vtx);
+	list_h_PU200_nonprompt_EB_vtx.emplace_back(h_PU200_nonprompt_EB_vtx); 							list_h_PU200_nonprompt_EE_vtx.emplace_back(h_PU200_nonprompt_EE_vtx);
+	list_h_PU200_nonprompt_1sigma_EB_vtx.emplace_back(h_PU200_nonprompt_1sigma_EB_vtx); 			list_h_PU200_nonprompt_1sigma_EE_vtx.emplace_back(h_PU200_nonprompt_1sigma_EE_vtx);
+	list_h_PU200_nonprompt_2sigma_EB_vtx.emplace_back(h_PU200_nonprompt_2sigma_EB_vtx); 			list_h_PU200_nonprompt_2sigma_EE_vtx.emplace_back(h_PU200_nonprompt_2sigma_EE_vtx);
+	list_h_PU200_nonprompt_3sigma_EB_vtx.emplace_back(h_PU200_nonprompt_3sigma_EB_vtx); 			list_h_PU200_nonprompt_3sigma_EE_vtx.emplace_back(h_PU200_nonprompt_3sigma_EE_vtx);
+	list_h_PU200_nonprompt_4sigma_EB_vtx.emplace_back(h_PU200_nonprompt_4sigma_EB_vtx); 			list_h_PU200_nonprompt_4sigma_EE_vtx.emplace_back(h_PU200_nonprompt_4sigma_EE_vtx);
+	list_h_PU200_nonprompt_genMatched_EB_vtx.emplace_back(h_PU200_nonprompt_genMatched_EB_vtx); 	list_h_PU200_nonprompt_genMatched_EE_vtx.emplace_back(h_PU200_nonprompt_genMatched_EE_vtx);
 
   }
   // (muon, track)
@@ -545,57 +545,57 @@ void draw_iso_efficiency_ntuple_dz() {
   // noPU
     // prompt
 	// (muon, track)
-  vector<TH1D*> list_h_noPU_prompt_EB, list_h_noPU_prompt_EE;
-  vector<TH1D*> list_h_noPU_prompt_1sigma_EB, list_h_noPU_prompt_1sigma_EE;
-  vector<TH1D*> list_h_noPU_prompt_2sigma_EB, list_h_noPU_prompt_2sigma_EE;
-  vector<TH1D*> list_h_noPU_prompt_3sigma_EB, list_h_noPU_prompt_3sigma_EE;
-  vector<TH1D*> list_h_noPU_prompt_4sigma_EB, list_h_noPU_prompt_4sigma_EE;
-  vector<TH1D*> list_h_noPU_prompt_genMatched_EB, list_h_noPU_prompt_genMatched_EE;
+  vector<TH1D*> list_h_noPU_prompt_EB, 	  	  	  	  list_h_noPU_prompt_EE;
+  vector<TH1D*> list_h_noPU_prompt_1sigma_EB, 	  	  list_h_noPU_prompt_1sigma_EE;
+  vector<TH1D*> list_h_noPU_prompt_2sigma_EB, 	  	  list_h_noPU_prompt_2sigma_EE;
+  vector<TH1D*> list_h_noPU_prompt_3sigma_EB, 	  	  list_h_noPU_prompt_3sigma_EE;
+  vector<TH1D*> list_h_noPU_prompt_4sigma_EB, 	  	  list_h_noPU_prompt_4sigma_EE;
+  vector<TH1D*> list_h_noPU_prompt_genMatched_EB, 	  list_h_noPU_prompt_genMatched_EE;
 	// (PV, track)
-  vector<TH1D*> list_h_noPU_prompt_EB_vtx, list_h_noPU_prompt_EE_vtx;
-  vector<TH1D*> list_h_noPU_prompt_1sigma_EB_vtx, list_h_noPU_prompt_1sigma_EE_vtx;
-  vector<TH1D*> list_h_noPU_prompt_2sigma_EB_vtx, list_h_noPU_prompt_2sigma_EE_vtx;
-  vector<TH1D*> list_h_noPU_prompt_3sigma_EB_vtx, list_h_noPU_prompt_3sigma_EE_vtx;
-  vector<TH1D*> list_h_noPU_prompt_4sigma_EB_vtx, list_h_noPU_prompt_4sigma_EE_vtx;
+  vector<TH1D*> list_h_noPU_prompt_EB_vtx, 	  	  	  list_h_noPU_prompt_EE_vtx;
+  vector<TH1D*> list_h_noPU_prompt_1sigma_EB_vtx, 	  list_h_noPU_prompt_1sigma_EE_vtx;
+  vector<TH1D*> list_h_noPU_prompt_2sigma_EB_vtx, 	  list_h_noPU_prompt_2sigma_EE_vtx;
+  vector<TH1D*> list_h_noPU_prompt_3sigma_EB_vtx, 	  list_h_noPU_prompt_3sigma_EE_vtx;
+  vector<TH1D*> list_h_noPU_prompt_4sigma_EB_vtx, 	  list_h_noPU_prompt_4sigma_EE_vtx;
   vector<TH1D*> list_h_noPU_prompt_genMatched_EB_vtx, list_h_noPU_prompt_genMatched_EE_vtx;
   for (int ih=0; ih<track_pv_dz_cut_EB.size(); ih++) {
 	// (muon, track)
-	TH1D* h_noPU_prompt_EB = new TH1D(Form("h_noPU_prompt_EB_dz%d", ih), Form("h_noPU_prompt_EB_dz%d", ih), nbin, 0, 4);
-    TH1D* h_noPU_prompt_EE = new TH1D(Form("h_noPU_prompt_EE_dz%d", ih), Form("h_noPU_prompt_EE_dz%d", ih), nbin, 0, 4);
-	TH1D* h_noPU_prompt_1sigma_EB = new TH1D(Form("h_noPU_prompt_1sigma_EB_dz%d", ih), Form("h_noPU_prompt_1sigma_EB_dz%d", ih), nbin, 0, 4);
-    TH1D* h_noPU_prompt_1sigma_EE = new TH1D(Form("h_noPU_prompt_1sigma_EE_dz%d", ih), Form("h_noPU_prompt_1sigma_EE_dz%d", ih), nbin, 0, 4);
-	TH1D* h_noPU_prompt_2sigma_EB = new TH1D(Form("h_noPU_prompt_2sigma_EB_dz%d", ih), Form("h_noPU_prompt_2sigma_EB_dz%d", ih), nbin, 0, 4);
-    TH1D* h_noPU_prompt_2sigma_EE = new TH1D(Form("h_noPU_prompt_2sigma_EE_dz%d", ih), Form("h_noPU_prompt_2sigma_EE_dz%d", ih), nbin, 0, 4);
-	TH1D* h_noPU_prompt_3sigma_EB = new TH1D(Form("h_noPU_prompt_3sigma_EB_dz%d", ih), Form("h_noPU_prompt_3sigma_EB_dz%d", ih), nbin, 0, 4);
-    TH1D* h_noPU_prompt_3sigma_EE = new TH1D(Form("h_noPU_prompt_3sigma_EE_dz%d", ih), Form("h_noPU_prompt_3sigma_EE_dz%d", ih), nbin, 0, 4);
-	TH1D* h_noPU_prompt_4sigma_EB = new TH1D(Form("h_noPU_prompt_4sigma_EB_dz%d", ih), Form("h_noPU_prompt_4sigma_EB_dz%d", ih), nbin, 0, 4);
-    TH1D* h_noPU_prompt_4sigma_EE = new TH1D(Form("h_noPU_prompt_4sigma_EE_dz%d", ih), Form("h_noPU_prompt_4sigma_EE_dz%d", ih), nbin, 0, 4);
+	TH1D* h_noPU_prompt_EB = new TH1D(Form("h_noPU_prompt_EB_dz%d", ih), 		   		   	   Form("h_noPU_prompt_EB_dz%d", ih), nbin, 0, 4);
+    TH1D* h_noPU_prompt_EE = new TH1D(Form("h_noPU_prompt_EE_dz%d", ih), 		   		   	   Form("h_noPU_prompt_EE_dz%d", ih), nbin, 0, 4);
+	TH1D* h_noPU_prompt_1sigma_EB = new TH1D(Form("h_noPU_prompt_1sigma_EB_dz%d", ih), 		   Form("h_noPU_prompt_1sigma_EB_dz%d", ih), nbin, 0, 4);
+    TH1D* h_noPU_prompt_1sigma_EE = new TH1D(Form("h_noPU_prompt_1sigma_EE_dz%d", ih), 		   Form("h_noPU_prompt_1sigma_EE_dz%d", ih), nbin, 0, 4);
+	TH1D* h_noPU_prompt_2sigma_EB = new TH1D(Form("h_noPU_prompt_2sigma_EB_dz%d", ih), 		   Form("h_noPU_prompt_2sigma_EB_dz%d", ih), nbin, 0, 4);
+    TH1D* h_noPU_prompt_2sigma_EE = new TH1D(Form("h_noPU_prompt_2sigma_EE_dz%d", ih), 		   Form("h_noPU_prompt_2sigma_EE_dz%d", ih), nbin, 0, 4);
+	TH1D* h_noPU_prompt_3sigma_EB = new TH1D(Form("h_noPU_prompt_3sigma_EB_dz%d", ih), 		   Form("h_noPU_prompt_3sigma_EB_dz%d", ih), nbin, 0, 4);
+    TH1D* h_noPU_prompt_3sigma_EE = new TH1D(Form("h_noPU_prompt_3sigma_EE_dz%d", ih), 		   Form("h_noPU_prompt_3sigma_EE_dz%d", ih), nbin, 0, 4);
+	TH1D* h_noPU_prompt_4sigma_EB = new TH1D(Form("h_noPU_prompt_4sigma_EB_dz%d", ih), 		   Form("h_noPU_prompt_4sigma_EB_dz%d", ih), nbin, 0, 4);
+    TH1D* h_noPU_prompt_4sigma_EE = new TH1D(Form("h_noPU_prompt_4sigma_EE_dz%d", ih), 		   Form("h_noPU_prompt_4sigma_EE_dz%d", ih), nbin, 0, 4);
 	TH1D* h_noPU_prompt_genMatched_EB = new TH1D(Form("h_noPU_prompt_genMatched_EB_dz%d", ih), Form("h_noPU_prompt_genMatched_EB_dz%d", ih), nbin, 0, 4);
     TH1D* h_noPU_prompt_genMatched_EE = new TH1D(Form("h_noPU_prompt_genMatched_EE_dz%d", ih), Form("h_noPU_prompt_genMatched_EE_dz%d", ih), nbin, 0, 4);
-	list_h_noPU_prompt_EB.emplace_back(h_noPU_prompt_EB); list_h_noPU_prompt_EE.emplace_back(h_noPU_prompt_EE);
-	list_h_noPU_prompt_1sigma_EB.emplace_back(h_noPU_prompt_1sigma_EB); list_h_noPU_prompt_1sigma_EE.emplace_back(h_noPU_prompt_1sigma_EE);
-	list_h_noPU_prompt_2sigma_EB.emplace_back(h_noPU_prompt_2sigma_EB); list_h_noPU_prompt_2sigma_EE.emplace_back(h_noPU_prompt_2sigma_EE);
-	list_h_noPU_prompt_3sigma_EB.emplace_back(h_noPU_prompt_3sigma_EB); list_h_noPU_prompt_3sigma_EE.emplace_back(h_noPU_prompt_3sigma_EE);
-	list_h_noPU_prompt_4sigma_EB.emplace_back(h_noPU_prompt_4sigma_EB); list_h_noPU_prompt_4sigma_EE.emplace_back(h_noPU_prompt_4sigma_EE);
-	list_h_noPU_prompt_genMatched_EB.emplace_back(h_noPU_prompt_genMatched_EB); list_h_noPU_prompt_genMatched_EE.emplace_back(h_noPU_prompt_genMatched_EE);
+	list_h_noPU_prompt_EB.emplace_back(h_noPU_prompt_EB); 							list_h_noPU_prompt_EE.emplace_back(h_noPU_prompt_EE);
+	list_h_noPU_prompt_1sigma_EB.emplace_back(h_noPU_prompt_1sigma_EB); 			list_h_noPU_prompt_1sigma_EE.emplace_back(h_noPU_prompt_1sigma_EE);
+	list_h_noPU_prompt_2sigma_EB.emplace_back(h_noPU_prompt_2sigma_EB); 			list_h_noPU_prompt_2sigma_EE.emplace_back(h_noPU_prompt_2sigma_EE);
+	list_h_noPU_prompt_3sigma_EB.emplace_back(h_noPU_prompt_3sigma_EB); 			list_h_noPU_prompt_3sigma_EE.emplace_back(h_noPU_prompt_3sigma_EE);
+	list_h_noPU_prompt_4sigma_EB.emplace_back(h_noPU_prompt_4sigma_EB); 			list_h_noPU_prompt_4sigma_EE.emplace_back(h_noPU_prompt_4sigma_EE);
+	list_h_noPU_prompt_genMatched_EB.emplace_back(h_noPU_prompt_genMatched_EB); 	list_h_noPU_prompt_genMatched_EE.emplace_back(h_noPU_prompt_genMatched_EE);
 	// (PV, track)
-	TH1D* h_noPU_prompt_EB_vtx = new TH1D(Form("h_noPU_prompt_EB_vtx_dz%d", ih), Form("h_noPU_prompt_EB_vtx_dz%d", ih), nbin, 0, 4);
-    TH1D* h_noPU_prompt_EE_vtx = new TH1D(Form("h_noPU_prompt_EE_vtx_dz%d", ih), Form("h_noPU_prompt_EE_vtx_dz%d", ih), nbin, 0, 4);
-	TH1D* h_noPU_prompt_1sigma_EB_vtx = new TH1D(Form("h_noPU_prompt_1sigma_EB_vtx_dz%d", ih), Form("h_noPU_prompt_1sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
-    TH1D* h_noPU_prompt_1sigma_EE_vtx = new TH1D(Form("h_noPU_prompt_1sigma_EE_vtx_dz%d", ih), Form("h_noPU_prompt_1sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
-	TH1D* h_noPU_prompt_2sigma_EB_vtx = new TH1D(Form("h_noPU_prompt_2sigma_EB_vtx_dz%d", ih), Form("h_noPU_prompt_2sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
-    TH1D* h_noPU_prompt_2sigma_EE_vtx = new TH1D(Form("h_noPU_prompt_2sigma_EE_vtx_dz%d", ih), Form("h_noPU_prompt_2sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
-	TH1D* h_noPU_prompt_3sigma_EB_vtx = new TH1D(Form("h_noPU_prompt_3sigma_EB_vtx_dz%d", ih), Form("h_noPU_prompt_3sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
-    TH1D* h_noPU_prompt_3sigma_EE_vtx = new TH1D(Form("h_noPU_prompt_3sigma_EE_vtx_dz%d", ih), Form("h_noPU_prompt_3sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
-	TH1D* h_noPU_prompt_4sigma_EB_vtx = new TH1D(Form("h_noPU_prompt_4sigma_EB_vtx_dz%d", ih), Form("h_noPU_prompt_4sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
-    TH1D* h_noPU_prompt_4sigma_EE_vtx = new TH1D(Form("h_noPU_prompt_4sigma_EE_vtx_dz%d", ih), Form("h_noPU_prompt_4sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
+	TH1D* h_noPU_prompt_EB_vtx = new TH1D(Form("h_noPU_prompt_EB_vtx_dz%d", ih), 		   		       Form("h_noPU_prompt_EB_vtx_dz%d", ih), nbin, 0, 4);
+    TH1D* h_noPU_prompt_EE_vtx = new TH1D(Form("h_noPU_prompt_EE_vtx_dz%d", ih), 		   		       Form("h_noPU_prompt_EE_vtx_dz%d", ih), nbin, 0, 4);
+	TH1D* h_noPU_prompt_1sigma_EB_vtx = new TH1D(Form("h_noPU_prompt_1sigma_EB_vtx_dz%d", ih), 		   Form("h_noPU_prompt_1sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
+    TH1D* h_noPU_prompt_1sigma_EE_vtx = new TH1D(Form("h_noPU_prompt_1sigma_EE_vtx_dz%d", ih), 		   Form("h_noPU_prompt_1sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
+	TH1D* h_noPU_prompt_2sigma_EB_vtx = new TH1D(Form("h_noPU_prompt_2sigma_EB_vtx_dz%d", ih), 		   Form("h_noPU_prompt_2sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
+    TH1D* h_noPU_prompt_2sigma_EE_vtx = new TH1D(Form("h_noPU_prompt_2sigma_EE_vtx_dz%d", ih), 		   Form("h_noPU_prompt_2sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
+	TH1D* h_noPU_prompt_3sigma_EB_vtx = new TH1D(Form("h_noPU_prompt_3sigma_EB_vtx_dz%d", ih), 		   Form("h_noPU_prompt_3sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
+    TH1D* h_noPU_prompt_3sigma_EE_vtx = new TH1D(Form("h_noPU_prompt_3sigma_EE_vtx_dz%d", ih), 		   Form("h_noPU_prompt_3sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
+	TH1D* h_noPU_prompt_4sigma_EB_vtx = new TH1D(Form("h_noPU_prompt_4sigma_EB_vtx_dz%d", ih), 		   Form("h_noPU_prompt_4sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
+    TH1D* h_noPU_prompt_4sigma_EE_vtx = new TH1D(Form("h_noPU_prompt_4sigma_EE_vtx_dz%d", ih), 		   Form("h_noPU_prompt_4sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
 	TH1D* h_noPU_prompt_genMatched_EB_vtx = new TH1D(Form("h_noPU_prompt_genMatched_EB_vtx_dz%d", ih), Form("h_noPU_prompt_genMatched_EB_vtx_dz%d", ih), nbin, 0, 4);
     TH1D* h_noPU_prompt_genMatched_EE_vtx = new TH1D(Form("h_noPU_prompt_genMatched_EE_vtx_dz%d", ih), Form("h_noPU_prompt_genMatched_EE_vtx_dz%d", ih), nbin, 0, 4);
-	list_h_noPU_prompt_EB_vtx.emplace_back(h_noPU_prompt_EB_vtx); list_h_noPU_prompt_EE_vtx.emplace_back(h_noPU_prompt_EE_vtx);
-	list_h_noPU_prompt_1sigma_EB_vtx.emplace_back(h_noPU_prompt_1sigma_EB_vtx); list_h_noPU_prompt_1sigma_EE_vtx.emplace_back(h_noPU_prompt_1sigma_EE_vtx);
-	list_h_noPU_prompt_2sigma_EB_vtx.emplace_back(h_noPU_prompt_2sigma_EB_vtx); list_h_noPU_prompt_2sigma_EE_vtx.emplace_back(h_noPU_prompt_2sigma_EE_vtx);
-	list_h_noPU_prompt_3sigma_EB_vtx.emplace_back(h_noPU_prompt_3sigma_EB_vtx); list_h_noPU_prompt_3sigma_EE_vtx.emplace_back(h_noPU_prompt_3sigma_EE_vtx);
-	list_h_noPU_prompt_4sigma_EB_vtx.emplace_back(h_noPU_prompt_4sigma_EB_vtx); list_h_noPU_prompt_4sigma_EE_vtx.emplace_back(h_noPU_prompt_4sigma_EE_vtx);
+	list_h_noPU_prompt_EB_vtx.emplace_back(h_noPU_prompt_EB_vtx); 						list_h_noPU_prompt_EE_vtx.emplace_back(h_noPU_prompt_EE_vtx);
+	list_h_noPU_prompt_1sigma_EB_vtx.emplace_back(h_noPU_prompt_1sigma_EB_vtx); 		list_h_noPU_prompt_1sigma_EE_vtx.emplace_back(h_noPU_prompt_1sigma_EE_vtx);
+	list_h_noPU_prompt_2sigma_EB_vtx.emplace_back(h_noPU_prompt_2sigma_EB_vtx); 		list_h_noPU_prompt_2sigma_EE_vtx.emplace_back(h_noPU_prompt_2sigma_EE_vtx);
+	list_h_noPU_prompt_3sigma_EB_vtx.emplace_back(h_noPU_prompt_3sigma_EB_vtx); 		list_h_noPU_prompt_3sigma_EE_vtx.emplace_back(h_noPU_prompt_3sigma_EE_vtx);
+	list_h_noPU_prompt_4sigma_EB_vtx.emplace_back(h_noPU_prompt_4sigma_EB_vtx); 		list_h_noPU_prompt_4sigma_EE_vtx.emplace_back(h_noPU_prompt_4sigma_EE_vtx);
 	list_h_noPU_prompt_genMatched_EB_vtx.emplace_back(h_noPU_prompt_genMatched_EB_vtx); list_h_noPU_prompt_genMatched_EE_vtx.emplace_back(h_noPU_prompt_genMatched_EE_vtx);
 
   }
@@ -653,58 +653,58 @@ void draw_iso_efficiency_ntuple_dz() {
 
     // nonprompt
 	// (muon, track)
-  vector<TH1D*> list_h_noPU_nonprompt_EB, list_h_noPU_nonprompt_EE;
-  vector<TH1D*> list_h_noPU_nonprompt_1sigma_EB, list_h_noPU_nonprompt_1sigma_EE;
-  vector<TH1D*> list_h_noPU_nonprompt_2sigma_EB, list_h_noPU_nonprompt_2sigma_EE;
-  vector<TH1D*> list_h_noPU_nonprompt_3sigma_EB, list_h_noPU_nonprompt_3sigma_EE;
-  vector<TH1D*> list_h_noPU_nonprompt_4sigma_EB, list_h_noPU_nonprompt_4sigma_EE;
-  vector<TH1D*> list_h_noPU_nonprompt_genMatched_EB, list_h_noPU_nonprompt_genMatched_EE;
+  vector<TH1D*> list_h_noPU_nonprompt_EB, 	 	 	 	 list_h_noPU_nonprompt_EE;
+  vector<TH1D*> list_h_noPU_nonprompt_1sigma_EB, 	 	 list_h_noPU_nonprompt_1sigma_EE;
+  vector<TH1D*> list_h_noPU_nonprompt_2sigma_EB, 	 	 list_h_noPU_nonprompt_2sigma_EE;
+  vector<TH1D*> list_h_noPU_nonprompt_3sigma_EB, 	 	 list_h_noPU_nonprompt_3sigma_EE;
+  vector<TH1D*> list_h_noPU_nonprompt_4sigma_EB, 	 	 list_h_noPU_nonprompt_4sigma_EE;
+  vector<TH1D*> list_h_noPU_nonprompt_genMatched_EB, 	 list_h_noPU_nonprompt_genMatched_EE;
 	// (PV, track)
-  vector<TH1D*> list_h_noPU_nonprompt_EB_vtx, list_h_noPU_nonprompt_EE_vtx;
-  vector<TH1D*> list_h_noPU_nonprompt_1sigma_EB_vtx, list_h_noPU_nonprompt_1sigma_EE_vtx;
-  vector<TH1D*> list_h_noPU_nonprompt_2sigma_EB_vtx, list_h_noPU_nonprompt_2sigma_EE_vtx;
-  vector<TH1D*> list_h_noPU_nonprompt_3sigma_EB_vtx, list_h_noPU_nonprompt_3sigma_EE_vtx;
-  vector<TH1D*> list_h_noPU_nonprompt_4sigma_EB_vtx, list_h_noPU_nonprompt_4sigma_EE_vtx;
+  vector<TH1D*> list_h_noPU_nonprompt_EB_vtx, 	 	 	 list_h_noPU_nonprompt_EE_vtx;
+  vector<TH1D*> list_h_noPU_nonprompt_1sigma_EB_vtx, 	 list_h_noPU_nonprompt_1sigma_EE_vtx;
+  vector<TH1D*> list_h_noPU_nonprompt_2sigma_EB_vtx, 	 list_h_noPU_nonprompt_2sigma_EE_vtx;
+  vector<TH1D*> list_h_noPU_nonprompt_3sigma_EB_vtx, 	 list_h_noPU_nonprompt_3sigma_EE_vtx;
+  vector<TH1D*> list_h_noPU_nonprompt_4sigma_EB_vtx, 	 list_h_noPU_nonprompt_4sigma_EE_vtx;
   vector<TH1D*> list_h_noPU_nonprompt_genMatched_EB_vtx, list_h_noPU_nonprompt_genMatched_EE_vtx;
 
   for (int ih=0; ih<track_pv_dz_cut_EB.size(); ih++) {
 	// (muon, track)
-	TH1D* h_noPU_nonprompt_EB = new TH1D(Form("h_noPU_nonprompt_EB_dz%d", ih), Form("h_noPU_nonprompt_EB_dz%d", ih), nbin, 0, 4);
-    TH1D* h_noPU_nonprompt_EE = new TH1D(Form("h_noPU_nonprompt_EE_dz%d", ih), Form("h_noPU_nonprompt_EE_dz%d", ih), nbin, 0, 4);
-	TH1D* h_noPU_nonprompt_1sigma_EB = new TH1D(Form("h_noPU_nonprompt_1sigma_EB_dz%d", ih), Form("h_noPU_nonprompt_1sigma_EB_dz%d", ih), nbin, 0, 4);
-    TH1D* h_noPU_nonprompt_1sigma_EE = new TH1D(Form("h_noPU_nonprompt_1sigma_EE_dz%d", ih), Form("h_noPU_nonprompt_1sigma_EE_dz%d", ih), nbin, 0, 4);
-	TH1D* h_noPU_nonprompt_2sigma_EB = new TH1D(Form("h_noPU_nonprompt_2sigma_EB_dz%d", ih), Form("h_noPU_nonprompt_2sigma_EB_dz%d", ih), nbin, 0, 4);
-    TH1D* h_noPU_nonprompt_2sigma_EE = new TH1D(Form("h_noPU_nonprompt_2sigma_EE_dz%d", ih), Form("h_noPU_nonprompt_2sigma_EE_dz%d", ih), nbin, 0, 4);
-	TH1D* h_noPU_nonprompt_3sigma_EB = new TH1D(Form("h_noPU_nonprompt_3sigma_EB_dz%d", ih), Form("h_noPU_nonprompt_3sigma_EB_dz%d", ih), nbin, 0, 4);
-    TH1D* h_noPU_nonprompt_3sigma_EE = new TH1D(Form("h_noPU_nonprompt_3sigma_EE_dz%d", ih), Form("h_noPU_nonprompt_3sigma_EE_dz%d", ih), nbin, 0, 4);
-	TH1D* h_noPU_nonprompt_4sigma_EB = new TH1D(Form("h_noPU_nonprompt_4sigma_EB_dz%d", ih), Form("h_noPU_nonprompt_4sigma_EB_dz%d", ih), nbin, 0, 4);
-    TH1D* h_noPU_nonprompt_4sigma_EE = new TH1D(Form("h_noPU_nonprompt_4sigma_EE_dz%d", ih), Form("h_noPU_nonprompt_4sigma_EE_dz%d", ih), nbin, 0, 4);
+	TH1D* h_noPU_nonprompt_EB = new TH1D(Form("h_noPU_nonprompt_EB_dz%d", ih), 		 		 		 Form("h_noPU_nonprompt_EB_dz%d", ih), nbin, 0, 4);
+    TH1D* h_noPU_nonprompt_EE = new TH1D(Form("h_noPU_nonprompt_EE_dz%d", ih), 		 		 		 Form("h_noPU_nonprompt_EE_dz%d", ih), nbin, 0, 4);
+	TH1D* h_noPU_nonprompt_1sigma_EB = new TH1D(Form("h_noPU_nonprompt_1sigma_EB_dz%d", ih), 		 Form("h_noPU_nonprompt_1sigma_EB_dz%d", ih), nbin, 0, 4);
+    TH1D* h_noPU_nonprompt_1sigma_EE = new TH1D(Form("h_noPU_nonprompt_1sigma_EE_dz%d", ih), 		 Form("h_noPU_nonprompt_1sigma_EE_dz%d", ih), nbin, 0, 4);
+	TH1D* h_noPU_nonprompt_2sigma_EB = new TH1D(Form("h_noPU_nonprompt_2sigma_EB_dz%d", ih), 		 Form("h_noPU_nonprompt_2sigma_EB_dz%d", ih), nbin, 0, 4);
+    TH1D* h_noPU_nonprompt_2sigma_EE = new TH1D(Form("h_noPU_nonprompt_2sigma_EE_dz%d", ih), 		 Form("h_noPU_nonprompt_2sigma_EE_dz%d", ih), nbin, 0, 4);
+	TH1D* h_noPU_nonprompt_3sigma_EB = new TH1D(Form("h_noPU_nonprompt_3sigma_EB_dz%d", ih), 		 Form("h_noPU_nonprompt_3sigma_EB_dz%d", ih), nbin, 0, 4);
+    TH1D* h_noPU_nonprompt_3sigma_EE = new TH1D(Form("h_noPU_nonprompt_3sigma_EE_dz%d", ih), 		 Form("h_noPU_nonprompt_3sigma_EE_dz%d", ih), nbin, 0, 4);
+	TH1D* h_noPU_nonprompt_4sigma_EB = new TH1D(Form("h_noPU_nonprompt_4sigma_EB_dz%d", ih), 		 Form("h_noPU_nonprompt_4sigma_EB_dz%d", ih), nbin, 0, 4);
+    TH1D* h_noPU_nonprompt_4sigma_EE = new TH1D(Form("h_noPU_nonprompt_4sigma_EE_dz%d", ih), 		 Form("h_noPU_nonprompt_4sigma_EE_dz%d", ih), nbin, 0, 4);
 	TH1D* h_noPU_nonprompt_genMatched_EB = new TH1D(Form("h_noPU_nonprompt_genMatched_EB_dz%d", ih), Form("h_noPU_nonprompt_genMatched_EB_dz%d", ih), nbin, 0, 4);
     TH1D* h_noPU_nonprompt_genMatched_EE = new TH1D(Form("h_noPU_nonprompt_genMatched_EE_dz%d", ih), Form("h_noPU_nonprompt_genMatched_EE_dz%d", ih), nbin, 0, 4);
-	list_h_noPU_nonprompt_EB.emplace_back(h_noPU_nonprompt_EB); list_h_noPU_nonprompt_EE.emplace_back(h_noPU_nonprompt_EE);
-	list_h_noPU_nonprompt_1sigma_EB.emplace_back(h_noPU_nonprompt_1sigma_EB); list_h_noPU_nonprompt_1sigma_EE.emplace_back(h_noPU_nonprompt_1sigma_EE);
-	list_h_noPU_nonprompt_2sigma_EB.emplace_back(h_noPU_nonprompt_2sigma_EB); list_h_noPU_nonprompt_2sigma_EE.emplace_back(h_noPU_nonprompt_2sigma_EE);
-	list_h_noPU_nonprompt_3sigma_EB.emplace_back(h_noPU_nonprompt_3sigma_EB); list_h_noPU_nonprompt_3sigma_EE.emplace_back(h_noPU_nonprompt_3sigma_EE);
-	list_h_noPU_nonprompt_4sigma_EB.emplace_back(h_noPU_nonprompt_4sigma_EB); list_h_noPU_nonprompt_4sigma_EE.emplace_back(h_noPU_nonprompt_4sigma_EE);
+	list_h_noPU_nonprompt_EB.emplace_back(h_noPU_nonprompt_EB); 		  		  	  list_h_noPU_nonprompt_EE.emplace_back(h_noPU_nonprompt_EE);
+	list_h_noPU_nonprompt_1sigma_EB.emplace_back(h_noPU_nonprompt_1sigma_EB); 		  list_h_noPU_nonprompt_1sigma_EE.emplace_back(h_noPU_nonprompt_1sigma_EE);
+	list_h_noPU_nonprompt_2sigma_EB.emplace_back(h_noPU_nonprompt_2sigma_EB); 		  list_h_noPU_nonprompt_2sigma_EE.emplace_back(h_noPU_nonprompt_2sigma_EE);
+	list_h_noPU_nonprompt_3sigma_EB.emplace_back(h_noPU_nonprompt_3sigma_EB); 		  list_h_noPU_nonprompt_3sigma_EE.emplace_back(h_noPU_nonprompt_3sigma_EE);
+	list_h_noPU_nonprompt_4sigma_EB.emplace_back(h_noPU_nonprompt_4sigma_EB); 		  list_h_noPU_nonprompt_4sigma_EE.emplace_back(h_noPU_nonprompt_4sigma_EE);
 	list_h_noPU_nonprompt_genMatched_EB.emplace_back(h_noPU_nonprompt_genMatched_EB); list_h_noPU_nonprompt_genMatched_EE.emplace_back(h_noPU_nonprompt_genMatched_EE);
 	// (PV, track)
-	TH1D* h_noPU_nonprompt_EB_vtx = new TH1D(Form("h_noPU_nonprompt_EB_vtx_dz%d", ih), Form("h_noPU_nonprompt_EB_vtx_dz%d", ih), nbin, 0, 4);
-    TH1D* h_noPU_nonprompt_EE_vtx = new TH1D(Form("h_noPU_nonprompt_EE_vtx_dz%d", ih), Form("h_noPU_nonprompt_EE_vtx_dz%d", ih), nbin, 0, 4);
-	TH1D* h_noPU_nonprompt_1sigma_EB_vtx = new TH1D(Form("h_noPU_nonprompt_1sigma_EB_vtx_dz%d", ih), Form("h_noPU_nonprompt_1sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
-    TH1D* h_noPU_nonprompt_1sigma_EE_vtx = new TH1D(Form("h_noPU_nonprompt_1sigma_EE_vtx_dz%d", ih), Form("h_noPU_nonprompt_1sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
-	TH1D* h_noPU_nonprompt_2sigma_EB_vtx = new TH1D(Form("h_noPU_nonprompt_2sigma_EB_vtx_dz%d", ih), Form("h_noPU_nonprompt_2sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
-    TH1D* h_noPU_nonprompt_2sigma_EE_vtx = new TH1D(Form("h_noPU_nonprompt_2sigma_EE_vtx_dz%d", ih), Form("h_noPU_nonprompt_2sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
-	TH1D* h_noPU_nonprompt_3sigma_EB_vtx = new TH1D(Form("h_noPU_nonprompt_3sigma_EB_vtx_dz%d", ih), Form("h_noPU_nonprompt_3sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
-    TH1D* h_noPU_nonprompt_3sigma_EE_vtx = new TH1D(Form("h_noPU_nonprompt_3sigma_EE_vtx_dz%d", ih), Form("h_noPU_nonprompt_3sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
-	TH1D* h_noPU_nonprompt_4sigma_EB_vtx = new TH1D(Form("h_noPU_nonprompt_4sigma_EB_vtx_dz%d", ih), Form("h_noPU_nonprompt_4sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
-    TH1D* h_noPU_nonprompt_4sigma_EE_vtx = new TH1D(Form("h_noPU_nonprompt_4sigma_EE_vtx_dz%d", ih), Form("h_noPU_nonprompt_4sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
+	TH1D* h_noPU_nonprompt_EB_vtx = new TH1D(Form("h_noPU_nonprompt_EB_vtx_dz%d", ih), 		 		 		 Form("h_noPU_nonprompt_EB_vtx_dz%d", ih), nbin, 0, 4);
+    TH1D* h_noPU_nonprompt_EE_vtx = new TH1D(Form("h_noPU_nonprompt_EE_vtx_dz%d", ih), 		 		 		 Form("h_noPU_nonprompt_EE_vtx_dz%d", ih), nbin, 0, 4);
+	TH1D* h_noPU_nonprompt_1sigma_EB_vtx = new TH1D(Form("h_noPU_nonprompt_1sigma_EB_vtx_dz%d", ih), 		 Form("h_noPU_nonprompt_1sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
+    TH1D* h_noPU_nonprompt_1sigma_EE_vtx = new TH1D(Form("h_noPU_nonprompt_1sigma_EE_vtx_dz%d", ih), 		 Form("h_noPU_nonprompt_1sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
+	TH1D* h_noPU_nonprompt_2sigma_EB_vtx = new TH1D(Form("h_noPU_nonprompt_2sigma_EB_vtx_dz%d", ih), 		 Form("h_noPU_nonprompt_2sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
+    TH1D* h_noPU_nonprompt_2sigma_EE_vtx = new TH1D(Form("h_noPU_nonprompt_2sigma_EE_vtx_dz%d", ih), 		 Form("h_noPU_nonprompt_2sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
+	TH1D* h_noPU_nonprompt_3sigma_EB_vtx = new TH1D(Form("h_noPU_nonprompt_3sigma_EB_vtx_dz%d", ih), 		 Form("h_noPU_nonprompt_3sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
+    TH1D* h_noPU_nonprompt_3sigma_EE_vtx = new TH1D(Form("h_noPU_nonprompt_3sigma_EE_vtx_dz%d", ih), 		 Form("h_noPU_nonprompt_3sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
+	TH1D* h_noPU_nonprompt_4sigma_EB_vtx = new TH1D(Form("h_noPU_nonprompt_4sigma_EB_vtx_dz%d", ih), 		 Form("h_noPU_nonprompt_4sigma_EB_vtx_dz%d", ih), nbin, 0, 4);
+    TH1D* h_noPU_nonprompt_4sigma_EE_vtx = new TH1D(Form("h_noPU_nonprompt_4sigma_EE_vtx_dz%d", ih), 		 Form("h_noPU_nonprompt_4sigma_EE_vtx_dz%d", ih), nbin, 0, 4);
 	TH1D* h_noPU_nonprompt_genMatched_EB_vtx = new TH1D(Form("h_noPU_nonprompt_genMatched_EB_vtx_dz%d", ih), Form("h_noPU_nonprompt_genMatched_EB_vtx_dz%d", ih), nbin, 0, 4);
     TH1D* h_noPU_nonprompt_genMatched_EE_vtx = new TH1D(Form("h_noPU_nonprompt_genMatched_EE_vtx_dz%d", ih), Form("h_noPU_nonprompt_genMatched_EE_vtx_dz%d", ih), nbin, 0, 4);
-	list_h_noPU_nonprompt_EB_vtx.emplace_back(h_noPU_nonprompt_EB_vtx); list_h_noPU_nonprompt_EE_vtx.emplace_back(h_noPU_nonprompt_EE_vtx);
-	list_h_noPU_nonprompt_1sigma_EB_vtx.emplace_back(h_noPU_nonprompt_1sigma_EB_vtx); list_h_noPU_nonprompt_1sigma_EE_vtx.emplace_back(h_noPU_nonprompt_1sigma_EE_vtx);
-	list_h_noPU_nonprompt_2sigma_EB_vtx.emplace_back(h_noPU_nonprompt_2sigma_EB_vtx); list_h_noPU_nonprompt_2sigma_EE_vtx.emplace_back(h_noPU_nonprompt_2sigma_EE_vtx);
-	list_h_noPU_nonprompt_3sigma_EB_vtx.emplace_back(h_noPU_nonprompt_3sigma_EB_vtx); list_h_noPU_nonprompt_3sigma_EE_vtx.emplace_back(h_noPU_nonprompt_3sigma_EE_vtx);
-	list_h_noPU_nonprompt_4sigma_EB_vtx.emplace_back(h_noPU_nonprompt_4sigma_EB_vtx); list_h_noPU_nonprompt_4sigma_EE_vtx.emplace_back(h_noPU_nonprompt_4sigma_EE_vtx);
+	list_h_noPU_nonprompt_EB_vtx.emplace_back(h_noPU_nonprompt_EB_vtx); 		  		  	  list_h_noPU_nonprompt_EE_vtx.emplace_back(h_noPU_nonprompt_EE_vtx);
+	list_h_noPU_nonprompt_1sigma_EB_vtx.emplace_back(h_noPU_nonprompt_1sigma_EB_vtx); 		  list_h_noPU_nonprompt_1sigma_EE_vtx.emplace_back(h_noPU_nonprompt_1sigma_EE_vtx);
+	list_h_noPU_nonprompt_2sigma_EB_vtx.emplace_back(h_noPU_nonprompt_2sigma_EB_vtx); 		  list_h_noPU_nonprompt_2sigma_EE_vtx.emplace_back(h_noPU_nonprompt_2sigma_EE_vtx);
+	list_h_noPU_nonprompt_3sigma_EB_vtx.emplace_back(h_noPU_nonprompt_3sigma_EB_vtx); 		  list_h_noPU_nonprompt_3sigma_EE_vtx.emplace_back(h_noPU_nonprompt_3sigma_EE_vtx);
+	list_h_noPU_nonprompt_4sigma_EB_vtx.emplace_back(h_noPU_nonprompt_4sigma_EB_vtx); 		  list_h_noPU_nonprompt_4sigma_EE_vtx.emplace_back(h_noPU_nonprompt_4sigma_EE_vtx);
 	list_h_noPU_nonprompt_genMatched_EB_vtx.emplace_back(h_noPU_nonprompt_genMatched_EB_vtx); list_h_noPU_nonprompt_genMatched_EE_vtx.emplace_back(h_noPU_nonprompt_genMatched_EE_vtx);
 
   }
